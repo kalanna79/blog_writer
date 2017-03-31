@@ -2,18 +2,18 @@
 
 body {
     height: 100%;
+   background-image: url("../../img/denali.jpg");
+
 }
 
 .container {
     padding-right: 15px;
     padding-left: 15px;
-    padding-bottom: 8px;
-    margin-top: 8px;
-    margin-bottom: 8px;
     margin-right: auto;
     margin-left: auto;
-    height: 100%;
+    height: 98%;
     font-family: serif;
+    padding-top: 4vh;
 
 }
 .icon-menu{
@@ -36,9 +36,10 @@ body {
 
 .principal {
     height: 100%;
-    background-color: whitesmoke;
-    border: 1px solid #9d9d9d ;
-    box-shadow: 4px 5px 15px #9d9d9d;
+   /* background-color: whitesmoke;
+    border-left: 1px solid #9d9d9d ;
+
+    box-shadow: 6px 8px 8px #4e4e4e;*/
 }
 
 .colonne {
@@ -47,12 +48,16 @@ body {
     margin-bottom: 10px;
 }
 
-.nav-pills {
-    background-color: #C8D0CF;
+/* navigation in sidebar */
+.nav-tabs-justified {
+    margin-top: 35px;
+    padding-bottom: 3px;
+
 }
 
 .nav-item {
     width: 100%;
+    margin-bottom: 6px;
 }
 
 nav.col-md-2 {
@@ -62,97 +67,50 @@ padding-right: 0px;
 
 a.navbar-link {
     padding: 10px 0px;
+
+}
+
+.nav > li > a:hover, .nav > li > a:focus {
+    background-color: #1F3A93;
+    color: #fff;
+    text-align: right;
+    padding-right: 10px;
+    border-right:10px solid #019875;
+
 }
 
 .nav > li > a {
-    padding: 10px 0px;
+    padding: 10px 5px;
+    border-radius: 0px;
+    border-left: 12px ridge #019875;
+    border-bottom: none;
+    margin-bottom: 5px;
+}
+
+.nav > li > a::first-letter {
+    text-transform: capitalize;
+}
+
+.nav-tabs-justified > li > a {
+    margin-bottom: 3px;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right:10px solid #3498db;
+
 }
 
 
-.btn-lg, .btn-group-lg > .btn {
-    padding: 10px 8px;
-}
-
-.book {
-    padding: 20px;
-}
-
-.valign {
-    padding-top: 25px;
-}
-
-.comments {
-    margin-top:69vh;
-    position: relative;
-    bottom:0px;
-    background-color: #C7CECD;
-}
-
-.comment {
-    padding-top: 15px;
-    padding-bottom: 15px;
-    margin-right: auto;
-    margin-left: auto;
-    text-align: center;
-}
-
-
-footer {
-    width: 100%;
-    text-align: center;
-}
-
-footer > div {
-    margin-top:10px;
-    padding-bottom:5px;
-}
-
-section {
-    background-color: whitesmoke;
-
-}
-
-h1, h2 {
-    font-stretch: expanded;
-    color: #24718B;
-    font-family: 'Space Mono', monospace;
-}
-
-h1 {
-    font-size: 230%;
-}
-
-
-hr {
-    color: #C8C1B7;
-}
-
-a {
-    color: #24718B;
-    text-decoration-style: none;
-    font-family: 'Space Mono', monospace;
-}
-
-a:hover {
-    text-decoration: none;
-}
-
-.reseaux {
-    position: relative;
-    bottom: -380px;
-    margin-left: 10px;
-}
+/* navigation square in home page*/
 
 .chap-box-icon {
-    border-radius: 6px;
     display: block;
     float: left;
     text-align: center;
     font-size: 18px;
-    background-color: #CEC4C4;
+    background-color: white;
     padding-top: 20px;
-    width: 100%;
-    box-shadow: 2px 1px 12px #C7CECD;
+
+    box-shadow: 2px 2px 2px #C7CECD;
 }
 
 .showButton {
@@ -165,22 +123,26 @@ a:hover {
     font-family: 'Space Mono', monospace;
 }
 
-.glyphicon-chevron-down {
-    color: #818080;
+
+.btn-lg, .btn-group-lg > .btn {
+    padding: 10px 8px;
 }
 
-abbr {
-    font-size:10px;
-    font-style: italic;
-    color: #818080;
+/* chapter appearance */
+
+.book {
+    padding: 20px;
+    text-align: justify;
+    line-height: 1.7em;
+    font-size: large;
 }
 
-p::first-letter {
+.book > :first-child:first-letter, .book:first-letter {
     font-size: 125px;
     line-height: 125px;
     width: 125px;
     height: 125px;
-    background: #24718B;
+    background: #2980b9;
     color: #fff;
     display: block;
     float: left;
@@ -188,6 +150,113 @@ p::first-letter {
     margin: 5px 15px 3px 0;
     padding: 5px;
 }
+
+.book > :last-child:after {
+    display: inline;
+    float: right;
+    font-family: 'Glyphicons Halflings';
+    content:"\e074";
+    color: #019875;
+
+}
+
+.bio {
+    padding: 20px 0px;
+    text-align: justify;
+    line-height: 1.6em;
+    font-size: medium;
+}
+
+.valign {
+    padding-top: 25px;
+}
+
+.comments {
+    margin-top:10px;
+    position: relative;
+    bottom:0px;
+    border-top:1px solid #019875 ;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family: 'Space Mono', monospace;
+    color: #019875;
+}
+
+.page {
+    margin-top:10px;
+    position: relative;
+    text-align: center;
+    padding-top: 10px;
+    font-family: 'Space Mono', monospace;
+    color: #2980b9;
+    font-size: small;
+}
+
+
+footer {
+    width: 100%;
+    text-align: center;
+    font-family: 'Space Mono', monospace;
+    margin-top: 20px;
+    padding-top: 20px;
+}
+
+footer > div {
+    margin-top:10px;
+    padding-top: 20px;
+    padding-bottom:5px;
+}
+
+section {
+ /*   background-color: whitesmoke; */
+
+}
+
+h1 {
+    font-stretch: expanded;
+    color: white;
+    font-family: 'Space Mono', monospace;
+}
+
+h1 {
+    font-size: 230%;
+}
+
+h2 {
+    font-stretch: expanded;
+    color: black;
+    font-family: 'Space Mono', monospace;
+}
+
+hr {
+    color: #C8C1B7;
+}
+
+a {
+    color: black;
+    text-decoration-style: none;
+    font-family: 'Space Mono', monospace;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.glyphicon-chevron-down {
+    color: #3498db;
+}
+
+abbr {
+    font-size:10px;
+    font-style: italic;
+    color: #a7a096;
+}
+
+a.fa {
+    color: black;
+}
+
 
 .row {
     margin-left: 0;
@@ -199,17 +268,26 @@ p::first-letter {
 }
 
 .panel-primary  {
-    border-color: #ADC2CC;
-}
-
-.panel-primary > .panel-heading {
-    border-color: #ADC2CC;
-    background-color: #ADC2CC;
+    border-color: #3498db;
 }
 
 .showButton {
     cursor: pointer;
 }
+
+img {
+    margin-bottom: 20px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #9d9d9d;
+}
+
+.titre {
+    font-family: 'Space Mono', monospace;
+    text-align: center;
+
+}
+
+
 
 /* mediaquery */
 
@@ -219,16 +297,6 @@ p::first-letter {
         border-bottom-right-radius: 10px;
         height: 100%;
         border-right : 0px;
-
-    }
-
-    .dropdown-menu {
-        top:15vh;
-        padding: 15px;
-        border:0;
-        box-shadow: none;
-        text-align: justify;
-        background-color: whitesmoke;
 
     }
 
@@ -279,7 +347,6 @@ p::first-letter {
         background-color: transparent;
         border: none;
         box-shadow: none;
-
     }
 
     h1 {
@@ -314,7 +381,7 @@ p::first-letter {
         text-align: justify;
     }
 
-    p::first-letter {
+    .book > :first-child:first-letter {
         font-size: 75px;
         line-height: 75px;
         width: 75px;
@@ -322,16 +389,24 @@ p::first-letter {
         margin: 3px 10px 0px 0;
         padding: 2px;
     }
+
+    img {
+        width: 100%;
+        padding-bottom: 18px;
+    }
+
 }
 
 }
 
 @media (min-width: 768px) {
     .container {
-        width: 850px;
+        width: 900px;
     }
 
     .container {
         padding-right: 0px;
         padding-left: 0px;
+        padding-top: 0px;
     }
+}
