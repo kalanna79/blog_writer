@@ -5,7 +5,40 @@
      * Date: 29/03/2017
      * Time: 07:36
      */
-    
+    $chaps = array(
+        array(
+            'chap' => 'chap0',
+            'texte' => 'lorem ipsum blabla chp 0',
+        ),
+        array(
+            'chap' => 'chap0',
+            'texte' => 'lorem ipsum',
+        ),
+        array(
+            'chap' => 'chap0',
+            'texte' => 'lorem ipsum',
+        ),
+        array(
+            'chap' => 'chap0',
+            'texte' => 'lorem ipsum',
+        ),
+        array(
+            'chap' => 'chap0',
+            'texte' => 'lorem ipsum',
+        ),
+        array(
+            'chap' => 'chap0',
+            'texte' => 'lorem ipsum',
+        ),
+        array(
+            'chap' => 'chap0',
+            'texte' => 'lorem ipsum',
+        ),
+        array(
+            'chap' => 'chap0',
+            'texte' => '<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ullamcorper sem erat, in lobortis enim viverra et. Nunc sit amet lacus consequat, congue lacus ornare, lacinia lorem. Suspendisse sit amet ligula imperdiet, commodo eros ac, molestie tortor. Praesent id velit rutrum libero mollis maximus eu ut quam. Quisque dignissim massa metus, vel maximus sem consectetur non. Nunc at enim leo. Sed dapibus ligula leo, id iaculis arcu mollis eget.</div>',
+        ),
+    );
     ?>
 
 <!DOCTYPE HTML>
@@ -21,9 +54,17 @@
 </head>
 
 <body>
-    <main class="container">
+	
+	<div class="row" style=" background-color: transparent; height:100%; width: 100%; position: absolute;
+    border-top: 15vh solid transparent;
+    border-right:155vh solid white; z-index: 2;"></div>
+	
+    <main class="container" style="position: relative; z-index: 20;">
         <!-- partie de gauche avec présentation auteur & form de contact -->
-        <div class="row">
+		
+		
+		
+        <div class="row"">
             <div class="col-xs-12 col-md-offset-1 col-md-8 ">
                 <h1>Billet pour l'Alaska</h1>
             </div>
@@ -37,18 +78,14 @@
         <div class="row">
             <nav class="col-md-2">
                 <ul class="nav flex-column nav-tabs-justified">
+                    <?php foreach ($chaps as $key => $chap) :?>
+                        
                     <li class="nav-item">
-						<a class="navbar-link" href="#">chapter 1</a>
+						<a class="navbar-link" href="#">chapter <?php echo $chap['chap'];?></a>
                     </li>
-					<li class="nav-item">
-						<a class="navbar-link"" href="#">chapter 2</a>
-					</li>
-					<li class="nav-item">
-						<a class="navbar-link" href="#">chapter 3</a>
-					</li>
-					<li class="nav-item">
-						<a class="navbar-link" href="#">chapter 4</a>
-					</li>
+					<?php endforeach;?>
+                    
+					
 					<li class="nav-item">
 						<a class="navbar-link" href="index.php">Accueil</a>
 					</li>
@@ -56,46 +93,28 @@
             </nav>
             
             <section class="col-xs-12 col-md-10 principal" style="position: relative">
-				<div class="row" style="text-align: center;">
+				<div class="row image" style="text-align: center;">
 					<img src="img/rafting-1377057_640.jpg" width="55%" class="valign" ">
+				</div>
+				<div class="row titre">
+					<h2>Blabla</h2>
+					<abbr>date</abbr>
 				</div>
 				
 						
-						<div class="row">
+				<div class="row">
 							
-							<div class="col-md-12 book"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ullamcorper sem erat, in lobortis enim viverra et. Nunc sit amet lacus consequat, congue lacus ornare, lacinia lorem. Suspendisse sit amet ligula imperdiet, commodo eros ac, molestie tortor. Praesent id velit rutrum libero mollis maximus eu ut quam. Quisque dignissim massa metus, vel maximus sem consectetur non. Nunc at enim leo. Sed dapibus ligula leo, id iaculis arcu mollis eget.
-        
-                                         Praesent dictum nibh ac ultricies eleifend. Sed eget pulvinar lacus. Suspendisse dictum dictum lacus bibendum imperdiet. Sed ut nisi dignissim enim tincidunt aliquet sed sed velit. Aenean vitae lobortis nulla, non elementum nibh. Vestibulum a fermentum urna. Integer sed sodales metus. Nulla tincidunt arcu a ex ultricies, at ultrices velit sollicitudin. Proin tempus pretium orci sit amet iaculis. Duis eget pellentesque sem. In eu faucibus nunc. Sed posuere, nunc et imperdiet eleifend, enim sapien malesuada enim, in sodales purus libero sit amet turpis.
-						
-							 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ullamcorper sem erat, in lobortis enim viverra et. Nunc sit amet lacus consequat, congue lacus ornare, lacinia lorem. Suspendisse sit amet ligula imperdiet, commodo eros ac, molestie tortor. Praesent id velit rutrum libero mollis maximus eu ut quam. Quisque dignissim massa metus, vel maximus sem consectetur non. Nunc at enim leo. Sed dapibus ligula leo, id iaculis arcu mollis eget.
-						
-							 Praesent dictum nibh ac ultricies eleifend. Sed eget pulvinar lacus. Suspendisse dictum dictum lacus bibendum imperdiet. Sed ut nisi dignissim enim tincidunt aliquet sed sed velit. Aenean vitae lobortis nulla, non elementum nibh. Vestibulum a fermentum urna. Integer sed sodales metus. Nulla tincidunt arcu a ex ultricies, at ultrices velit sollicitudin. Proin tempus pretium orci sit amet iaculis. Duis eget pellentesque sem. In eu faucibus nunc. Sed posuere, nunc et imperdiet eleifend, enim sapien malesuada enim, in sodales purus libero sit amet turpis.
-						
-							 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ullamcorper sem erat, in lobortis enim viverra et. Nunc sit amet lacus consequat, congue lacus ornare, lacinia lorem. Suspendisse sit amet ligula imperdiet, commodo eros ac, molestie tortor. Praesent id velit rutrum libero mollis maximus eu ut quam. Quisque dignissim massa metus, vel maximus sem consectetur non. Nunc at enim leo. Sed dapibus ligula leo, id iaculis arcu mollis eget.
-						
-							 Praesent dictum nibh ac ultricies eleifend. Sed eget pulvinar lacus. Suspendisse dictum dictum lacus bibendum imperdiet. Sed ut nisi dignissim enim tincidunt aliquet sed sed velit. Aenean vitae lobortis nulla, non elementum nibh. Vestibulum a fermentum urna. Integer sed sodales metus. Nulla tincidunt arcu a ex ultricies, at ultrices velit sollicitudin. Proin tempus pretium orci sit amet iaculis. Duis eget pellentesque sem. In eu faucibus nunc. Sed posuere, nunc et imperdiet eleifend, enim sapien malesuada enim, in sodales purus libero sit amet turpis.
-								</p>
-							</div>
-							</div>
-						</div>
+					<div class="col-md-12 book"><?php echo $chap['texte'];?></div>
+                            
+				</div>
+					<div class="row">
+						<div class="page"><div>pagination</div>
+					</div>
+		
+					
+				<div class="row">
+					<div class="comments"><i class="fa fa-comments fa-3x" aria-hidden="true"></i>
+					
+					</div>
             </section>
-			
-        </div>
-
-    </main>
-    <footer>
-        <div class="row">
-            <div class="col-md-offset-1 col-md-7"><span>Copyright Jean Forteroche 2017</span></div>
-            <div class="col-md-2">
-                <a href="#" class="fa fa-facebook-square fa-lg btn-md"></a>
-                <a href="#" class="fa fa-google-plus-square fa-lg btn-md"></a>
-                <a href="#" class="fa fa-twitter-square fa-lg btn-md"></a>
-                <a href="#" class="fa fa-pinterest-square fa-lg btn-md"></a>
-            </div>
-    </footer>
-    
-    <script src="bootstrap/js/query.js"></script>
-    <script src="bootstrap/js/bootstrap.js"></script>
-    <script src="bootstrap/js/personal.js"></script>
-</body>
-</html>
+			<?php include ('footer.php');?>
