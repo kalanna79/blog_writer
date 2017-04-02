@@ -1,8 +1,12 @@
 /* conteneurs */
 
 body {
-    height: 100%;
+    margin: 0;
+    padding: 0;
    background-image: url("../../img/denali.jpg");
+    background-size: cover;
+    -webkit-background-size: cover;
+
 
 }
 
@@ -36,9 +40,9 @@ body {
 
 .principal {
     height: 100%;
-   /* background-color: whitesmoke;
+   background-color: white;
     border-left: 1px solid #9d9d9d ;
-
+    position: relative;
     box-shadow: 6px 8px 8px #4e4e4e;*/
 }
 
@@ -303,6 +307,7 @@ img {
     .presentation {
         border-radius: 0px;
         height: auto;
+        background-color: white;
     }
 
     h1 {
@@ -331,6 +336,8 @@ img {
 }
 
 @media screen and (max-device-width: 768px)  {
+
+
     .table_mat {
         height: 100%;
         border-left : 0px;
@@ -340,11 +347,12 @@ img {
     .presentation {
         border-right: 0px;
         height: auto;
+        background-color: white;
     }
 
     .principal {
         width: 100%;
-        background-color: transparent;
+        background-color: white;
         border: none;
         box-shadow: none;
     }
