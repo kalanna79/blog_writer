@@ -22,10 +22,6 @@
 </div>
 
 </main>
-<div class="row" style="background-color: transparent; width: 100%; position: static;
-    border-bottom: 15vh solid transparent;
-    border-left:150vh solid white;
-z-index: 1;"></div>
 
 <script src="bootstrap/js/query.js"></script>
 <script src="bootstrap/js/bootstrap.js"></script>
