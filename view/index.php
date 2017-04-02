@@ -5,41 +5,21 @@
      * Date: 24/03/2017
      * Time: 09:20
      */
-    $chaps = array(
-        array(
-            'chap' => 'chap0',
-            'texte' => 'lorem ipsum',
-        ),
-        array(
-            'chap' => 'chap0',
-            'texte' => 'lorem ipsum',
-        ),
-        array(
-            'chap' => 'chap0',
-            'texte' => 'lorem ipsum',
-        ),
-        array(
-            'chap' => 'chap0',
-            'texte' => 'lorem ipsum',
-        ),
-        array(
-            'chap' => 'chap0',
-            'texte' => 'lorem ipsum',
-        ),
-        array(
-            'chap' => 'chap0',
-            'texte' => 'lorem ipsum',
-        ),
-        array(
-            'chap' => 'chap0',
-            'texte' => 'lorem ipsum',
-        ),
-        array(
-            'chap' => 'chap0',
-            'texte' => 'lorem ipsum',
-        ),
-    );
-   
+        $bdd = new PDO('mysql:host=localhost; dbname=blogwriter;charset=utf8', 'root', 'root', array
+		(PDO::ATTR_ERRMODE =>PDO::ERRMODE_EXCEPTION));
+
+        $reponse = $bdd->query('SELECT * FROM chapter');
+        while ($allchapters = $reponse->fetch()){
+        	$chapters[] = array(
+        			'id' => $allchapters['id'],
+        			'title' => $allchapters['title'],
+					'date_created' => $allchapters['date_created'],
+					'date_modified' => $allchapters['date_modified'],
+					'texte' => $allchapters['texte'],
+					'img' => $allchapters['img']
+			);
+		}
+        $reponse->closeCursor();
    include ('header.php');
    ?>
 
@@ -73,10 +53,12 @@
 					
 						<div class="row">
                             <?php $i = 0;?>
-							<?php foreach($chaps as  $key => $chap): ?>
+							<?php foreach($chapters as  $key => $chap): ?>
                             <?php if($i==0) echo '<div class="row">';?>
 							<div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 showButton chap-box-icon" id="<?php echo $key; ?>">
-									<span class="chap"><a href="chapter.php">Chap <?php echo $key; ?></a></span><br>
+									<span class="chap"><a href="chapter.php?id=<?php echo $chap['id']; ?>">Chap <?php
+												echo
+											$key; ?></a></span><br>
 									<div>
 										<abbr>
 											<time datetime="2017-04-04">31/03/2017</time>
