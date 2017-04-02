@@ -56,8 +56,7 @@
 <body>
 	
 	<div class="row" style=" background-color: transparent; height:100%; width: 100%; position: absolute;
-    border-top: 15vh solid transparent;
-    border-right:155vh solid white; z-index: 2;"></div>
+     z-index: 2;"></div>
 	
     <main class="container" style="position: relative; z-index: 20;">
         <!-- partie de gauche avec présentation auteur & form de contact -->
@@ -92,7 +91,7 @@
                 </ul>
             </nav>
             
-            <section class="col-xs-12 col-md-10 principal" style="position: relative">
+            <section class="col-xs-12 col-md-10 principal">
 				<div class="row image" style="text-align: center;">
 					<img src="img/rafting-1377057_640.jpg" width="55%" class="valign" ">
 				</div>
