@@ -9,22 +9,16 @@
 <footer>
     <div class="row" style="margin-left: auto; margin-right: auto;">
         
-        <div class="col-xs-12 col-md-offset-2 col-md-10" style="margin-top: 15px;">
+        <div class="col-xs-12 col-lg-12">
             <div><abbr>Copyright Jean Forteroche 2017</abbr></div>
-            <div>
-                <a href="#" class="fa fa-facebook-square fa-lg btn-md"></a>
-                <a href="#" class="fa fa-google-plus-square fa-lg btn-md"></a>
-                <a href="#" class="fa fa-twitter-square fa-lg btn-md"></a>
-                <a href="#" class="fa fa-pinterest-square fa-lg btn-md"></a>
-            </div>
-    </div>
+    	</div>
 </footer>
 </div>
 
 </main>
 
-<script src="bootstrap/js/query.js"></script>
-<script src="bootstrap/js/bootstrap.js"></script>
-<script src="bootstrap/js/personal.js"></script>
+<script src="../bootstrap/js/query.js"></script>
+<script src="../bootstrap/js/bootstrap.js"></script>
+<script src="../bootstrap/js/personal.js"></script>
 </body>
 </html>

@@ -1,13 +1,11 @@
 /* conteneurs */
 
 body {
-    margin: 0;
-    padding: 0;
-   background-image: url("../../img/denali.jpg");
+    margin: 0px;
+    padding: 0px;
+ /*  background-image: url("../../img/denali.jpg");
     background-size: cover;
-    -webkit-background-size: cover;
-
-
+    -webkit-background-size: cover;*/
 }
 
 .container {
@@ -22,6 +20,11 @@ body {
 }
 .icon-menu{
     text-align: right;
+    vertical-align: bottom;
+}
+
+.icon-reseaux{
+    text-align: left;
     vertical-align: bottom;
 }
 
@@ -41,69 +44,36 @@ body {
 .principal {
     height: 100%;
    background-color: white;
-    border-left: 1px solid #9d9d9d ;
     position: relative;
-    box-shadow: 6px 8px 8px #4e4e4e;*/
+
+
 }
 
 .colonne {
     column-count: 2;
     margin-top: 10px;
     margin-bottom: 10px;
-}
+    column-gap : 2em;
+    border-top: 1px solid #9d9d9d;
 
-/* navigation in sidebar */
-.nav-tabs-justified {
-    margin-top: 35px;
-    padding-bottom: 3px;
 
 }
 
-.nav-item {
-    width: 100%;
-    margin-bottom: 6px;
-}
-
-nav.col-md-2 {
-padding-left: 0px;
-padding-right: 0px;
-}
-
-a.navbar-link {
-    padding: 10px 0px;
-
-}
-
-.nav > li > a:hover, .nav > li > a:focus {
-    background-color: #1F3A93;
-    color: #fff;
-    text-align: right;
-    padding-right: 10px;
-    border-right:10px solid #019875;
-
-}
-
-.nav > li > a {
-    padding: 10px 5px;
-    border-radius: 0px;
-    border-left: 12px ridge #019875;
-    border-bottom: none;
-    margin-bottom: 5px;
-}
+/* navigation in chapter */
 
 .nav > li > a::first-letter {
     text-transform: capitalize;
 }
 
-.nav-tabs-justified > li > a {
-    margin-bottom: 3px;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-    border-right:10px solid #3498db;
-
+.perso-nav {
+    margin-left: 0px;
+    padding-left: 10px;
 }
 
-
+.navbar-default {
+    background-color: white;
+    border-color: white;
+}
 /* navigation square in home page*/
 
 .chap-box-icon {
@@ -135,10 +105,8 @@ a.navbar-link {
 /* chapter appearance */
 
 .book {
-    padding: 20px;
     text-align: justify;
-    line-height: 1.7em;
-    font-size: large;
+    font-size: medium;
 }
 
 .book > :first-child:first-letter, .book:first-letter {
@@ -146,13 +114,14 @@ a.navbar-link {
     line-height: 125px;
     width: 125px;
     height: 125px;
-    background: #2980b9;
-    color: #fff;
+    background: #446298;
+    color: white;
     display: block;
     float: left;
     text-align: center;
     margin: 5px 15px 3px 0;
     padding: 5px;
+    font-family: 'Abril Fatface', cursive;
 }
 
 .book > :last-child:after {
@@ -160,15 +129,14 @@ a.navbar-link {
     float: right;
     font-family: 'Glyphicons Halflings';
     content:"\e074";
-    color: #019875;
+    color: #446298;
 
 }
 
 .bio {
     padding: 20px 0px;
     text-align: justify;
-    line-height: 1.6em;
-    font-size: medium;
+
 }
 
 .valign {
@@ -179,12 +147,14 @@ a.navbar-link {
     margin-top:10px;
     position: relative;
     bottom:0px;
-    border-top:1px solid #019875 ;
+    border-top:1px solid #446298 ;
     text-align: center;
     padding-top: 10px;
     padding-bottom: 10px;
     font-family: 'Space Mono', monospace;
-    color: #019875;
+    color: #BADA55;
+    text-shadow: 2px 2px black;
+
 }
 
 .page {
@@ -193,7 +163,7 @@ a.navbar-link {
     text-align: center;
     padding-top: 10px;
     font-family: 'Space Mono', monospace;
-    color: #2980b9;
+    color: #446298;
     font-size: small;
 }
 
@@ -202,14 +172,12 @@ footer {
     width: 100%;
     text-align: center;
     font-family: 'Space Mono', monospace;
-    margin-top: 20px;
-    padding-top: 20px;
+
 }
 
 footer > div {
-    margin-top:10px;
-    padding-top: 20px;
     padding-bottom:5px;
+    margin-top: 12px;
 }
 
 section {
@@ -217,10 +185,12 @@ section {
 
 }
 
-h1 {
+h1, h3 {
     font-stretch: expanded;
-    color: white;
+    color: black;
     font-family: 'Space Mono', monospace;
+
+
 }
 
 h1 {
@@ -228,9 +198,10 @@ h1 {
 }
 
 h2 {
-    font-stretch: expanded;
+    font-size: 0.8em;
     color: black;
-    font-family: 'Space Mono', monospace;
+    font-family: "Abril Fatface";
+
 }
 
 hr {
@@ -252,10 +223,16 @@ a:hover {
 }
 
 abbr {
-    font-size:10px;
+    font-size:11px;
     font-style: italic;
-    color: #a7a096;
 }
+
+span > abbr {
+    display: inline-block;
+background-color: #BADA55 ;
+    padding: 1.5em;
+}
+
 
 a.fa {
     color: black;
@@ -282,15 +259,85 @@ a.fa {
 img {
     margin-bottom: 20px;
     padding-bottom: 30px;
-    border-bottom: 1px solid #9d9d9d;
 }
 
 .titre {
     font-family: 'Space Mono', monospace;
     text-align: center;
+    margin-bottom: 2em;
 
 }
 
+/* test titre avec image */
+.wrapper {
+    text-align: center;
+
+}
+
+.clip-text {
+    font-size: 10em;
+    font-weight: bold;
+    line-height: 1;
+    position: relative;
+    display: inline-block;
+    padding: .1em .5em;
+    text-align: center;
+    background-image: url('../../img/wrangell.jpg');
+
+
+    /* Color fallback */
+    color: #fff;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+
+.clip-text:before,
+.clip-text:after {
+    position: absolute;
+    content: '';
+}
+
+/* Background */
+.clip-text:before {
+    z-index: -2;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: inherit;
+
+}
+
+/* Text Background (black zone) */
+.clip-text:after {
+    position: absolute;
+    z-index: -1;
+    top: .125em;
+    right: .125em;
+    bottom: .125em;
+    left: .125em;
+    background-color: #000;
+
+}
+
+/* Change the background position to display letter when the black zone isn't here */
+.clip-text--no-textzone:before {
+    background-position: -.65em 0;
+}
+
+.clip-text--no-textzone:after {
+    content: none;
+}
+
+/* Use Background-size cover for photo background and no-repeat background */
+.clip-text--cover,
+.clip-text--cover:before {
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: 25% 25%;
+}
 
 
 /* mediaquery */
@@ -402,6 +449,16 @@ img {
         width: 100%;
         padding-bottom: 18px;
     }
+
+    .clip-text {
+        font-size: 3em;
+        font-weight: bold;
+        line-height: 1;
+        position: relative;
+        display: inline-block;
+        padding: .1em .5em;
+        text-align: center;
+        background-image: url('../../img/wrangell.jpg');
 
 }
 
