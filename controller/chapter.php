@@ -5,32 +5,10 @@
      * Date: 29/03/2017
      * Time: 07:36
      */
-    $chaps = array(
-        array(
-            'chap' => 'chap0',
-            'texte' => 'lorem ipsum blabla chp 0',
-        ),
-        array(
-            'chap' => 'chap0',
-            'texte' => 'lorem ipsum',
-        ),
-        array(
-            'chap' => 'chap0',
-            'texte' => 'lorem ipsum',
-        ),
-        array(
-            'chap' => 'chap0',
-            'texte' => 'lorem ipsum',
-        ),
-      
-        array(
-            'chap' => 'chap0',
-            'texte' => '<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ullamcorper sem erat, in lobortis enim viverra et. Nunc sit amet lacus consequat, congue lacus ornare, lacinia lorem. Suspendisse sit amet ligula imperdiet, commodo eros ac, molestie tortor. Praesent id velit rutrum libero mollis maximus eu ut quam. Quisque dignissim massa metus, vel maximus sem consectetur non. Nunc at enim leo. Sed dapibus ligula leo, id iaculis arcu mollis eget.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ullamcorper sem erat, in lobortis enim viverra et. Nunc sit amet lacus consequat, congue lacus ornare, lacinia lorem. Suspendisse sit amet ligula imperdiet, commodo eros ac, molestie tortor. Praesent id velit rutrum libero mollis maximus eu ut quam. Quisque dignissim massa metus, vel maximus sem consectetur non. Nunc at enim leo. Sed dapibus ligula leo, id iaculis arcu mollis eget.</div>',
-        ),
-    );
-    
-    include('../view/header.php');
+	
+    include(__DIR__ . '/model/bdd.php');
+    include($_SERVER["DOCUMENT_ROOT"].'/blog_writer/model/chapter.php');
+    include($_SERVER["DOCUMENT_ROOT"].'/blog_writer/view/header.php');
     ?>
 
 		<div class=" col-xs-12 col-md-offset-2 col-md-8">
@@ -49,40 +27,38 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ullamcorpe
 							<li class="nav-item">
 								<a class="navbar-link" href="index.php">Accueil</a>
 							</li>
-							<?php foreach ($chaps as $key => $chap) :?>
-								
+							
+							<!-- liens de navigation entre les chapitres -->
 							<li class="nav-item">
-								<a class="navbar-link" href="#">chapter <?php echo $key;?></a>
+								<a class="navbar-link" href="#">chapter <!--<?php echo $key;?> --></a>
 							</li>
-							<?php endforeach;?>
-							
-							
 							
 						</ul>
 				</div>
             </nav>
 		</div>
             <section class="col-xs-12 col-md-12 principal">
-				
+				<!-- Titre du chapitre -->
 				<div class="row titre">
 					<div class="col-xs-12 col-md-offset-2 col-md-8">
 					<div class="wrapper">
-						<div class="clip-text"> <h2>Départ pour l'Alaska</h2></div>
+						<div class="clip-text"> <h2><?php echo $chap['title'];?></h2></div>
 					</div>
-					<span><abbr>01/01/2017</abbr></span>
+					<span><abbr><?php echo $chap['date_created'];?></abbr></span>
 				</div>
 				</div>
 				
-						
+				<!-- Texte du chapitre -->
 				<div class="row">
 							
 					<div class="col-xs-12 col-md-offset-2 col-md-8 book colonne">
-						<?php echo $chap['texte'];?>
+						<?php echo showText($chap['texte']); ?>
 					</div>
-                            
+					
+					<!-- Pagination dans le chapitre -->
 				</div>
 					<div class="row">
-						<div class="page"><div>pagination</div>
+						<div class="page"><div><?php print_r(pagination($chap['texte'])); ?></pre></div>
 					</div>
 		
 					
@@ -91,4 +67,4 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ullamcorpe
 					
 					</div>
             </section>
-			<?php include('../view/footer.php');?>
+			<?php include($_SERVER["DOCUMENT_ROOT"].'/blog_writer/view/footer.php');?>

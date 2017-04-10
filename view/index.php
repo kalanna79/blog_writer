@@ -5,6 +5,21 @@
      * Date: 03/04/2017
      * Time: 09:17
      */
+    
+    /**
+     * function resume(text, nbchar)
+     * text = text that you want to see an excerpt
+     * nbchar = how many chars that you want
+	 * the end of the excerpt is "..."
+     */
+    function resume($text, $nb=null){
+    $excerpt = substr($text, 0, $nb);
+    $excerpt = substr($excerpt, 0, strrpos($excerpt, " "));
+    $etc = "...";
+    $excerpt = $excerpt.$etc;
+    return $excerpt;
+}
+
      ?>
 
 <div class="row principal">
@@ -25,58 +40,60 @@
     
     
     </section>
-    <!-- partie de droite avec Table des matières comprenant num chap + titre chap + date ajout + 300 car et Lire la suite -->
+    <!-- partie de droite avec Table des matières comprenant num chap + titre chap + date ajout + 320 car -->
     <section class="col-xs-12 col-md-6 table_mat">
         <h3>Table des matières</h3>
         <hr>
-        
-        
-        
-        <div class="row">
-            <?php $i = 0;?>
-            <?php foreach($chapters as  $key => $chap): ?>
-                <?php if($i==0) echo '<div class="row">';?>
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 showButton chap-box-icon" id="<?php echo $key; ?>">
-									<span class="chap"><a href="../controller/chapter.php?id=<?php echo $chap['id'];
-									?>">Chap <?php
-                                                echo
-                                                $key; ?></a></span><br>
-                    <div>
-                        <abbr>
-                            <time datetime="2017-04-04">31/03/2017 </time>
+	
+	<!-- affichage résumé chapitre -->
+		<div class="row user-infos" style="height: 220px;">
+            <?php foreach($chapters as $chap):?>
+				
+				
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				
+				<div class=" details-chap"  style="display: none" id="details-chap<?php echo $chap['id'];?>">
+					<h3>Chap <?php echo $chap['id'] . " : " . $chap['title'];?></h3>
+					<p> <?php echo resume($chap['texte'], 320);?></p>
+				</div>
+			</div>
+                <?php endforeach;?>
+		</div>
+	
+	<!-- affichage numéro chapitre -->
+		<?php $i = 0;?>
+		<?php foreach($chapters as $chap):?>
+                
+		<?php if($i==0) echo '<div class="myrow">';?>
+                
+		<div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 showButton" id="chap<?php echo $chap['id'];?>">
+			<div class="row chap-box-icon">
+				<a href="../controller/chapter.php?id=<?php echo $chap['id'];?>&page=1"> <strong class="chap">Chap <?php echo $chap['id'];?></strong></a><br>
+				<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+					<abbr>
+						<time datetime="2017-04-04">4 avril 2017</time>
+					</abbr>
+				</div>
+                        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
                             <i class="glyphicon glyphicon-chevron-down text-muted"></i>
-                        </abbr>
-                    </div>
-                </div>
-        </div>
-                
-                
-                
-                
-                <div class="row" >
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 details-chap" id="details-<?php
-                    echo $key; ?>" style="display: none; z-index: 2; position: relative; height: 10vh;">
-                    <div class="panel panel-primary">
-                        <div class="panel-body">
-                            <div class="row">
-                                <div>
-                                    <p><?php echo $chap['texte']; ?></p>
-                                
-                                </div>
-                            </div>
                         </div>
-                    
                     </div>
-                </div>
                 
-                <?php $i++ ;?>
-                <?php if ($i == 4):?>
-                    </div>
-                    <?php $i = 0;?>
-                <?php endif;?>
-            <?php endforeach;?>
-            <?php if (($i < 4) && ($i != 0)) echo '</div>'; ?>
-    </section>
-</div>
+		<?php $i++;?>
+			
+			<!-- affichage chapitres ligne par ligne -->
+                <?php
+					if($i == 4) {
+						echo '</div>';
+                        $i = 0;
+                        echo 'hello';
+						
+}; ?>
+            <?php if($i<4 && $i != 0) {echo '</div>';}?>
+                    <?php endforeach;?>
+                
+                
+                
+                
 
 </main>
