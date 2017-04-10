@@ -93,7 +93,7 @@ body {
 }
 
 .chap {
-    color: whitesmoke;
+    color: #234848;
     font-family: 'Space Mono', monospace;
 }
 
@@ -187,7 +187,6 @@ section {
 
 h1, h3 {
     font-stretch: expanded;
-    color: black;
     font-family: 'Space Mono', monospace;
 
 
@@ -195,6 +194,7 @@ h1, h3 {
 
 h1 {
     font-size: 230%;
+    color: white;
 }
 
 h2 {
@@ -268,7 +268,7 @@ img {
 
 }
 
-/* test titre avec image */
+/* titre avec image */
 .wrapper {
     text-align: center;
 
