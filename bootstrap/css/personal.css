@@ -16,8 +16,15 @@ body {
     height: 98%;
     font-family: serif;
     padding-top: 4vh;
-
 }
+
+.back-img {
+    background-image: url('../../img/wrangell.jpg');
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+}
+
 .icon-menu{
     text-align: right;
     vertical-align: bottom;
@@ -83,8 +90,11 @@ body {
     font-size: 18px;
     background-color: white;
     padding-top: 20px;
-
     box-shadow: 2px 2px 2px #C7CECD;
+}
+
+.chap-box-icon:hover {
+    background-color: #1b6d85;
 }
 
 .showButton {
@@ -122,6 +132,10 @@ body {
     margin: 5px 15px 3px 0;
     padding: 5px;
     font-family: 'Abril Fatface', cursive;
+}
+
+.book-nolettrine {
+
 }
 
 .book > :last-child:after {

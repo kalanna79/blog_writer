@@ -6,19 +6,7 @@
      * Time: 09:17
      */
     
-    /**
-     * function resume(text, nbchar)
-     * text = text that you want to see an excerpt
-     * nbchar = how many chars that you want
-	 * the end of the excerpt is "..."
-     */
-    function resume($text, $nb=null){
-    $excerpt = substr($text, 0, $nb);
-    $excerpt = substr($excerpt, 0, strrpos($excerpt, " "));
-    $etc = "...";
-    $excerpt = $excerpt.$etc;
-    return $excerpt;
-}
+
 
      ?>
 
@@ -47,17 +35,17 @@
 	
 	<!-- affichage résumé chapitre -->
 		<div class="row user-infos" style="height: 220px;">
-            <?php foreach($chapters as $chap):?>
-				
-				
+			
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <?php foreach($chapters as $chap):?>
 				
 				<div class=" details-chap"  style="display: none" id="details-chap<?php echo $chap['id'];?>">
 					<h3>Chap <?php echo $chap['id'] . " : " . $chap['title'];?></h3>
 					<p> <?php echo resume($chap['texte'], 320);?></p>
 				</div>
-			</div>
                 <?php endforeach;?>
+			
+			</div>
 		</div>
 	
 	<!-- affichage numéro chapitre -->
@@ -71,7 +59,7 @@
 				<a href="../controller/chapter.php?id=<?php echo $chap['id'];?>&page=1"> <strong class="chap">Chap <?php echo $chap['id'];?></strong></a><br>
 				<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
 					<abbr>
-						<time datetime="2017-04-04">4 avril 2017</time>
+						<time><?php echo $chap['date_created']; ?></time>
 					</abbr>
 				</div>
                         <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
@@ -86,9 +74,7 @@
 					if($i == 4) {
 						echo '</div>';
                         $i = 0;
-                        echo 'hello';
-						
-}; ?>
+				}; ?>
             <?php if($i<4 && $i != 0) {echo '</div>';}?>
                     <?php endforeach;?>
                 

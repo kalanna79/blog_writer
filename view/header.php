@@ -35,7 +35,7 @@
 				<a href="#" class="fa fa-envelope-o fa-lg btn-lg valign"></a>
 			</div>
 		</div>
-		<div class="row" style="background-image: url(http://localhost/blog_writer/img/wrangell.jpg); background-size: cover; -webkit-background-size: cover; -moz-background-size: cover;">
+		<div class="row back-img">
             <div class="col-md-12" style="text-align: center; padding-bottom: 2vh; border-bottom: 1px solid lightslategray; border-top: 1px solid lightslategray;">
                 <h1>Billet pour l'Alaska...</h1>
             </div>
