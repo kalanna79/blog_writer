@@ -5,10 +5,10 @@
      * Date: 29/03/2017
      * Time: 07:36
      */
-	
-    include(__DIR__ . '/model/bdd.php');
-    include($_SERVER["DOCUMENT_ROOT"].'/blog_writer/model/chapter.php');
-    include($_SERVER["DOCUMENT_ROOT"].'/blog_writer/view/header.php');
+    include('../config.php');
+    include(MODEL . 'bdd.php');
+    include(MODEL . 'chapter_old.php');
+    include(ROOT . 'view/header.php');
     ?>
 
 		<div class=" col-xs-12 col-md-offset-2 col-md-8">
@@ -25,7 +25,7 @@
 						<ul class="nav navbar-nav">
 						
 							<li class="nav-item">
-								<a class="navbar-link" href="index.php">Accueil</a>
+								<a class="navbar-link" href="<?php echo HOST;?>index.php">Accueil</a>
 							</li>
 							
 							<!-- liens de navigation entre les chapitres -->
@@ -67,4 +67,6 @@
 					
 					</div>
             </section>
-			<?php include($_SERVER["DOCUMENT_ROOT"].'/blog_writer/view/footer.php');?>
+
+
+			<?php include(__DIR__.'/../view/footer.php');?>
