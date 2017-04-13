@@ -6,9 +6,8 @@
      * Time: 21:44
      */
     
-    echo $_SERVER['HTTP_HOST'];
-    
     define ('ROOT', $_SERVER['DOCUMENT_ROOT'].'/blog_writer/');
     define ('MODEL', ROOT . 'model/');
+    define ('VIEW', ROOT . 'view/');
     define ('HOST','http://' . $_SERVER['HTTP_HOST'] . '/blog_writer/controller/');
     
