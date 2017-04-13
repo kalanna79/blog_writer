@@ -12,7 +12,7 @@
     
     
     
-    $texte = $chap['texte'];
+    $texte = $chapter->getTexte();
     
     /**
      * Retourne le texte en tableau afin d'effectuer la pagination
