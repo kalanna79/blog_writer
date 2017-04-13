@@ -14,5 +14,17 @@
         </SOURCES>
       </library>
     </orderEntry>
+    <orderEntry type="module-library">
+      <library name="PHP" type="php">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../../bin/php/php5.6.25/lib/php" />
+          <root url="file://$APPLICATION_HOME_DIR$/bin" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/../../bin/php/php5.6.25/lib/php" />
+          <root url="file://$APPLICATION_HOME_DIR$/bin" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>
