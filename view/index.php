@@ -37,11 +37,11 @@
 		<div class="row user-infos" style="height: 220px;">
 			
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <?php foreach($chapters as $chap):?>
+                <?php foreach($chapters as $chapter):?>
 				
-				<div class=" details-chap"  style="display: none" id="details-chap<?php echo $chap['id'];?>">
-					<h3>Chap <?php echo $chap['id'] . " : " . $chap['title'];?></h3>
-					<p> <?php echo resume($chap['texte'], 320);?></p>
+				<div class=" details-chap"  style="display: none" id="details-chap<?php echo $chapter->getId();?>">
+					<h3>Chap <?php echo $chapter->getId() . " : " . $chapter->getTitle();?></h3>
+					<p> <?php echo resume($chapter->getTexte(), 320);?></p>
 				</div>
                 <?php endforeach;?>
 			
@@ -50,16 +50,16 @@
 	
 	<!-- affichage numéro chapitre -->
 		<?php $i = 0;?>
-		<?php foreach($chapters as $chap):?>
+		<?php foreach($chapters as $chapter):?>
                 
 		<?php if($i==0) echo '<div class="myrow">';?>
                 
-		<div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 showButton" id="chap<?php echo $chap['id'];?>">
+		<div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 showButton" id="chap<?php echo $chapter->getId();?>">
 			<div class="row chap-box-icon">
-				<a href="../controller/chapter.php?id=<?php echo $chap['id'];?>&page=1"> <strong class="chap">Chap <?php echo $chap['id'];?></strong></a><br>
+				<a href="../controller/chapter.php?id=<?php echo $chapter->getId();?>&page=1"> <strong class="chap">Chap <?php echo $chapter->getId();?></strong></a><br>
 				<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
 					<abbr>
-						<time><?php echo $chap['date_created']; ?></time>
+						<time><?php echo $chapter->getDatecreated(); ?></time>
 					</abbr>
 				</div>
                         <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
@@ -77,9 +77,4 @@
 				}; ?>
             <?php if($i<4 && $i != 0) {echo '</div>';}?>
                     <?php endforeach;?>
-                
-                
-                
-                
-
 </main>
