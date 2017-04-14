@@ -10,4 +10,5 @@
     define ('MODEL', ROOT . 'model/');
     define ('VIEW', ROOT . 'view/');
     define ('HOST','http://' . $_SERVER['HTTP_HOST'] . '/blog_writer/controller/');
+    define ('CONTROLLER', ROOT . 'controller/');
     
