@@ -72,11 +72,11 @@
 					</div>
 		
 					
-				<div class="row">
-					<div class="comments"><i class="fa fa-comments fa-3x" aria-hidden="true"></i>
-					
-					</div>
+				
             </section>
 
 
-			<?php include(__DIR__.'/../view/footer.php');?>
+			<?php
+				include(VIEW . 'comments.php');
+				include(VIEW . 'footer.php');
+			?>
