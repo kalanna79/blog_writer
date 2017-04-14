@@ -30,14 +30,14 @@
 				<a href="#" class="fa fa-pinterest-square fa-lg btn-md valign"></a>
 			</div>
 			<div class="col-xs-6 col-md-6 icon-menu">
-				<a href="#" class="fa fa-user-plus fa-lg btn-lg valign"></a>
-				<a href="#" class="fa fa-sign-in fa-lg btn-lg valign"></a>
+				<a href="<?php echo HOST . 'inscription.php';?>" class="fa fa-user-plus fa-lg btn-lg valign"></a>
+				<a href="<?php echo HOST . 'inscription.php';?>" class="fa fa-sign-in fa-lg btn-lg valign"></a>
 				<a href="#" class="fa fa-envelope-o fa-lg btn-lg valign"></a>
 			</div>
 		</div>
 		<div class="row back-img">
             <div class="col-md-12" style="text-align: center; padding-bottom: 2vh; border-bottom: 1px solid lightslategray; border-top: 1px solid lightslategray;">
-                <h1>Billet pour l'Alaska...</h1>
+                <a href="<?php echo HOST . 'index.php';?>"> <h1>Billet pour l'Alaska...</h1></a>
             </div>
             
         </div>

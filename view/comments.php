@@ -16,7 +16,7 @@
             <i class="fa fa-comments fa-3x" aria-hidden="true"></i>
         </div>
         <div class="row">
-        
+        mettre les commentaires ici ^^
         </div>
         <div class="row">
             <p>Déposez un commentaire : </p>
