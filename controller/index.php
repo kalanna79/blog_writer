@@ -18,7 +18,7 @@
     $chapters = $manager->Tab_matieres();
     
     include(VIEW . 'header.php');
-    include(VIEW . 'index.php'); /* regrouper les 2 vues en mettant include header dans include index */
+    include(VIEW . 'index.php');
 	include(VIEW. 'footer.php');
     
     /**
