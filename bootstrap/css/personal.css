@@ -168,9 +168,19 @@ body {
     font-family: 'Space Mono', monospace;
     color: #BADA55;
     text-shadow: 2px 2px black;
+}
+
+.comment {
+    margin-bottom: 10px;
 
 }
 
+.depotcomment {
+    margin-top: 10px;
+    padding: 20px;
+    background-color: rgba(180, 221, 65, 0.36);
+    border-radius: 10px;
+}
 .page {
     margin-top:10px;
     position: relative;
