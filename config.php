@@ -12,3 +12,8 @@
     define ('HOST','http://' . $_SERVER['HTTP_HOST'] . '/blog_writer/controller/');
     define ('CONTROLLER', ROOT . 'controller/');
     
+    function chargerClasse($classe)
+    {
+        require MODEL.$classe.'.php';
+    }
+    spl_autoload_register('chargerClasse');
