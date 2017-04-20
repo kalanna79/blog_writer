@@ -1,12 +1,3 @@
-<?php
-    /**
-     * Created by PhpStorm.
-     * User: natacha
-     * Date: 25/03/2017
-     * Time: 16:40
-     */
-    ?>
-
 <!DOCTYPE HTML>
 <html>
     <div>
