@@ -1,15 +1,3 @@
-<?php
-    /**
-     * Created by PhpStorm.
-     * User: natacha
-     * Date: 03/04/2017
-     * Time: 09:17
-     */
-    
-
-
-     ?>
-
 <div class="row principal">
     <section class="col-md-6 presentation">
         
@@ -41,7 +29,7 @@
 				
 				<div class=" details-chap"  style="display: none" id="details-chap<?php echo $chapter->getId();?>">
 					<h3>Chap <?php echo $chapter->getId() . " : " . $chapter->getTitle();?></h3>
-					<p> <?php echo resume($chapter->getTexte(), 320);?></p>
+					<p> <?php echo $chapter->getExcerpt(320);?></p>
 				</div>
                 <?php endforeach;?>
 			

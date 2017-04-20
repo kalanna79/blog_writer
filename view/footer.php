@@ -1,11 +1,3 @@
-<?php
-    /**
-     * Created by PhpStorm.
-     * User: natacha
-     * Date: 30/03/2017
-     * Time: 21:31
-     */
-    ?>
 <footer>
     <div class="row" style="margin-left: auto; margin-right: auto;">
         

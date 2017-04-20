@@ -1,13 +1,3 @@
-<?php
-    /**
-     * Created by PhpStorm.
-     * User: natacha
-     * Date: 13/04/2017
-     * Time: 22:33
-     */
-    
-    ?>
-
 <div class="row principal">
     <section class="col-md-6 presentation">
         <h3>Se connecter</h3>
