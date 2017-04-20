@@ -5,7 +5,6 @@
      * Date: 13/04/2017
      * Time: 08:03
      */
-    
     class ChapterManager extends BddManager
     {
         //afficher tous les livres
@@ -32,5 +31,6 @@
             return new Chapter($chap);
         }
     }
+   
     
     
