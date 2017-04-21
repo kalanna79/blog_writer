@@ -35,8 +35,6 @@
         <div class="row depotcomment">
             <p>Déposez un commentaire : </p>
             <form action="" method="post">
-                <label for="pseudo">Pseudo</label><br>
-                <input type="text" name="pseudo"> <br>
                 <label for="title">Titre de votre message</label><br>
                 <input type="text" name="title"> <br><br>
                 <textarea name="texte" cols="110" rows="5">Votre message</textarea> <br><br>
