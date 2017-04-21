@@ -25,7 +25,7 @@
  :idUser, :idChapter, :commentsid)');
             $q->bindValue(':title', $comment->getTitle());
             $q->bindValue(':texte', $comment->getTexte());
-            $q->bindValue(':idUser', $comment->getIdUser());
+            $q->bindValue(':idUser', $_SESSION['id']);
             $q->bindValue('idChapter', $comment->getIdchapter());
             $q->bindValue('commentsid', $comment->getCommentsId());
             $q->execute();
