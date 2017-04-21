@@ -17,3 +17,10 @@
         require MODEL.$classe.'.php';
     }
     spl_autoload_register('chargerClasse');
+    
+    $UserManager = new UserManager();
+    if (isset($_GET['id']))
+    {
+        $user = $UserManager->getUserById($_GET['id']);
+        session_start(array($user->getIdUser()));
+    }
