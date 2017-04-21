@@ -16,3 +16,11 @@ $('.showButton').ready(function() {
 
     $('.details-chap').last().show();
 })
+
+
+//visible or hidden reply to comment
+$('.showForm').click(function() {
+    var nb = $(this).attr('id');
+    $('#rep-'+nb).show();
+
+});
