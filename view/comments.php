@@ -24,9 +24,17 @@
 					<?php echo $comment->getTexte(); ?>
 				</div>
 				<div class="row">
-					<div class="col-md-offset-3 col-md-3"> Répondre - Signaler </div>
+					<div class="col-md-offset-3 col-md-6">
+						<span class="showForm" id="comment-<?php echo $comment->getId(); ?>"> Répondre</span> - Signaler
+					<div class="row reponse" style="display: none" id="rep-comment-<?php echo $comment->getId(); ?>" >
+						<form action="" method="post">
+							<input type="hidden" name="reponse" value="<?php echo $comment->getId(); ?>">
+							<textarea name="reponsetxt" cols="95" rows="3">Votre réponse</textarea> 						<br><br>
+							<input type="submit" value="Envoyer" name="submitreponse">
+					</div>
+					</div>
 				</div>
-			</div>
+				
 		</div>
 		<?php endforeach;?>
 
