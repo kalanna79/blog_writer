@@ -28,6 +28,18 @@
     $CommentManager->addComment($comment);
     header('Location:'. HOST.'chapter.php?id='.$_GET['id'].'&page=1');
     }
+    
+    if (isset($_POST['submitreponse']))
+    {
+        $comment = new Comment([
+                                   'title' => NULL,
+                                   'texte' => $_POST['reponsetxt'],
+                                   'idchapter' => $_GET['id'],
+                                   'commentsid' =>$_POST['reponse']
+                               ]);
+        $CommentManager->addComment($comment);
+        header('Location:'. HOST.'chapter.php?id='.$_GET['id'].'&page=1');
+    }
 
     include(ROOT . 'view/header.php');
   	include(VIEW . 'chapter.php');
