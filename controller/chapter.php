@@ -26,6 +26,7 @@
             'idchapter' => $_GET['id'],
         ]);
     $CommentManager->addComment($comment);
+    header('Location:'. HOST.'chapter.php?id='.$_GET['id'].'&page=1');
     }
 
     include(ROOT . 'view/header.php');
