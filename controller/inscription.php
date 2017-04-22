@@ -14,6 +14,10 @@
     
     if (isset($_POST['inscription']) && isset($_POST['pseudo']))
     {
+     
+        // Créer une mthode dans user pour faire tout ça 
+        // ex $user->bindWithValues($_POST);
+        
         $user = new User(['firstname' => $_POST['firstname'],
                          'name' => $_POST['name'],
                          'pseudo' => $_POST['pseudo'],
@@ -26,7 +30,8 @@
     //connexion d'un utilisateur déjà existant
     if (isset($_POST['connect']))
     {
-        $manager->verifUser();
+        $manager->verifUser(); // ça sert à quoi cette method ? elle retourne quoi ? Tu fais rien en retour ?
+        // je dois voir ici ce qui se passe si user est ok ou pas
         header('Location:'.HOST.'profil_user.php?id='.$_SESSION['id']);
     }
     
