@@ -35,7 +35,9 @@
                                    'title' => NULL,
                                    'texte' => $_POST['reponsetxt'],
                                    'idchapter' => $_GET['id'],
-                                   'commentsid' =>$_POST['reponse']
+                                   'commentsid' =>$_POST['reponse'],
+                                    'levelcomment' => "1"
+
                                ]);
         $CommentManager->addComment($comment);
         header('Location:'. HOST.'chapter.php?id='.$_GET['id'].'&page=1');

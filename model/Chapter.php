@@ -137,7 +137,7 @@
     public function getUser()
     {
         $manager = new UserManager();
-        $user = $manager->getUserById($this->getId());
+        $user = $manager->getUserById($this->getUserId());
         return $user;
     }
     

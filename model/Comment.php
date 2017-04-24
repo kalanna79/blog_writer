@@ -11,10 +11,10 @@
         protected $_title;
         protected $_texte;
         protected $_datecreated;
-        protected $_like;
         protected $_idUser;
         protected $_idchapter;
         protected $_commentsid;
+        protected $_levelcomment;
     
     
         public function __construct($donnees)
@@ -72,14 +72,6 @@
         /**
          * @return mixed
          */
-        public function getLike()
-        {
-            return $this->_like;
-        }
-    
-        /**
-         * @return mixed
-         */
         public function getIdUser()
         {
             return $this->_idUser;
@@ -99,6 +91,14 @@
         public function getCommentsId()
         {
             return $this->_commentsid;
+        }
+    
+        /**
+         * @return mixed
+         */
+        public function getLevelComment()
+        {
+            return $this->_levelcomment;
         }
     
         //setters
@@ -163,6 +163,15 @@
         }
     
         /**
+         * @param mixed $level
+         */
+        public function setLevelComment($levelcomment)
+        {
+            $levelcomment = (int)$levelcomment;
+            $this->_levelcomment = $levelcomment;
+        }
+    
+        /**
          * @param mixed $date_created
          */
         public function setDateCreated($datecreated)
@@ -171,14 +180,7 @@
                 $this->_datecreated = $datecreated;
             }
         }
-    
-        /**
-         * @param mixed $like
-         */
-        public function setLike($like)
-        {
-            $this->_like = $like;
-        }
+        
     
         public function getUser()
         {
