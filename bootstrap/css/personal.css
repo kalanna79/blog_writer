@@ -276,6 +276,16 @@ a.fa {
     border-color: #3498db;
 }
 
+.level-0 {
+    margin:0px;
+}
+.level-1 {
+    margin-left: 40px;
+}
+.level-2 {
+    margin-left: 80px;
+}
+
 .showButton {
     cursor: pointer;
 }

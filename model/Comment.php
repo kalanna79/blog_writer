@@ -13,25 +13,22 @@
         protected $_datecreated;
         protected $_idUser;
         protected $_idchapter;
-        protected $_commentsid;
+        protected $_parentId;
         protected $_levelcomment;
     
     
         public function __construct($donnees)
         {
-            if (!empty($donnees))
-            {
+            if (!empty($donnees)) {
                 return $this->hydrate($donnees);
             }
         }
     
         public function hydrate(array $donnees)
         {
-            foreach ($donnees as $key=>$value)
-            {
+            foreach ($donnees as $key => $value) {
                 $method = 'set' . ucfirst($key);
-                if (method_exists($this, $method))
-                {
+                if (method_exists($this, $method)) {
                     $this->$method($value);
                 }
             }
@@ -84,13 +81,13 @@
         {
             return $this->_idchapter;
         }
-        
+    
         /**
          * @return mixed
          */
-        public function getCommentsId()
+        public function getParentId()
         {
-            return $this->_commentsid;
+            return $this->_parentId;
         }
     
         /**
@@ -102,7 +99,7 @@
         }
     
         //setters
-        
+    
         /**
          * @param mixed $id
          */
@@ -117,8 +114,7 @@
          */
         public function setTitle($title)
         {
-            if (is_string($title))
-            {
+            if (is_string($title)) {
                 $this->_title = $title;
             }
         }
@@ -128,8 +124,7 @@
          */
         public function setTexte($texte)
         {
-            if (is_string($texte))
-            {
+            if (is_string($texte)) {
                 $this->_texte = $texte;
             }
         }
@@ -155,11 +150,11 @@
         /**
          * @param mixed $comments_id
          */
-        public function setCommentsId($commentsid)
+        public function setParentId($parentId)
         {
-            
-            $commentsid = (int)$commentsid;
-            $this->_commentsid = $commentsid;
+        
+            $parentId = (int)$parentId;
+            $this->_parentId = $parentId;
         }
     
         /**
@@ -180,12 +175,12 @@
                 $this->_datecreated = $datecreated;
             }
         }
-        
     
         public function getUser()
         {
             $manager = new UserManager();
             $user = $manager->getUserById($this->getIdUser());
+        
             return $user;
         }
     
@@ -193,4 +188,29 @@
         {
             return $this->getUser()->getPseudo();
         }
+       
+        
+    
+        function showComment()
+        {
+            $html = '<div class="level-' . $this->getLevelComment() . '">' . $this->getTexte() . '</div>';
+            
+            // ce commentaire a-t-il des enfants,
+            
+            if ($this->hasChildren())
+                {
+                // je récupère les enfants
+                $children[] = $this->getChildren();
+            
+                    foreach ($children as $child)
+                    {
+                        $html .= '<div class="level-' . $this->getLevelComment() . '">' . $this->getTexte() . '</div>';
+                        $this->showComment();
+                    }
+                }
+            
+            echo $html;
+        }
+        
+        
     }
