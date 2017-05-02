@@ -21,6 +21,7 @@
     
     if (isset($_POST['submitcomment']))
     {
+        if (isset($_SESSION['id'])) {
         $comment = new Comment([
                                    'title' => $_POST['title'],
                                    'texte' => $_POST['texte'],
@@ -28,7 +29,12 @@
                                ]);
         $CommentManager->addComment($comment);
         header('Location:'. HOST.'chapter.php?id='.$_GET['id'].'&page=1');
-    }
+    } else
+    {
+        echo "<script language=\"javascript\">";
+        echo "alert('Vous devez être connecté pour poster un message')";
+        echo "</script>";
+    }}
     
     if (isset($_POST['submitreponse']))
     {
