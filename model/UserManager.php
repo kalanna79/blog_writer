@@ -61,7 +61,8 @@
         {
             $q = $this->_db->prepare('SELECT * FROM user WHERE pseudo=:pseudo AND password=:password');
             $q->execute(array(
-                'pseudo' => $_POST['pseudo'], 'password' => $_POST['password']));
+                'pseudo' => $_POST['pseudo'],
+                'password' => $_POST['password']));
             $resultat = $q->fetch(PDO::FETCH_ASSOC);
             if (!$resultat)
             {
@@ -69,7 +70,6 @@
             }
             else
             {
-                session_start();
                 $_SESSION['id'] = $resultat['idUser'];
                 $_SESSION['pseudo'] = $resultat['pseudo'];
             }
