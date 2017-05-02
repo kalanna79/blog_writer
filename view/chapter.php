@@ -22,6 +22,7 @@
                 
                 </ul>
             </div>
+		</div>
     </nav>
 </div>
 <section class="col-xs-12 col-md-12 principal">
@@ -41,15 +42,15 @@
         <div class="col-xs-12 col-md-offset-2 col-md-8 book colonne">
             <?php echo $chapter->showText(); ?>
         </div>
-        
+	</div>
         <!-- Pagination dans le chapitre -->
-    </div>
+    
     <div class="row">
-        <div class="page"><div><?php print_r($chapter->pagination()); ?></pre></div>
+        <div class="page">
+			<div><?php print_r($chapter->pagination()); ?></pre></div>
         </div>
-
-
-
+	</div>
+	
 </section>
 
 
