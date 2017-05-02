@@ -1,4 +1,4 @@
-//visible or hidden excerpts
+//visible or hidden excerpts in index
 
 $('.showButton').mouseover(function() {
     var nb = $(this).attr('id');
@@ -23,4 +23,9 @@ $('.showForm').click(function() {
     var nb = $(this).attr('id');
     $('#rep-'+nb).show();
 
+});
+
+//toggle comments in chapter view
+$('#comment').click(function() {
+    $('.showComment').toggle();
 });
