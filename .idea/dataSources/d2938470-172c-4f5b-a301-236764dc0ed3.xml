@@ -109,25 +109,25 @@ userid</ColNames>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="43" parent="18" name="commentsid">
-      <Position>7</Position>
-      <DataType>int(11)|0</DataType>
-    </column>
-    <column id="44" parent="18" name="datecreated">
+    <column id="43" parent="18" name="datecreated">
       <Position>4</Position>
       <DataType>datetime|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="45" parent="18" name="levelcomment">
+    <column id="44" parent="18" name="levelcomment">
       <Position>8</Position>
       <DataType>int(3)|0</DataType>
-      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="45" parent="18" name="parentId">
+      <Position>7</Position>
+      <DataType>int(11)|0</DataType>
     </column>
     <index id="46" parent="18" name="fk_comments_chapter1_idx">
       <ColNames>idchapter</ColNames>
     </index>
     <index id="47" parent="18" name="fk_comments_comments1_idx">
-      <ColNames>commentsid</ColNames>
+      <ColNames>parentId</ColNames>
     </index>
     <index id="48" parent="18" name="fk_comments_user1_idx">
       <ColNames>idUser</ColNames>
@@ -155,7 +155,7 @@ idchapter</ColNames>
       <OnDelete>no-action</OnDelete>
     </foreign-key>
     <foreign-key id="52" parent="18" name="fk_comments_comments1">
-      <ColNames>commentsid</ColNames>
+      <ColNames>parentId</ColNames>
       <RefSchemaName>blogwriter</RefSchemaName>
       <RefTableName>comments</RefTableName>
       <RefColNames>id</RefColNames>

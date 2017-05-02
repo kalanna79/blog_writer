@@ -7,6 +7,9 @@
      */
     include('../config.php');
     
+    $UserManager = new UserManager();
+    $user = $UserManager->getUserById($_GET['id']);
+    
     include(ROOT . 'view/header.php');
     include(VIEW . 'profil_user.php');
     include(VIEW . 'footer.php');

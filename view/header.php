@@ -21,8 +21,13 @@
 				<a href="#" class="fa fa-pinterest-square fa-lg btn-md valign"></a>
 			</div>
 			<div class="col-xs-6 col-md-6 icon-menu">
-				<a href="<?php echo HOST . 'inscription.php';?>" class="fa fa-user-plus fa-lg btn-lg valign"></a>
-				<a href="<?php echo HOST . 'inscription.php';?>" class="fa fa-sign-in fa-lg btn-lg valign"></a>
+                <?php if (isset($_SESSION['id'])) { ;?>
+						<span> Bonjour <?php echo $_SESSION['pseudo'];?></span>
+						<a href="<?php echo HOST.'index.php?deconnexion';?>" class="fa fa-sign-out fa-lg btn-lg valign"></a>
+				<?php } else { ;?>
+					<a href="'<?php echo 'inscription.php';?>" class="fa fa-user-plus fa-lg btn-lg valign"></a>
+					<a href="<?php echo HOST . 'inscription.php';?>" class="fa fa-sign-in fa-lg btn-lg valign"></a>
+				<?php };?>
 				<a href="#" class="fa fa-envelope-o fa-lg btn-lg valign"></a>
 			</div>
 		</div>

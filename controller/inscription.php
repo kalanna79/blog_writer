@@ -32,6 +32,10 @@
     {
         $manager->verifUser(); // ça sert à quoi cette method ? elle retourne quoi ? Tu fais rien en retour ?
         // je dois voir ici ce qui se passe si user est ok ou pas
+        if (isset($_GET['id']))
+        {
+            $user = $UserManager->getUserById($_GET['id']);
+        }
         header('Location:'.HOST.'profil_user.php?id='.$_SESSION['id']);
     }
     

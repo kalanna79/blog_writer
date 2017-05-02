@@ -12,22 +12,29 @@
     	$chapter = $manager->Chapter_selected($_GET['id']);
 	}
     
-    $CommentManager = new CommentManager();
-    $comments = $CommentManager->showAllComments();
+	$CommentManager = new CommentManager();
+    $commentaires = $CommentManager->showAllComments();
+    
     
     $UserManager = new UserManager();
     $users = $UserManager->allUsers();
     
     if (isset($_POST['submitcomment']))
     {
+        if (isset($_SESSION['id'])) {
         $comment = new Comment([
-            'title' => $_POST['title'],
-            'texte' => $_POST['texte'],
-            'idchapter' => $_GET['id'],
-        ]);
-    $CommentManager->addComment($comment);
-    header('Location:'. HOST.'chapter.php?id='.$_GET['id'].'&page=1');
-    }
+                                   'title' => $_POST['title'],
+                                   'texte' => $_POST['texte'],
+                                   'idchapter' => $_GET['id'],
+                               ]);
+        $CommentManager->addComment($comment);
+        header('Location:'. HOST.'chapter.php?id='.$_GET['id'].'&page=1');
+    } else
+    {
+        echo "<script language=\"javascript\">";
+        echo "alert('Vous devez être connecté pour poster un message')";
+        echo "</script>";
+    }}
     
     if (isset($_POST['submitreponse']))
     {
@@ -36,13 +43,15 @@
                                    'texte' => $_POST['reponsetxt'],
                                    'idchapter' => $_GET['id'],
                                    'commentsid' =>$_POST['reponse'],
-                                    'levelcomment' => "1"
-
+                                   'levelcomment' => "1"
+        
                                ]);
         $CommentManager->addComment($comment);
         header('Location:'. HOST.'chapter.php?id='.$_GET['id'].'&page=1');
     }
-
+    
+    
+    
     include(ROOT . 'view/header.php');
   	include(VIEW . 'chapter.php');
 	include(VIEW . 'comments.php');

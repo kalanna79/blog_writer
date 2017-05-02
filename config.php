@@ -19,8 +19,15 @@
     spl_autoload_register('chargerClasse');
     
     $UserManager = new UserManager();
-    if (isset($_GET['id']))
+    
+    session_start();
+    
+    // create Session
+    
+    // destroy session
+    if (isset($_GET['deconnexion']))
     {
-        $user = $UserManager->getUserById($_GET['id']);
-        session_start(array($user->getIdUser()));
+        session_destroy();
     }
+    
+    include (CONTROLLER.'functions.php');
