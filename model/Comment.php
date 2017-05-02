@@ -188,29 +188,5 @@
         {
             return $this->getUser()->getPseudo();
         }
-       
-        
-    
-        function showComment()
-        {
-            $html = '<div class="level-' . $this->getLevelComment() . '">' . $this->getTexte() . '</div>';
-            
-            // ce commentaire a-t-il des enfants,
-            
-            if ($this->hasChildren())
-                {
-                // je récupère les enfants
-                $children[] = $this->getChildren();
-            
-                    foreach ($children as $child)
-                    {
-                        $html .= '<div class="level-' . $this->getLevelComment() . '">' . $this->getTexte() . '</div>';
-                        $this->showComment();
-                    }
-                }
-            
-            echo $html;
-        }
-        
         
     }
