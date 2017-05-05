@@ -28,6 +28,7 @@
     if (isset($_GET['deconnexion']))
     {
         session_destroy();
+        header('Location:'.HOST.'index.php');
     }
     
     include (CONTROLLER.'functions.php');
