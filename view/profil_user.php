@@ -8,28 +8,44 @@
         </div>
     </div>
     
-    <!-- Texte du chapitre -->
+    <!-- Informations utilisateur -->
     <div class="row">
         
         <div class="col-xs-6 col-md-offset-2 col-md-4">
             <table class="table table-bordered">
-                <tr>
-                    <th>Prénom</th>
-                    <td><?php echo $user->getFirstname();?></td>
-                </tr>
-                <tr>
-                    <th>Nom</th>
-                    <td><?php echo $user->getName();?></td>
-                </tr>
-                <tr>
                     <th>Pseudo</th>
                     <td><?php echo $user->getPseudo();?></td>
                 </tr>
+				<tr>
+					<th>Prénom</th>
+					<td><?php echo $user->getFirstname();?></td>
+				</tr>
+				<tr>
+					<th>Nom</th>
+					<td><?php echo $user->getName();?></td>
+				</tr>
+				<tr>
                 <tr>
                     <th>Email</th>
                     <td><?php echo $user->getEmail();?></td>
                 </tr>
-                
+                <tr>
+					<th>Lecture en cours</th>
+					<td>
+						<?php if ($user->getIdchapter() == NULL)
+						{
+						echo '<a href="../controller/chapter.php?idchapter=1&page=1">Commencez à lire maintenant</a>';
+						}
+						else {
+                            echo 'Chapitre ' . $user->getIdchapter() . " : " . $sess->getChapterTitle
+								($user->getIdchapter
+							());
+							echo '<br><a href="../controller/chapter.php?idchapter='. $user->getIdchapter() . '&page=' . $user->getPage().'"> Reprendre la lecture</a>';
+							
+						}
+						?>
+					</td>
+				</tr>
                 
             </table>
         </div>
