@@ -6,18 +6,19 @@
      * Time: 07:36
      */
     include('../config.php');
-	
-    $manager = new ChapterManager();
-    if (isset($_GET['id'])) {
-    	$chapter = $manager->Chapter_selected($_GET['id']);
-	}
     
-	$CommentManager = new CommentManager();
+    $CommentManager = new CommentManager();
     $commentaires = $CommentManager->showAllComments();
-    
     
     $UserManager = new UserManager();
     $users = $UserManager->allUsers();
+    
+    $manager = new ChapterManager();
+    if (isset($_GET['idchapter'])) {
+    	$chapter = $manager->Chapter_selected($_GET['idchapter']);
+    	
+	}
+    
     
     if (isset($_POST['submitcomment']))
     {
@@ -28,7 +29,7 @@
                                    'idchapter' => $_GET['id'],
                                ]);
         $CommentManager->addComment($comment);
-        header('Location:'. HOST.'chapter.php?id='.$_GET['id'].'&page=1');
+        header('Location:'. HOST.'chapter.php?idchapter='.$_GET['id'].'&page=1');
     } else
     {
         echo "<script language=\"javascript\">";
@@ -38,18 +39,23 @@
     
     if (isset($_POST['submitreponse']))
     {
+        if (isset($_SESSION['id'])) {
         $comment = new Comment([
                                    'title' => NULL,
                                    'texte' => $_POST['reponsetxt'],
                                    'idchapter' => $_GET['id'],
                                    'commentsid' =>$_POST['reponse'],
-                                   'levelcomment' => "1"
+                                   'levelcomment' => 1
         
                                ]);
         $CommentManager->addComment($comment);
-        header('Location:'. HOST.'chapter.php?id='.$_GET['id'].'&page=1');
-    }
-    
+        header('Location:'. HOST.'chapter.php?idchapter='.$_GET['id'].'&page=1');
+        } else
+        {
+            echo "<script language=\"javascript\">";
+            echo "alert('Vous devez être connecté pour poster un message')";
+            echo "</script>";
+        }}
     
     
     include(ROOT . 'view/header.php');
