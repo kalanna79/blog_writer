@@ -24,15 +24,7 @@ Appeler récursivement la fonction en lui passant le tableau d'enfants et en inc
             if ($comment->getLevelComment() == $level)
             {
                 //j'affiche le commentaire courant
-                $html .=
-                    '<div class="panel panel-default level-' . $comment->getLevelComment() . '">
-                    		<div class="panel-heading"><span class="pseudo">' .$comment->getUserPseudo().
-                    '</span><span class="title">'. $comment->getTitle().
-                    '</span><br>
-                        <abbr>' . $comment->getDateCreated() . '</div>
-                        <div class="panel-body">'.
-                    $comment->getTexte() .
-                    '</div></div>';
+                $html .= include (VIEW . 'currentcomment.php');
                 //je récupère les enfants sous forme de tableau d'objet
                 $element = $CommentManager->getChildren($comment->getId());
                 // j'affiche les enfants et je vais chercher leurs enfants en rappelant la même fonction
