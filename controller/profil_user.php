@@ -7,8 +7,10 @@
      */
     include('../config.php');
     
-    $UserManager = new UserManager();
-    $user = $UserManager->getUserById($_GET['id']);
+    $sess = new Session();
+    $manager = new UserManager();
+    $user = $manager->getUserById($_SESSION['id']);
+    
     
     include(ROOT . 'view/header.php');
     include(VIEW . 'profil_user.php');
