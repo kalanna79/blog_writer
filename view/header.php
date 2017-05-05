@@ -22,13 +22,13 @@
 			</div>
 			<div class="col-xs-6 col-md-6 icon-menu">
                 <?php if (isset($_SESSION['id'])) { ;?>
-						<span> Bonjour <?php echo $_SESSION['pseudo'];?></span>
-						<a href="<?php echo HOST.'index.php?deconnexion';?>" class="fa fa-sign-out fa-lg btn-lg valign"></a>
+						<span> Bonjour <a href="profil_user.php?user=<?php echo $_SESSION['id'];?>"> <?php echo $_SESSION['pseudo'];?></a></span>
+						<a href="<?php echo HOST.'index.php?deconnexion';?>" class="fa fa-sign-out fa-lg btn-lg valign" title="Se déconnecter"></a>
 				<?php } else { ;?>
-					<a href="'<?php echo 'inscription.php';?>" class="fa fa-user-plus fa-lg btn-lg valign"></a>
-					<a href="<?php echo HOST . 'inscription.php';?>" class="fa fa-sign-in fa-lg btn-lg valign"></a>
+					<a href="'<?php echo 'inscription.php';?>" class="fa fa-user-plus fa-lg btn-lg valign" title="s'inscrire"></a>
+					<a href="<?php echo HOST . 'inscription.php';?>" class="fa fa-sign-in fa-lg btn-lg valign" title="Se connecter"></a>
 				<?php };?>
-				<a href="#" class="fa fa-envelope-o fa-lg btn-lg valign"></a>
+				<a href="#" class="fa fa-envelope-o fa-lg btn-lg valign" title="Contact"></a>
 			</div>
 		</div>
 		<div class="row back-img">
