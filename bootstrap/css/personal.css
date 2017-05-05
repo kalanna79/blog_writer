@@ -111,12 +111,12 @@ body {
 
 /* chapter appearance */
 
-.book {
+.book, .book-nolettrine {
     text-align: justify;
     font-size: medium;
 }
 
-.book > :first-child:first-letter, .book:first-letter {
+.book>:first-child:first-letter, .book:first-letter {
     font-size: 125px;
     line-height: 125px;
     width: 125px;
@@ -131,11 +131,7 @@ body {
     font-family: 'Abril Fatface', cursive;
 }
 
-.book-nolettrine {
-
-}
-
-.book > :last-child:after {
+.book-nolettrine > :last-child:after {
     display: inline;
     float: right;
     font-family: 'Glyphicons Halflings';
