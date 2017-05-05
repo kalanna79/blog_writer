@@ -30,6 +30,15 @@
             $chap = $q->fetch(PDO::FETCH_ASSOC);
             return new Chapter($chap);
         }
+    
+        public function userRead($getUserId)
+        {
+            $getUserId = (int) $getUserId;
+            $q = $this->_db->prepare('SELECT * FROM chapter WHERE userid=?');
+            $q->execute(array($getUserId));
+            $resultat = $q->fetch(PDO::FETCH_ASSOC);
+            return new Chapter($resultat);
+        }
     }
    
     
