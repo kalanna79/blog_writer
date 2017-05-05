@@ -5,11 +5,7 @@
         </div>
     	
 		<div class="showComment">
-        	<?php
-			
-            echo child($commentaires);
-			
-            ?>
+        	<?php child($commentaires); ?>
 	
         <div class="row depotcomment">
             <p>Déposez un commentaire : </p>
