@@ -10,6 +10,7 @@
     
     $manager = new UserManager();
     
+    
     //ajout d'un nouvel utilisateur (form Inscription)
     
     if (isset($_POST['inscription']) && isset($_POST['pseudo']))
@@ -30,12 +31,12 @@
     //connexion d'un utilisateur déjà existant
     if (isset($_POST['connect']))
     {
-        $manager->verifUser(); // ça sert à quoi cette method ? elle retourne quoi ? Tu fais rien en retour ?
-        // je dois voir ici ce qui se passe si user est ok ou pas
-        if (isset($_GET['id']))
-        {
-            $user = $UserManager->getUserById($_GET['id']);
-        }
+        //vérification pseudo/mot de passe de l'utilisateur
+        $user = $manager->verifUser();
+        $sess = new Session($user);
+        $_SESSION['id'] = $user["idUser"];
+        $_SESSION['pseudo'] = $sess->getPseudo();
+        
         header('Location:'.HOST.'profil_user.php?id='.$_SESSION['id']);
     }
     
