@@ -39,7 +39,7 @@
     <!-- Texte du chapitre -->
     <div class="row">
         
-        <div class="col-xs-12 col-md-offset-2 col-md-8 book colonne">
+        <div class="col-xs-12 col-md-offset-2 col-md-8 book colonne" id="chaptertext">
             <?php echo $chapter->showText(); ?>
         </div>
 	</div>
