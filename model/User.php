@@ -16,6 +16,8 @@
         protected $_datemodified;
         protected $_roleiduser;
         protected $_datecreated;
+        protected $_idchapter;
+        protected $_page;
     
         public function __construct($donnees)
         {
@@ -109,6 +111,22 @@
             $this->_datecreated = $datecreated;
         }
     
+        /**
+         * @param mixed $idchapter
+         */
+        public function setIdchapter($idchapter)
+        {
+            $this->_idchapter = $idchapter;
+        }
+    
+        /**
+         * @param mixed $page
+         */
+        public function setPage($page)
+        {
+            $this->_page = $page;
+        }
+    
         
         // ---------- GETTERS -----------------
         /**
@@ -183,4 +201,21 @@
             return $this->_datecreated;
         }
     
+        /**
+         * @return mixed
+         */
+        public function getIdchapter()
+        {
+            return $this->_idchapter;
+        }
+    
+        /**
+         * @return mixed
+         */
+        public function getPage()
+        {
+            return $this->_page;
+        }
+    
+        
     }
