@@ -176,7 +176,10 @@
             foreach ($pager as $key => $single) { // pour chaque ligne, on ajoute 1 pour afficher le numéro de page et on
                 // met le lien pour accéder aux différentes pages
                 $page = $key += 1;
-                echo $page = '<a href=?id=' . $_GET['id'] . '&page=' . $key . '> ' . $page . ' </a>';
+                echo $page = '<a href=?idchapter=' . $_GET['idchapter'] . '&page=' . $key . '> ' . $page . ' </a>';
+                $manager = new UserManager();
+                $update = $manager->activeRead($_SESSION['id'], $_GET['idchapter'], $_GET['page']);
+                print_r($update);
             }
         }
     
