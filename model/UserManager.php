@@ -56,7 +56,10 @@
                 'idUser' => $this->_db->lastInsertId()
                            ]);
         }
-        
+    
+        /** verify if pseudo + pwd are equal to a user
+         * @return mixed
+         */
         public function verifUser()
         {
             $q = $this->_db->prepare('SELECT * FROM user WHERE pseudo=:pseudo AND password=:password');
@@ -64,14 +67,21 @@
                 'pseudo' => $_POST['pseudo'],
                 'password' => $_POST['password']));
             $resultat = $q->fetch(PDO::FETCH_ASSOC);
-            if (!$resultat)
-            {
-                echo 'Mauvais identifiant ou mot de passe';
-            }
-            else
-            {
-                $_SESSION['id'] = $resultat['idUser'];
-                $_SESSION['pseudo'] = $resultat['pseudo'];
-            }
+           return $resultat;
+        }
+        
+        
+    
+        /** Return where the user stops his reading with the page and the chapter
+         * @param $userid -> the session id
+         * @param $chapterid -> get param
+         * @param $page -> get param
+         */
+        public function activeRead($userid,$chapterid, $page)
+        {
+            $q = $this->_db->prepare('UPDATE user SET idchapter = :idchapter, page = :page WHERE idUser = '.$userid);
+            $q->bindValue(':idchapter', $chapterid);
+            $q->bindValue(':page', $page);
+            $q->execute();
         }
     }
