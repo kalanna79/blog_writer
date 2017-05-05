@@ -29,3 +29,27 @@ $('.showForm').click(function() {
 $('#comment').click(function() {
     $('.showComment').toggle();
 });
+
+
+//hide response button for level 2 comments
+if ($('.level2')) {
+    $('.alevel2').hide();
+};
+
+//no ornated initial letter for the others pages than page 1
+
+/* cherche dans l'adresse le numéro de la page
+/*si la page est > 1
+/* change le CSS .book en .book nolettrine
+ */
+
+    var adresse = location.search.substring(1).split('&');
+    var pages = [];
+    for (var i = 0; i < adresse.length; i++) {
+        var param = adresse[i].split('=');
+        pages[param[0]] = param[1];
+    }
+    if (pages['page'] != '1') {
+        $("#chaptertext").removeClass("book");
+        $("#chaptertext").addClass("book-nolettrine");
+    }
