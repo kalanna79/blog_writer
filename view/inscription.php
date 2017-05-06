@@ -6,7 +6,7 @@
             <label for="pseudo">Pseudo</label> <br>
             <input type="text" name="pseudo"><br>
             <label for="password">Mot de passe</label> <br>
-            <input type="text" name="password"><br>
+            <input type="password" name="password"><br>
             <input type="checkbox" name="souvenir"> Se souvenir de moi <br><br>
             <input type="submit" name="connect" value="Se connecter">
         </form><br>
@@ -15,7 +15,7 @@
     </section>
     <section class="col-md-6 presentation">
         <h3>S'inscrire</h3>
-        <p>Inscrivez-vous pour déposer des commentaires et retrouvez votre avancée de lecture</p>
+        <p id="inscription">Inscrivez-vous pour déposer des commentaires et retrouvez votre avancée de lecture</p>
         <form action="" method="post">
             <label for="firstname">Prénom</label> <br>
             <input type="text" name="firstname"><br>
