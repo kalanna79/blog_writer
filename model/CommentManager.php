@@ -18,6 +18,20 @@
             }
             return $comments;
         }
+    
+        public function showLastComments()
+        {
+            $comments = array();
+        
+            $q = $this->_db->query('SELECT * FROM comments ORDER BY datecreated DESC LIMIT 0, 5');
+            while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
+            {
+                $comments[] = new Comment($donnees);
+            }
+            return $comments;
+        }
+        
+        
         
         public function addComment(Comment $comment)
         {
