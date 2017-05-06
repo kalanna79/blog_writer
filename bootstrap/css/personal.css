@@ -59,9 +59,20 @@ body {
     margin-bottom: 10px;
     column-gap : 2em;
     border-top: 1px solid #9d9d9d;
-
-
 }
+
+#alert {
+    height: 50px;
+    width: 50%;
+    position: relative;
+    z-index: 100;
+    background-color: #b4dd41;
+    opacity: 50%;
+    margin-top: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    padding-top: 15px;}
 
 /* navigation in chapter */
 
