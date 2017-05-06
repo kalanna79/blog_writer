@@ -15,6 +15,7 @@
     
     if (isset($_POST['inscription']) && isset($_POST['pseudo']))
     {
+        $hpwd = sha1($_POST['password']);
      
         // Créer une mthode dans user pour faire tout ça 
         // ex $user->bindWithValues($_POST);
@@ -23,9 +24,13 @@
                          'name' => $_POST['name'],
                          'pseudo' => $_POST['pseudo'],
                          'email' => $_POST['email'],
-                         'password' => $_POST['password']]);
-        $manager->addUser($user);
-        header('Location:'.HOST.'confirmation_inscription.php?id='.$user->getIdUser());
+                         'password' => $hpwd]);
+   if ($manager->verifAdd()) {
+       echo '<div class="panel" id="alert">Ce pseudo ou cet email sont déjà utilisés</div>';
+   } else {
+       $manager->addUser($user);
+       header('Location:' . HOST . 'confirmation_inscription.php?id=' . $user->getIdUser());
+   }
     }
     
     //connexion d'un utilisateur déjà existant

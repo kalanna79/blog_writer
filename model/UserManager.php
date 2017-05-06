@@ -56,6 +56,16 @@
                 'idUser' => $this->_db->lastInsertId()
                            ]);
         }
+        
+        public function verifAdd()
+        {
+            $q = $this->_db->prepare('SELECT * FROM user where pseudo=:pseudo OR email=:email');
+            $q->execute(array(
+                'pseudo' => $_POST['pseudo'],
+                'email' => $_POST['email']));
+            $resultat = $q->fetch(PDO::FETCH_ASSOC);
+            return $resultat;
+        }
     
         /** verify if pseudo + pwd are equal to a user
          * @return mixed
@@ -65,7 +75,7 @@
             $q = $this->_db->prepare('SELECT * FROM user WHERE pseudo=:pseudo AND password=:password');
             $q->execute(array(
                 'pseudo' => $_POST['pseudo'],
-                'password' => $_POST['password']));
+                'password' => sha1($_POST['password'])));
             $resultat = $q->fetch(PDO::FETCH_ASSOC);
            return $resultat;
         }
