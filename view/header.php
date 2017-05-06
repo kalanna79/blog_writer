@@ -8,6 +8,7 @@
     <link href="../bootstrap/css/personal.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Space+Mono|Abril+Fatface" rel="stylesheet">
+	<script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=td48c0q1oexhcts1qv7crbcn1njw1lhtpgm6yjtokpgscp3e"></script>
 </head>
 
 <body>
@@ -22,10 +23,10 @@
 			</div>
 			<div class="col-xs-6 col-md-6 icon-menu">
                 <?php if (isset($_SESSION['id'])) { ;?>
-						<span> Bonjour <a href="profil_user.php?user=<?php echo $_SESSION['id'];?>"> <?php echo $_SESSION['pseudo'];?></a></span>
+						<span> Bonjour <a href="profil_user.php?user="<?php echo $_SESSION['id'];?>> <?php echo $_SESSION['pseudo'];?></a></span>
 						<a href="<?php echo HOST.'index.php?deconnexion';?>" class="fa fa-sign-out fa-lg btn-lg valign" title="Se déconnecter"></a>
 				<?php } else { ;?>
-					<a href="'<?php echo 'inscription.php';?>" class="fa fa-user-plus fa-lg btn-lg valign" title="s'inscrire"></a>
+					<a href="<?php echo HOST .'inscription.php';?>" class="fa fa-user-plus fa-lg btn-lg valign" title="s'inscrire"></a>
 					<a href="<?php echo HOST . 'inscription.php';?>" class="fa fa-sign-in fa-lg btn-lg valign" title="Se connecter"></a>
 				<?php };?>
 				<a href="#" class="fa fa-envelope-o fa-lg btn-lg valign" title="Contact"></a>
