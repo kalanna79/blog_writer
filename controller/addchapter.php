@@ -26,7 +26,7 @@
         {
             $manager->publiChapter($chapter);
         }
-        header('Location:' . HOST . 'indexadmin.php');
+        header('Location:' . HOST . 'confirmation_addchapter.php');
     }
     
     include(VIEW . 'header.php');
