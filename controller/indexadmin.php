@@ -9,11 +9,15 @@
     
     $sess = new Session();
     $manager = new UserManager();
-    $users = $manager->AllUsers();
+    $users = $manager->AllUsers(); //allows to count number of users
     
     $comanager = new CommentManager();
-    $comments = $comanager->showAllComments();
+    $comments = $comanager->showAllComments(); //allows to count number of comments
     $lastcomments = $comanager->showLastComments();
+    
+    $chaptermanager = new ChapterManager();
+    $chapters = $chaptermanager->allChapters(); //allows to show all chapters
+    $publies = $chaptermanager->Tab_matieres();
     
     
     include(ROOT . 'view/header.php');
