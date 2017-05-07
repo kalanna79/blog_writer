@@ -22,12 +22,10 @@
     $comments = $comanager->showAllComments();
     $lastcomments = $comanager->showLastComments();
     
-    
-    include(ROOT . 'view/header.php');
-    
     if ($_SESSION['id'] == 1) {
-        include(VIEW . 'indexadmin.php');
+        header('Location:'.HOST.'indexadmin.php?id='.$_SESSION['id']);
     } else {
+        include(ROOT . 'view/header.php');
         include(VIEW . 'profil_user.php');
+        include(VIEW . 'footer.php');
     }
-    include(VIEW . 'footer.php');

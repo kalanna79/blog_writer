@@ -41,8 +41,14 @@
         $sess = new Session($user);
         $_SESSION['id'] = $user["idUser"];
         $_SESSION['pseudo'] = $sess->getPseudo();
+    
+        if ($_SESSION['id'] == 1) {
+            header('Location:'.HOST.'indexadmin.php?id='.$_SESSION['id']);
+        } else {
+            header('Location:'.HOST.'profil_user.php?id='.$_SESSION['id']);
+        }
         
-        header('Location:'.HOST.'profil_user.php?id='.$_SESSION['id']);
+        
     }
     
     include (VIEW.'header.php');
