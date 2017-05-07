@@ -15,6 +15,7 @@
         protected $_date_modified;
         protected $_userid;
         protected $_resume;
+        protected $_publicationid;
         
         
         public function __construct($donnees)
@@ -132,6 +133,15 @@
                 $this->_resume = NULL;
             }
         }
+    
+        /**
+         * @param mixed $publicationid
+         */
+        public function setPublicationid($publicationid)
+        {
+            $publicationid = (int)$publicationid;
+            $this->_publicationid = $publicationid;
+        }
         
         
     public function getUser()
@@ -149,7 +159,16 @@
          * @param $texte = texte du chapitre
          * @return mixed = texte de la page visée selon le numéro
          */
-    
+    public function getPublicationId()
+    {
+        if ($this->_publicationid == 1){
+            return "En attente";
+        } else {
+            return "Publié";
+        }
+    }
+        
+        
         public function showText($nb_car = 4000)
         {
             $getTexte = $this->_texte;
