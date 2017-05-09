@@ -62,7 +62,7 @@
 				<tr>
 					<th>Tous les chapitres</th>
 					<td><ul><?php foreach ($chapters as $chapter) {
-                                echo "<li>Chap. " . $chapter->getId() . "  : " . $chapter->getTitle() . "<br> Statut : " . $chapter->getPublicationId() . "</li>";
+                                echo "<li>Chap. " . $chapter->getId() . "  : " . $chapter->getTitle() . "<br> Statut : " . $chapter->getPublicationId() . " <a href='" . HOST . "addchapter.php?modif=1&id=" . $_SESSION['id'] . "&idchapter=" .$chapter->getId() . "'> Modifier</a></li>";
                             }
                                 ;?>
 						</ul>

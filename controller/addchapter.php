@@ -12,6 +12,9 @@
     
     $manager = new ChapterManager();
     
+    
+    
+    
     if (isset($_POST['ajout']) || isset($_POST['publication']))
     {
         $chapter = new Chapter([
@@ -30,5 +33,12 @@
     }
     
     include(VIEW . 'header.php');
-    include(VIEW . 'addchapter.php');
+    if (isset($_GET['idchapter']) && isset($_GET['modif']))
+    {
+        var_dump($_GET['idchapter']);
+        $chapter = $manager->chapter_selected($_GET['idchapter']);
+        include(VIEW . 'modifychapter.php');
+    } else {
+        include(VIEW . 'addchapter.php');
+    }
     include(VIEW. 'footer.php');

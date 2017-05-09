@@ -34,3 +34,14 @@ Appeler récursivement la fonction en lui passant le tableau d'enfants et en inc
         return $html;
     }
     
+    
+    /** formulaire
+     * $name = nom de la méthode à appeler
+     */
+    function aff($name) {
+        $sform = "";
+        if ($name == "self") {
+            $sform = $_SERVER['PHP_SELF'];
+        }
+        return $sform;
+    }
