@@ -12,7 +12,7 @@
 <?php echo $comment->getTexte(); ?>
     </div>
     <div class="panel-footer level<?php echo $comment->getLevelComment();?>">
-            <a href="#reponse" class="showForm alevel<?php echo $comment->getLevelComment();?> " id="comment-<?php echo $comment->getId(); ?>"> Répondre - </a> Signaler
+		<a href="#reponse" class="showForm alevel<?php echo $comment->getLevelComment();?> " id="comment-<?php echo $comment->getId(); ?>"> Répondre - </a> <a href="<?php echo HOST . 'chapter.php?comment=' . $comment->getId(). '&user=' . $comment->getIdUser() . '&signaler=1';?>">Signaler</a>
         <div class="row reponse" style="display: none" id="rep-comment-<?php echo $comment->getId(); ?>" >
             <form id="reponse" action="" method="post">
                 <input type="hidden" name="reponse" value="<?php echo $comment->getId(); ?>">
