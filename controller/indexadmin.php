@@ -15,6 +15,9 @@
     $comments = $comanager->showAllComments(); //allows to count number of comments
     $lastcomments = $comanager->showLastComments();
     
+    $moderationmanager = new ModerationManager();
+    $moderations = $moderationmanager->showModeration();
+    
     $chaptermanager = new ChapterManager();
     $chapters = $chaptermanager->allChapters(); //allows to show all chapters
     $publies = $chaptermanager->Tab_matieres();

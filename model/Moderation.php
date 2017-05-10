@@ -16,25 +16,7 @@
         protected $_userid;
     
     
-        public function __construct($donnees)
-        {
-            if (!empty($donnees))
-            {
-                return $this->hydrate($donnees);
-            }
-        }
-    
-        public function hydrate(array $donnees)
-        {
-            foreach ($donnees as $key=>$value)
-            {
-                $method = 'set' . ucfirst($key);
-                if (method_exists($this, $method))
-                {
-                    $this->$method($value);
-                }
-            }
-        }
+        use ConstructHydratable;
         
         /**
          * @return mixed
@@ -146,4 +128,6 @@
         {
             $this->_userid = $userid;
         }
+        
+        use PseudoUser;
     }

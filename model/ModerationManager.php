@@ -23,6 +23,16 @@ NULL, :message, :statusmodif, :commentsid, :userid)');
             $moderation->hydrate(['id'=>$this->_db->lastInsertId()]);
         }
         
+        
+        public function showModeration()
+        {
+            $q = $this->_db->query('SELECT * FROM moderation');
+            while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
+            {
+                $moderations[] = new Moderation($donnees);
+            }
+            return $moderations;
+        }
     }
     
     
