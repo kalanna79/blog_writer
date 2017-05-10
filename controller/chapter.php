@@ -13,6 +13,8 @@
     $UserManager = new UserManager();
     $users = $UserManager->allUsers();
     
+    $ModerationManager = new ModerationManager();
+    
     $manager = new ChapterManager();
     if (isset($_GET['idchapter'])) {
     	$chapter = $manager->Chapter_selected($_GET['idchapter']);
@@ -56,6 +58,19 @@
             echo "alert('Vous devez être connecté pour poster un message')";
             echo "</script>";
         }}
+        
+        if (isset($_GET['signaler']))
+        {
+            $date = new DateTime();
+            
+            $moderation = new Moderation([
+                'datecreated' => $date->getTimestamp(),
+                'message' => 'signale',
+                'commentsid' => $_GET['comment'],
+                'userid' => $_GET['user']
+                                         ]);
+            $ModerationManager->addModeration($moderation);
+        }
     
     
     include(ROOT . 'view/header.php');
