@@ -25,8 +25,8 @@
                          'pseudo' => $_POST['pseudo'],
                          'email' => $_POST['email'],
                          'password' => $hpwd]);
-   if ($manager->verifAdd()) {
-       echo '<div class="panel" id="alert">Ce pseudo ou cet email sont déjà utilisés</div>';
+   if ($manager->verifAdd($_POST['pseudo'], $_POST['email'])) {
+       $message = '<div class="panel" id="alert">Ce pseudo ou cet email sont déjà utilisés</div>';
    } else {
        $manager->addUser($user);
        header('Location:' . HOST . 'confirmation_inscription.php?id=' . $user->getIdUser());
@@ -37,7 +37,7 @@
     if (isset($_POST['connect']))
     {
         //vérification pseudo/mot de passe de l'utilisateur
-        $user = $manager->verifUser();
+        $user = $manager->verifUser($_POST['pseudo'], $_POST['password']);
         $sess = new Session($user);
         $_SESSION['id'] = $user["idUser"];
         $_SESSION['pseudo'] = $sess->getPseudo();
