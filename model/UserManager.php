@@ -57,12 +57,12 @@
                            ]);
         }
         
-        public function verifAdd()
+        public function verifAdd($pseudo, $email)
         {
             $q = $this->_db->prepare('SELECT * FROM user where pseudo=:pseudo OR email=:email');
             $q->execute(array(
-                'pseudo' => $_POST['pseudo'],
-                'email' => $_POST['email']));
+                'pseudo' => $pseudo,
+                'email' => $email));
             $resultat = $q->fetch(PDO::FETCH_ASSOC);
             return $resultat;
         }
@@ -70,12 +70,12 @@
         /** verify if pseudo + pwd are equal to a user
          * @return mixed
          */
-        public function verifUser()
+        public function verifUser($pseudo, $pwd)
         {
             $q = $this->_db->prepare('SELECT * FROM user WHERE pseudo=:pseudo AND password=:password');
-            $q->execute(array(
-                'pseudo' => $_POST['pseudo'],
-                'password' => sha1($_POST['password'])));
+            $q->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
+            $q->bindValue(':password', sha1($pwd), PDO::PARAM_STR);
+            $q->execute();
             $resultat = $q->fetch(PDO::FETCH_ASSOC);
            return $resultat;
         }
@@ -90,8 +90,8 @@
         public function activeRead($userid,$chapterid, $page)
         {
             $q = $this->_db->prepare('UPDATE user SET idchapter = :idchapter, page = :page WHERE idUser = '.$userid);
-            $q->bindValue(':idchapter', $chapterid);
-            $q->bindValue(':page', $page);
+            $q->bindValue(':idchapter', $chapterid, PDO::PARAM_INT);
+            $q->bindValue(':page', $page, PDO::PARAM_INT);
             $q->execute();
         }
     }
