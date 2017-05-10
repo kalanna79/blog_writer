@@ -54,7 +54,7 @@ if ($('.level2')) {
         $("#chaptertext").addClass("book-nolettrine");
     }
 
-// move the alert box in the page
+// move the alert box in the page inscription
  $('#inscription').append($('#alert'));
 
 tinymce.init({

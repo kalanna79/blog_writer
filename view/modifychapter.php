@@ -15,8 +15,9 @@
                     <label for="texte">Texte du chapitre</label>
                     <textarea class="form-control chapitre" name="texte" rows="20" placeholder="Chapitre entier" required="required"><?php echo $chapter->getTexte();?></textarea>
                 </div>
-                <input type="submit" formnovalidate="formnovalidate" name="ajout" value="Enregistrer">
-                <input type="submit" formnovalidate="formnovalidate" name="publication" value="Publier">
+                <input type="submit" formnovalidate="formnovalidate" name="modif" value="Modifier">
+				<input type="submit" formnovalidate="formnovalidate" name="publi" value="Modifier et Publier">
+                
             </form>
         </div>
     

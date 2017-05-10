@@ -18,7 +18,6 @@
     }
     spl_autoload_register('chargerClasse');
     
-    $UserManager = new UserManager();
     
     session_start();
     
@@ -30,5 +29,8 @@
         session_destroy();
         header('Location:'.HOST.'index.php');
     }
+    
+    $UserManager = new UserManager();
+    
     
     include (CONTROLLER.'functions.php');
