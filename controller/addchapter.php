@@ -15,7 +15,7 @@
     
     
     
-    if (isset($_POST['ajout']) || isset($_POST['publication']))
+    if (isset($_POST['ajout']) || isset($_POST['publication']) || isset($_POST['modif']) || isset($_POST['publi']))
     {
         $chapter = new Chapter([
             'title'=>$_POST['title'],
@@ -28,17 +28,29 @@
         } elseif (isset($_POST['publication']))
         {
             $manager->publiChapter($chapter);
-        }
+        } elseif (isset($_POST['modif']) && isset($_GET['idchapter']))
+        {
+        $manager->updateChapter($chapter, $_GET['idchapter'], 1);
         header('Location:' . HOST . 'confirmation_addchapter.php');
+    
+        } elseif (isset($_POST['publi']) && isset($_GET['idchapter']))
+        {
+            $manager->updateChapter($chapter, $_GET['idchapter'], 2);
+            header('Location:' . HOST . 'confirmation_addchapter.php');
+    
+        }
     }
+    
+    
     
     include(VIEW . 'header.php');
     if (isset($_GET['idchapter']) && isset($_GET['modif']))
     {
-        var_dump($_GET['idchapter']);
         $chapter = $manager->chapter_selected($_GET['idchapter']);
+        $titre  = "Modifier un chapitre";
         include(VIEW . 'modifychapter.php');
     } else {
+        $titre = "Ajouter un chapitre";
         include(VIEW . 'addchapter.php');
     }
     include(VIEW. 'footer.php');

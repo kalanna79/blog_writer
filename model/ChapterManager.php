@@ -80,6 +80,23 @@ NULL, :resume, NOW(), :userid, 2)');
         
             $chapter->hydrate(['id' => $this->_db->lastInsertId()]);
         }
+        
+        public function updateChapter(Chapter $chapter, $getId, $publicationId)
+        {
+            $q = $this->_db->prepare('UPDATE chapter SET title = :title, img = NULL, texte = :texte, date_modified = NOW(), resume = :resume, datecreated =
+ :datecreated, userid = 1, publicationid = :publicationid WHERE id ='.$getId);
+            $q->bindValue(':title', $chapter->getTitle(), PDO::PARAM_STR);
+            $q->bindValue(':texte', $chapter->getTexte(), PDO::PARAM_STR);
+            $q->bindValue(':resume', $chapter->getResume(), PDO::PARAM_STR);
+            $q->bindValue(':datecreated', $chapter->getDatecreated());
+            $q->bindValue(':publicationid', $publicationId, PDO::PARAM_INT);
+            $q->execute();
+        }
+        
+        public function deleteChapter($getId)
+        {
+            $this->_db->exec('DELETE FROM chapter WHERE id=' . $getId);
+        }
     }
    
     

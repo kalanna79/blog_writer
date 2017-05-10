@@ -19,6 +19,11 @@
     $chapters = $chaptermanager->allChapters(); //allows to show all chapters
     $publies = $chaptermanager->Tab_matieres();
     
+    if (isset($_GET['idchapter']) && $_GET['action'] == 'suppr')
+    {
+        $chaptermanager->deleteChapter($_GET['idchapter']);
+        header('Location:'. HOST . "indexadmin.php");
+    }
     
     include(ROOT . 'view/header.php');
     include(VIEW . 'indexadmin.php');
