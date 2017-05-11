@@ -40,7 +40,7 @@
         $user = $manager->verifUser($_POST['pseudo'], $_POST['password']);
         $sess = new Session($user);
         $_SESSION['id'] = $user["idUser"];
-        $_SESSION['pseudo'] = $sess->getPseudo();
+        $_SESSION['pseudo'] = $sess->getUserPseudo($_SESSION['id']);
     
         if ($_SESSION['id'] == 1) {
             header('Location:'.HOST.'indexadmin.php?id='.$_SESSION['id']);

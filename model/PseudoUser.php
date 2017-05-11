@@ -7,15 +7,11 @@
      */
     trait PseudoUser
     {
-        public function getUser()
+        public function getUserPseudo($userId)
         {
             $manager = new UserManager();
-            $user = $manager->getUserById($this->getUserId());
+            $user = $manager->getUserById($userId)->getPseudo();
             return $user;
         }
-    
-        public function getUserPseudo()
-        {
-            return $this->getUser()->getPseudo();
-        }
+        
     }

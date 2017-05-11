@@ -20,6 +20,7 @@
         protected $_page;
     
         use ConstructHydratable;
+        use PseudoUser;
     
         /**
          * @param mixed $idUser
