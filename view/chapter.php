@@ -47,7 +47,7 @@
     
     <div class="row">
         <div class="page">
-			<div><?php print_r($chapter->pagination()); ?></pre></div>
+			<div><?php echo $pagination; ?></pre></div>
         </div>
 	</div>
 	
