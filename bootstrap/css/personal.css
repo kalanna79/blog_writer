@@ -1,12 +1,16 @@
 /* conteneurs */
-
+html {
+    height: 100%;
+}
 body {
     margin: 0px;
     padding: 0px;
+    min-height: 100%;
  /*  background-image: url("../../img/denali.jpg");
     background-size: cover;
     -webkit-background-size: cover;*/
 }
+
 
 .container {
     padding-right: 15px;
@@ -53,6 +57,14 @@ body {
     position: relative;
 }
 
+.content {
+    min-height: calc(80vh - 30px);
+}
+
+.footer{
+    height: 30px;
+}
+
 .colonne {
     column-count: 2;
     margin-top: 10px;
@@ -72,7 +84,14 @@ body {
     margin-right: auto;
     margin-left: auto;
     text-align: center;
-    padding-top: 15px;}
+    padding-top: 15px;
+}
+
+.message {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+}
 
 /* navigation in chapter */
 

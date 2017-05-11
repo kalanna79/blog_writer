@@ -2,10 +2,11 @@
 <html>
     <div>
                 <h3>Me contacter</h3>
-                <form>
+                <form action="" method="post">
                     <input type="text" placeholder="Prénom" name="prenom">
                     <input type="text" placeholder="Nom" name="nom"><br>
                     <input type="email" placeholder="Votre mail" name="mail"><br>
+					<input type="text" placeholder="Sujet" name="sujet"><br>
                     <textarea name="message" placeholder="Votre message" rows="5"></textarea><br>
                     <input type="submit" name="envoyer" value="Envoyer">
                 </form>

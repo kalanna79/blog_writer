@@ -29,7 +29,7 @@
 					<a href="<?php echo HOST .'inscription.php';?>" class="fa fa-user-plus fa-lg btn-lg valign" title="s'inscrire"></a>
 					<a href="<?php echo HOST . 'inscription.php';?>" class="fa fa-sign-in fa-lg btn-lg valign" title="Se connecter"></a>
 				<?php };?>
-				<a href="#" class="fa fa-envelope-o fa-lg btn-lg valign" title="Contact"></a>
+				<a href="<?php echo HOST . 'contact.php';?>" class="fa fa-envelope-o fa-lg btn-lg valign" title="Contact"></a>
 			</div>
 		</div>
 		<div class="row back-img">

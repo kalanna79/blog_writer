@@ -1,4 +1,4 @@
-<section class="col-xs-12 col-md-12 principal">
+<section class="col-xs-12 col-md-12 principal content">
     <!-- Titre -->
     <div class="row titre">
         <div class="col-xs-12 col-md-offset-2 col-md-8">
