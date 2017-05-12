@@ -156,7 +156,7 @@
          * @param $texte = le texte à paginer
          *               affiche les numéros de pages avec lien vers la partie de texte
          */
-        public function pagination($nb_car = 4000)
+        public function pagination($idChapter, $nb_car = 4000)
         {
             $getTexte = $this->_texte;
             $pages = " ";
@@ -166,17 +166,16 @@
             foreach ($pager as $key => $single) { // pour chaque ligne, on ajoute 1 pour afficher le numéro de page et on
                 // met le lien pour accéder aux différentes pages
                 $page = $key += 1;
-                $pages .= '<a href=?idchapter=' . $_GET['idchapter'] . '&page=' . $key . '> ' . $page . ' </a>';
+                $pages .= '<a href=?idchapter=' . $idChapter . '&page=' . $key . '> ' . $page . ' </a>';
             }
             return $pages;
         }
         
-        public function UserPagination()
+        public function UserPagination($userid, $idChapter, $idpage)
         {
-            $this->pagination();
-            var_dump($this->pagination());
+            $this->pagination($userid);
             $manager = new UserManager();
-            $update = $manager->activeRead($_SESSION['id'], $_GET['idchapter'], $_GET['page']);
+            $update = $manager->activeRead($userid, $idChapter, $idpage);
             return $update;
         }
         
