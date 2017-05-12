@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04051164-c975-4001-8efd-681a808cff3f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/chapter.php" afterPath="$PROJECT_DIR$/controller/chapter.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/ModerationManager.php" afterPath="$PROJECT_DIR$/model/ModerationManager.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/currentcomment.php" afterPath="$PROJECT_DIR$/view/currentcomment.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -128,11 +125,13 @@
       <file leaf-file-name="ModerationManager.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/model/ModerationManager.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="28" column="4" lean-forward="true" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
+            <state relative-caret-position="645">
+              <caret line="41" column="5" lean-forward="false" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
               <folding>
                 <element signature="e#10#113#0#PHP" expanded="true" />
-                <marker date="1494583071000" expanded="true" signature="282:448" ph="INSERT INTO moderation... " />
+                <marker date="1494583795000" expanded="true" signature="282:448" ph="INSERT INTO moderation... " />
+                <marker date="1494583795000" expanded="true" signature="983:1007" ph="SELECT * FRO... moderation" />
+                <marker date="1494583795000" expanded="true" signature="1340:1513" ph="UPDATE moder... " />
               </folding>
             </state>
           </provider>
@@ -151,11 +150,11 @@
       <file leaf-file-name="currentcomment.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view/currentcomment.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
+            <state relative-caret-position="210">
               <caret line="14" column="243" lean-forward="false" selection-start-line="14" selection-start-column="243" selection-end-line="14" selection-end-column="243" />
               <folding>
-                <marker date="1494580963000" expanded="true" signature="977:1341" ph="..." />
-                <marker date="1494580963000" expanded="true" signature="1034:1326" ph="..." />
+                <marker date="1494583781000" expanded="true" signature="977:1341" ph="..." />
+                <marker date="1494583781000" expanded="true" signature="1034:1326" ph="..." />
               </folding>
             </state>
           </provider>
@@ -488,12 +487,12 @@
       <workItem from="1492158151474" duration="7863000" />
       <workItem from="1492544366252" duration="236397000" />
       <workItem from="1494256995036" duration="34432000" />
-      <workItem from="1494580338001" duration="2869000" />
+      <workItem from="1494580338001" duration="2951000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="466047000" />
+    <option name="totallyTimeSpent" value="466129000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -910,11 +909,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/view/currentcomment.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
+        <state relative-caret-position="210">
           <caret line="14" column="243" lean-forward="false" selection-start-line="14" selection-start-column="243" selection-end-line="14" selection-end-column="243" />
           <folding>
-            <marker date="1494580963000" expanded="true" signature="977:1341" ph="..." />
-            <marker date="1494580963000" expanded="true" signature="1034:1326" ph="..." />
+            <marker date="1494583781000" expanded="true" signature="977:1341" ph="..." />
+            <marker date="1494583781000" expanded="true" signature="1034:1326" ph="..." />
           </folding>
         </state>
       </provider>
@@ -993,11 +992,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/model/ModerationManager.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="28" column="4" lean-forward="true" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
+        <state relative-caret-position="645">
+          <caret line="41" column="5" lean-forward="false" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
           <folding>
             <element signature="e#10#113#0#PHP" expanded="true" />
-            <marker date="1494583071000" expanded="true" signature="282:448" ph="INSERT INTO moderation... " />
+            <marker date="1494583795000" expanded="true" signature="282:448" ph="INSERT INTO moderation... " />
+            <marker date="1494583795000" expanded="true" signature="983:1007" ph="SELECT * FRO... moderation" />
+            <marker date="1494583795000" expanded="true" signature="1340:1513" ph="UPDATE moder... " />
           </folding>
         </state>
       </provider>
