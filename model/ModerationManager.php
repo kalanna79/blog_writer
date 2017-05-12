@@ -12,7 +12,7 @@
         {
             $q = $this->_db->prepare('INSERT INTO moderation (datecreated, datemodified, message, statusmodif, commentsid, userid) VALUES(:datecreated, 
 NULL, :message, :statusmodif, :commentsid, :userid)');
-            $q->bindValue('datecreated', $moderation->getDatecreated());
+            $q->bindValue('datecreated', date(DATE_W3C));
             $q->bindValue(':message', $moderation->getMessage());
             $q->bindValue(':statusmodif', 1);
             $q->bindValue(':commentsid', $moderation->getCommentsid());
@@ -22,8 +22,7 @@ NULL, :message, :statusmodif, :commentsid, :userid)');
             
             $moderation->hydrate(['id'=>$this->_db->lastInsertId()]);
         }
-        
-        
+    
         public function showModeration()
         {
             $q = $this->_db->query('SELECT * FROM moderation');
@@ -33,6 +32,13 @@ NULL, :message, :statusmodif, :commentsid, :userid)');
             }
             return $moderations;
         }
+    
+        public function updateModeration(Moderation $moderation, $commentsid, $userid)
+        {
+            $q = $this->_db->prepare('UPDATE moderation SET datecreated = :datecreated, datemodified = :datemodified, message = :message, statusmodif= 
+:statusmodif WHERE commentsid='.$commentsid .' AND userid= ' .$userid);
+        
+      
     }
     
     
