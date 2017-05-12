@@ -46,9 +46,7 @@
 				<tr>
 					<th>Modérations</th>
 					<td><ul><?php foreach ($moderations as $moderation) {
-                                echo "<li>Le commentaire " . $moderation->getCommentsid() . " écrit par " .
-									$moderation->getUserPseudo($moderation->getUserid()) .
-									" a été signalé </li>";
+                                include(VIEW . "currentmoderation.php");
                             }
                                 ;?>
 						</ul>

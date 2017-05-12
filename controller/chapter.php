@@ -16,7 +16,11 @@
     $ModerationManager = new ModerationManager();
     
     $manager = new ChapterManager();
-    if (isset($_GET['idchapter'])) {
+    
+    //-------- VIEW CHAPTER -------------
+    
+    if (isset($_GET['idchapter']))
+    {
     	$chapter = $manager->Chapter_selected($_GET['idchapter']);
         $pagination = $chapter->pagination($_GET['idchapter']);
     }
@@ -27,6 +31,10 @@
         $UserManager->activeRead($_SESSION['id'], $_GET['idchapter'], $_GET['page']);
     }
     
+    
+    //-------- VIEW COMMENTS ---------------
+    
+        // ------ add a comment -------
     
     if (isset($_POST['submitcomment']))
     {
@@ -45,6 +53,7 @@
         echo "</script>";
     }}
     
+        // ------ add an answer to a comment -------
     if (isset($_POST['submitreponse']))
     {
         if (isset($_SESSION['id'])) {
@@ -65,6 +74,8 @@
             echo "</script>";
         }}
         
+        //----- add an alert for a comment -----------
+    
         if (isset($_GET['signaler']))
         {
             $date = getdate();
@@ -76,7 +87,12 @@
                 'commentsid' => $_GET['comment'],
                 'userid' => $_GET['user']
                                          ]);
-            $ModerationManager->addModeration($moderation);
+            if ($ModerationManager->IsModered($_GET['comment'], $_GET['user']) == FALSE)
+            {
+                $ModerationManager->addModeration($moderation);
+            } else {
+                echo "vous avez déjà signalé ce commentaire";
+            }
         }
     
     include(ROOT . 'view/header.php');

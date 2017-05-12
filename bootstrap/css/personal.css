@@ -167,7 +167,7 @@ body {
 }
 
 .showComment {
-    display: none;
+  /*  display: none;*/
 }
 
 .comments {

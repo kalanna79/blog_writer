@@ -26,9 +26,9 @@ $('.showForm').click(function() {
 });
 
 //toggle comments in chapter view
-$('#comment').click(function() {
+/*$('#comment').click(function() {
     $('.showComment').toggle();
-});
+});*/
 
 
 //hide response button for level 2 comments

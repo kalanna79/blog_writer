@@ -35,10 +35,31 @@ NULL, :message, :statusmodif, :commentsid, :userid)');
     
         public function updateModeration(Moderation $moderation, $commentsid, $userid)
         {
-            $q = $this->_db->prepare('UPDATE moderation SET datecreated = :datecreated, datemodified = :datemodified, message = :message, statusmodif= 
-:statusmodif WHERE commentsid=' . $commentsid . ' AND userid= ' . $userid);
+            $this->_db->exec('UPDATE moderation SET datemodified = :datemodified, message = :message, statusmodif= 
+:statusmodif WHERE commentsid= :commentsid AND userid= :userid');
+        }
         
+        public function IsModered($commentsid, $userid)
+        {
+            $q = $this->_db->prepare('SELECT commentsid, userid FROM moderation WHERE commentsid= :commentsid AND userid= :userid');
+            $q->execute(array('commentsid' => $commentsid, 'userid' =>$userid));
+            $resultat = $q->fetch();
+                
+            if (empty($resultat))
+            {
+                return false;
+            } else {
+                return true;
+            }
+        }
         
+        public function isInchapter($commentsid)
+        {
+            $q = $this->_db->prepare('SELECT comments.idChapter FROM comments, moderation WHERE comments.id = moderation.commentsid AND comments.id= :commentsid');
+            $q->bindParam(':commentsid', $commentsid);
+            $resultat = $q->execute();
+            
+            return $resultat;
         }
     }
     
