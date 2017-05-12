@@ -8,22 +8,16 @@
     class Session
     {
         protected $_pseudo;
+        protected $_pwd;
         protected $_chaptertitle;
         protected $_pageid;
         protected $_comment;
         protected $_reponse;
         protected $_moderationid;
+        protected $_role;
         
     
-        /**
-         * @return mixed
-         */
-        public function getPseudo()
-        {
-            $manager = new UserManager();
-            $user = $manager->getUserById($_SESSION['id'])->getPseudo();
-            return $user;
-        }
+       use PseudoUser;
     
         /**
          * @return mixed
@@ -36,10 +30,10 @@
             return $title;
         }
     
-        public function getChapterId()
+        public function getChapterId($UserId)
         {
             $manager = new ChapterManager();
-            $chapter = $manager->userRead($_SESSION['id']);
+            $chapter = $manager->userRead($UserId);
             $title = $chapter->getId();
             return $title;
         }

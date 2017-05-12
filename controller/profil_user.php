@@ -14,7 +14,7 @@
     
     $sess = new Session();
     $_SESSION['id'] = $user->getIdUser();
-    $_SESSION['pseudo'] = $sess->getPseudo();
+    $_SESSION['pseudo'] = $user->getUserPseudo($user->getIdUser());
     
     $users = $manager->AllUsers();
     

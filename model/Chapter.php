@@ -18,25 +18,7 @@
         protected $_publicationid;
         
         
-        public function __construct($donnees)
-        {
-            if (!empty($donnees))
-            {
-                return $this->hydrate($donnees);
-            }
-        }
-    
-        public function hydrate(array $donnees)
-        {
-            foreach ($donnees as $key=>$value)
-            {
-                $method = 'set' . ucfirst($key);
-                if (method_exists($this, $method))
-                {
-                    $this->$method($value);
-                }
-            }
-        }
+        use ConstructHydratable;
     
     
         //liste des getters
@@ -143,18 +125,6 @@
             $this->_publicationid = $publicationid;
         }
         
-        
-    public function getUser()
-    {
-        $manager = new UserManager();
-        $user = $manager->getUserById($this->getUserId());
-        return $user;
-    }
-    
-    public function getUserName()
-    {
-        return $this->getUser()->getName();
-    }
         /**
          * @param $texte = texte du chapitre
          * @return mixed = texte de la page visée selon le numéro
@@ -228,4 +198,6 @@
             $excerpt = $excerpt.$etc;
             return $excerpt;
         }
+        
+        use PseudoUser;
     }

@@ -42,6 +42,17 @@
 						</ul>
 					</td>
 				</tr>
+				<tr>
+					<th>Modérations</th>
+					<td><ul><?php foreach ($moderations as $moderation) {
+                                echo "<li>Le commentaire " . $moderation->getCommentsid() . " écrit par " .
+									$moderation->getUserPseudo() .
+									" a été signalé </li>";
+                            }
+                                ;?>
+						</ul>
+					</td>
+				</tr>
 		
 			</table>
 		</div>
