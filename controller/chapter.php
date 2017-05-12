@@ -18,8 +18,14 @@
     $manager = new ChapterManager();
     if (isset($_GET['idchapter'])) {
     	$chapter = $manager->Chapter_selected($_GET['idchapter']);
-    	
 	}
+    
+    $pagination = $chapter->pagination();
+    
+    if (isset($_SESSION['id']))
+    {
+        $UserManager->activeRead($_SESSION['id'], $_GET['idchapter'], $_GET['page']);
+    }
     
     
     if (isset($_POST['submitcomment']))

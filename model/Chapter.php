@@ -159,18 +159,27 @@
         public function pagination($nb_car = 4000)
         {
             $getTexte = $this->_texte;
+            $pages = " ";
             $part = wordwrap($getTexte, $nb_car, '\n'); // on coupe le texte au mot le plus proche de 4000 car ou de $nb_car
             // et on ajoute \n
             $pager = explode('\n', $part); // on transforme le texte en array avec \n qui sert de séparateur
             foreach ($pager as $key => $single) { // pour chaque ligne, on ajoute 1 pour afficher le numéro de page et on
                 // met le lien pour accéder aux différentes pages
                 $page = $key += 1;
-                echo $page = '<a href=?idchapter=' . $_GET['idchapter'] . '&page=' . $key . '> ' . $page . ' </a>';
-                $manager = new UserManager();
-                $update = $manager->activeRead($_SESSION['id'], $_GET['idchapter'], $_GET['page']);
-                print_r($update);
+                $pages .= '<a href=?idchapter=' . $_GET['idchapter'] . '&page=' . $key . '> ' . $page . ' </a>';
             }
+            return $pages;
         }
+        
+        public function UserPagination()
+        {
+            $this->pagination();
+            var_dump($this->pagination());
+            $manager = new UserManager();
+            $update = $manager->activeRead($_SESSION['id'], $_GET['idchapter'], $_GET['page']);
+            return $update;
+        }
+        
     
     
         /**
