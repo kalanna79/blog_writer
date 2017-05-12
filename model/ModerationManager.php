@@ -17,28 +17,29 @@ NULL, :message, :statusmodif, :commentsid, :userid)');
             $q->bindValue(':statusmodif', 1);
             $q->bindValue(':commentsid', $moderation->getCommentsid());
             $q->bindValue(':userid', $moderation->getUserid());
-            
+        
             $q->execute();
-            
-            $moderation->hydrate(['id'=>$this->_db->lastInsertId()]);
+        
+            $moderation->hydrate(['id' => $this->_db->lastInsertId()]);
         }
     
         public function showModeration()
         {
             $q = $this->_db->query('SELECT * FROM moderation');
-            while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
-            {
+            while ($donnees = $q->fetch(PDO::FETCH_ASSOC)) {
                 $moderations[] = new Moderation($donnees);
             }
+        
             return $moderations;
         }
     
         public function updateModeration(Moderation $moderation, $commentsid, $userid)
         {
             $q = $this->_db->prepare('UPDATE moderation SET datecreated = :datecreated, datemodified = :datemodified, message = :message, statusmodif= 
-:statusmodif WHERE commentsid='.$commentsid .' AND userid= ' .$userid);
+:statusmodif WHERE commentsid=' . $commentsid . ' AND userid= ' . $userid);
         
-      
+        
+        }
     }
     
     

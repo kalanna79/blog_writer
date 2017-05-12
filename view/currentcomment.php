@@ -1,7 +1,7 @@
 <div class="panel panel-default level-<?php echo $comment->getLevelComment();?>">
     <div class="panel-heading">
         <span class="pseudo">
-            <?php echo $comment->getUserPseudo(); ?>
+            <?php echo $comment->getUserPseudo($comment->getIdUser()); ?>
         </span>
         <span class="title">
             <?php echo $comment->getTitle(); ?>

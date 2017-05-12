@@ -18,7 +18,7 @@
     $manager = new ChapterManager();
     if (isset($_GET['idchapter'])) {
     	$chapter = $manager->Chapter_selected($_GET['idchapter']);
-        $pagination = $chapter->pagination();
+        $pagination = $chapter->pagination($_GET['idchapter']);
     }
     
     

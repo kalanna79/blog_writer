@@ -36,7 +36,8 @@
 				<tr>
 					<th>Les derniers commentaires</th>
 					<td><ul><?php foreach ($lastcomments as $comment) {
-                                echo "<li>" . $comment->getUserPseudo() . " a écrit : " . $comment->getTexte() . "</li>";
+                                echo "<li>" . $comment->getUserPseudo($comment->getIdUser()) . " a écrit : " .
+									$comment->getTexte() . "</li>";
                             }
                                 ;?>
 						</ul>
@@ -46,7 +47,7 @@
 					<th>Modérations</th>
 					<td><ul><?php foreach ($moderations as $moderation) {
                                 echo "<li>Le commentaire " . $moderation->getCommentsid() . " écrit par " .
-									$moderation->getUserPseudo() .
+									$moderation->getUserPseudo($moderation->getUserid()) .
 									" a été signalé </li>";
                             }
                                 ;?>
