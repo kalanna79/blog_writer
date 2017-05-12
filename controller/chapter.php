@@ -18,9 +18,9 @@
     $manager = new ChapterManager();
     if (isset($_GET['idchapter'])) {
     	$chapter = $manager->Chapter_selected($_GET['idchapter']);
-	}
+        $pagination = $chapter->pagination();
+    }
     
-    $pagination = $chapter->pagination();
     
     if (isset($_SESSION['id']))
     {
@@ -67,17 +67,17 @@
         
         if (isset($_GET['signaler']))
         {
-            $date = new DateTime();
+            $date = getdate();
+            $date = $date['mday'] . "/" . $date['mon'] . "/" . $date['year'];
             
             $moderation = new Moderation([
-                'datecreated' => $date->getTimestamp(),
+                'datecreated' => $date,
                 'message' => 'signale',
                 'commentsid' => $_GET['comment'],
                 'userid' => $_GET['user']
                                          ]);
             $ModerationManager->addModeration($moderation);
         }
-    
     
     include(ROOT . 'view/header.php');
   	include(VIEW . 'chapter.php');

@@ -12,7 +12,7 @@
         {
             $q = $this->_db->prepare('INSERT INTO moderation (datecreated, datemodified, message, statusmodif, commentsid, userid) VALUES(:datecreated, 
 NULL, :message, :statusmodif, :commentsid, :userid)');
-            $q->bindValue('datecreated', $moderation->getDatecreated());
+            $q->bindValue('datecreated', date(DATE_W3C));
             $q->bindValue(':message', $moderation->getMessage());
             $q->bindValue(':statusmodif', 1);
             $q->bindValue(':commentsid', $moderation->getCommentsid());
