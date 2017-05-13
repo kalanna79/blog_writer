@@ -65,7 +65,14 @@
                 }
                 return $children;
         }
-    
         
+        public function showOneComment($idcomment)
+        {
+            $idcomment = (int)$idcomment;
+            $q = $this->_db->prepare('SELECT * FROM comments WHERE id=?');
+            $q->execute(array($idcomment));
+            $oneComment = $q->fetch(PDO::FETCH_ASSOC);
+            return new Comment($oneComment);
+        }
         
     }

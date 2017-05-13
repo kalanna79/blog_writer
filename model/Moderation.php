@@ -11,7 +11,7 @@
         protected $_datecreated;
         protected $_datemodified;
         protected $_message;
-        protected $_statusmodid;
+        protected $_statusmodif;
         protected $_commentsid;
         protected $_userid;
     
@@ -53,9 +53,9 @@
         /**
          * @return mixed
          */
-        public function getStatusmodid()
+        public function getStatusmodif()
         {
-            return $this->_statusmodid;
+            return $this->_statusmodif;
         }
         /**
          * @return mixed
@@ -108,9 +108,9 @@
         /**
          * @param mixed $statusmodid
          */
-        public function setStatusmodid($statusmodid)
+        public function setStatusmodif($statusmodif)
         {
-            $this->_statusmodid = $statusmodid;
+            $this->_statusmodid = $statusmodif;
         }
     
         /**

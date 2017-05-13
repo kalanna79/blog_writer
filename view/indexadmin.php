@@ -46,6 +46,8 @@
 				<tr>
 					<th>Modérations</th>
 					<td><ul><?php foreach ($moderations as $moderation) {
+                                $mode = $moderationmanager->ShowOneModeration($moderation->getCommentsid());
+                                var_dump($mode);
                                 include(VIEW . "currentmoderation.php");
                             }
                                 ;?>

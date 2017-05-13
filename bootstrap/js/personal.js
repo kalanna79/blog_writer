@@ -22,13 +22,24 @@ $('.showButton').ready(function() {
 $('.showForm').click(function() {
     var nb = $(this).attr('id');
     $('#rep-'+nb).show();
-
 });
 
 //toggle comments in chapter view
-/*$('#comment').click(function() {
+/* si dans l'adresse, il y a une ancre, montre la div et va à l'ancre, sinon si clic, ouvre la div */
+$('.showComment').hide();
+$('comment').click(function() {
     $('.showComment').toggle();
-});*/
+});
+
+//show comment's text that is moderated
+$('.mod-comment').hide();
+$('.showModeration').click(function() {
+    var nb = $(this).attr('id');
+    console.log(nb);
+    $('.mod-comment').hide();
+    $('#txt-'+nb).show();
+
+});
 
 
 //hide response button for level 2 comments
