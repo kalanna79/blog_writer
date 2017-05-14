@@ -7,6 +7,9 @@
      */
     class CommentManager extends BddManager
     {
+        /** show all comments
+         * @return array -> array of objects
+         */
         public function showAllComments()
         {
             $comments = array();
@@ -19,6 +22,9 @@
             return $comments;
         }
     
+        /** show the five last comments
+         * @return array -> array of objects
+         */
         public function showLastComments()
         {
             $comments = array();
@@ -30,9 +36,10 @@
             }
             return $comments;
         }
-        
-        
-        
+    
+        /** add a comment
+         * @param Comment $comment
+         */
         public function addComment(Comment $comment)
         {
             $q = $this->_db->prepare('INSERT INTO comments (title, texte, datecreated, idUser, idchapter, parentId, levelcomment) VALUES(:title, :texte, NOW(), 
@@ -50,9 +57,9 @@
                               ]);
         }
         
-        /**
+        /** allow to return all children of one comment - use in recursive function
          * @param $id
-         * @return array
+         * @return array - array of objects
          */
         public function getChildren($id)
         {
@@ -65,7 +72,11 @@
                 }
                 return $children;
         }
-        
+    
+        /** allow to show one comment selected
+         * @param $idcomment
+         * @return Comment
+         */
         public function showOneComment($idcomment)
         {
             $idcomment = (int)$idcomment;
@@ -73,6 +84,24 @@
             $q->execute(array($idcomment));
             $oneComment = $q->fetch(PDO::FETCH_ASSOC);
             return new Comment($oneComment);
+        }
+    
+        /** allow to see if a comment is signaled
+         * @param $idcomment
+         * @return bool
+         */
+        public function hasModeration($idcomment)
+        {
+            $q = $this->_db->prepare('SELECT id FROM comments WHERE id= :id AND isSignaled > 0');
+            $q->execute(array('id' => $idcomment));
+            $resultat = $q->fetch();
+    
+            if (empty($resultat))
+            {
+                return false;
+            } else {
+                return true;
+            }
         }
         
     }

@@ -11,7 +11,7 @@
         protected $_datecreated;
         protected $_datemodified;
         protected $_message;
-        protected $_statusmodif;
+        protected $_statusmodid;
         protected $_commentsid;
         protected $_userid;
     
@@ -55,7 +55,7 @@
          */
         public function getStatusmodif()
         {
-            return $this->_statusmodif;
+            return $this->_statusmodid;
         }
         /**
          * @return mixed

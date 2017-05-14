@@ -44,14 +44,26 @@ NULL, :message, :statusmodif, :commentsid, :userid)');
             }
         
     
-        public function updateModeration($statusmodif, $id)
+        public function updateModeration($statusmodif, $commentsid)
         {
             $q = $this->_db->prepare('UPDATE moderation SET datemodified = :datemodified, statusmodif= 
-:statusmodif WHERE id= :id');
+:statusmodif WHERE commentsid=' .$commentsid);
             $q->bindValue(':datemodified', date(DATE_W3C));
             $q->bindValue(':statusmodif', $statusmodif);
-            $q->bindValue(':id', $id);
             $q->execute();
+        }
+        
+        public function updateSignaled($commentsid, $idUser)
+        {
+            $this->_db->exec('UPDATE comments SET hasSignaled = hasSignaled+1, isSignaled = 1 WHERE id='.$commentsid);
+            $this->_db->exec('UPDATE user SET signaled = signaled+1 WHERE idUser='.$idUser);
+        }
+    
+        public function deleteModeration($getId)
+        {
+            $this->_db->exec('DELETE FROM moderation WHERE id=' . $getId);
+            $this->_db->exec('UPDATE comments SET isSignaled = 0 WHERE id='.$getId);
+    
         }
         
         public function IsModered($commentsid, $userid)

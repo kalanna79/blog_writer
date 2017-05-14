@@ -8,8 +8,16 @@
         </span><br>
         <abbr> <?php echo $comment->getDateCreated(); ?>
     </div>
-    <div class="panel-body">
-<?php echo $comment->getTexte(); ?>
+    <div class="panel-body"">
+<?php
+	$ModerationManager = new ModerationManager();
+    if ($ModerationManager->ShowOneModeration($comment->getId())->getStatusmodif() == 2)
+    {
+       echo "** Commentaire modéré **";
+    } else {
+        echo $comment->getTexte();
+	}
+	 ;?>
     </div>
     <div class="panel-footer level<?php echo $comment->getLevelComment();?>">
 		<a href="#reponse" class="showForm alevel<?php echo $comment->getLevelComment();?> " id="comment-<?php echo $comment->getId(); ?>"> Répondre -

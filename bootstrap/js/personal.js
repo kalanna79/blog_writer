@@ -26,7 +26,6 @@ $('.showForm').click(function() {
 
 //toggle comments in chapter view
 /* si dans l'adresse, il y a une ancre, montre la div et va à l'ancre, sinon si clic, ouvre la div */
-$('.showComment').hide();
 $('comment').click(function() {
     $('.showComment').toggle();
 });
@@ -67,6 +66,7 @@ if ($('.level2')) {
 
 // move the alert box in the page inscription
  $('#inscription').append($('#alert'));
+
 
 tinymce.init({
     selector: '.chapitre',

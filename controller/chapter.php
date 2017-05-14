@@ -14,6 +14,8 @@
     $users = $UserManager->allUsers();
     
     $ModerationManager = new ModerationManager();
+    $moderations = $ModerationManager->showModeration();
+    
     
     $manager = new ChapterManager();
     
@@ -87,13 +89,20 @@
                 'commentsid' => $_GET['comment'],
                 'userid' => $_GET['user']
                                          ]);
-            if ($ModerationManager->IsModered($_GET['comment'], $_GET['user']) == FALSE)
+            if ($CommentManager->hasModeration($_GET['comment']) == FALSE)
             {
                 $ModerationManager->addModeration($moderation);
+                $ModerationManager->updateSignaled($_GET['comment'], $_GET['user']);
             } else {
+                $ModerationManager->updateSignaled($_GET['comment'], $_GET['user']);
                 echo "vous avez déjà signalé ce commentaire";
             }
+            
+            // si hasSignaled > 0, remplacer texte comment par "texte modéré",
+            
         }
+        
+        
     
     include(ROOT . 'view/header.php');
   	include(VIEW . 'chapter.php');

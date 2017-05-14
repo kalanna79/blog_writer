@@ -29,6 +29,20 @@
         header('Location:'. HOST . "indexadmin.php");
     }
     
+    if (isset($_GET['trashcomment']))
+    {
+        $moderationmanager->updateModeration(2,$_GET['trashcomment']);
+        str_replace("signalé", "modéré", "a été signalé");
+        header('Location:'. HOST . "indexadmin.php");
+    }
+    
+    if (isset($_GET['commentOK']))
+    {
+        $moderationmanager->deleteModeration($_GET['commentOK']);
+        header('Location:'. HOST . "indexadmin.php");
+    
+    }
+    
     include(ROOT . 'view/header.php');
     include(VIEW . 'indexadmin.php');
     include(VIEW . 'footer.php');
