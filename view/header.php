@@ -22,6 +22,7 @@
 				<a href="#" class="fa fa-pinterest-square fa-lg btn-md valign"></a>
 			</div>
 			<div class="col-xs-6 col-md-6 icon-menu">
+				<a href="<?php echo HOST .'index.php';?>" class="fa fa-home fa-lg btn-lg valign" title="Accueil"></a>
                 <?php if (isset($_SESSION['id'])) { ;?>
 						<span> Bonjour <a href="profil_user.php?user="<?php echo $_SESSION['id'];?>> <?php echo $_SESSION['pseudo'];?></a></span>
 						<a href="<?php echo HOST.'index.php?deconnexion';?>" class="fa fa-sign-out fa-lg btn-lg valign" title="Se déconnecter"></a>
