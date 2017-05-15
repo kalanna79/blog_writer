@@ -23,6 +23,7 @@
     $chapters = $chaptermanager->allChapters(); //allows to show all chapters
     $publies = $chaptermanager->Tab_matieres();
     
+    
     if (isset($_GET['idchapter']) && $_GET['action'] == 'suppr')
     {
         $chaptermanager->deleteChapter($_GET['idchapter']);
@@ -32,7 +33,7 @@
     if (isset($_GET['trashcomment']))
     {
         $moderationmanager->updateModeration(2,$_GET['trashcomment']);
-        str_replace("signalé", "modéré", "a été signalé");
+        repl($string);
         header('Location:'. HOST . "indexadmin.php");
     }
     

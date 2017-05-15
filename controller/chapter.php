@@ -97,9 +97,6 @@
                 $ModerationManager->updateSignaled($_GET['comment'], $_GET['user']);
                 echo "vous avez déjà signalé ce commentaire";
             }
-            
-            // si hasSignaled > 0, remplacer texte comment par "texte modéré",
-            
         }
         
         
