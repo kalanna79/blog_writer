@@ -45,3 +45,13 @@ Appeler récursivement la fonction en lui passant le tableau d'enfants et en inc
         }
         return $sform;
     }
+    
+    /**
+     *
+     * @var $string
+     */
+    $string = " a été signalé";
+    function repl($string)
+    {
+        return str_replace("signalé", "modéré", $string);
+    }
