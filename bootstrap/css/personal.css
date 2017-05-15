@@ -204,7 +204,118 @@ body {
     font-size: small;
 }
 
+/* index admin */
+.index-back-end .info-group .info-box-container {
+    padding: 0 10px;
+    width: 50%;
+    height: 100%;
+}
 
+.info-box {
+    background: #fff none repeat scroll 0 0;
+    border-radius: 2px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+    display: block;
+    margin-bottom: 15px;
+    min-height: 10vh;
+    height: 100%;
+    width: 100%;
+}
+
+.info-icon {
+    background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0;
+    border-radius: 2px 0 0 2px;
+    display: block;
+    text-align: center;
+    width: 90px;
+    font-size: 30px;
+    height: 100%;
+    position: relative;
+
+
+}
+
+.info-box-icon {
+    background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0;
+    border-radius: 2px 0 0 2px;
+    display: block;
+    float: left;
+    font-size: 30px;
+    height: 100%;
+    line-height: 90px;
+    text-align: center;
+    width: 90px;
+}
+
+.info-box-content {
+    margin-left: 90px;
+    padding: 20px 10px;
+    text-align: center;
+}
+
+.info-box-content > .element {
+    text-align: left;
+}
+
+.info-box-number {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.info-box-text {
+    display: block;
+    font-size: 13px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.ajout {
+    text-align: center;
+    padding: 35px;
+}
+.bg-emerald {
+    background-color: #2ecc71;
+    color: #fff;
+}
+
+.bg-aqua {
+    background-color: #00c0ef;
+    color: #fff;
+}
+
+.bg-turquoise {
+    background-color: #BADA55;
+    color: #fff;
+}
+
+.bg-bezin {
+    background-color: #2980b9;
+    color: #fff;
+}
+
+.bg-sun {
+    background-color: #f1c40f;
+    color: #ffffff;
+}
+
+.bg-river {
+    background-color: #81CFE0;
+    color: #ffffff;
+}
+
+.part {
+    background-color: transparent;
+}
+
+.partxt {
+    background-color: #fff;
+}
+
+
+/* footer */
 footer {
     width: 100%;
     text-align: center;
