@@ -44,7 +44,7 @@
                 
 		<div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 showButton" id="chap<?php echo $chapter->getId();?>">
 			<div class="row chap-box-icon">
-				<a href="chapter-num-<?php echo $chapter->getId();?>-p-1"> <strong class="chap">Chap <?php echo $chapter->getId();?></strong></a><br>
+				<a href="../controller/chapter.php?idchapter=<?php echo $chapter->getId();?>&page=1"> <strong class="chap">Chap <?php echo $chapter->getId();?></strong></a><br>
 				<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
 					<abbr>
 						<time><?php echo $chapter->getDatecreated(); ?></time>

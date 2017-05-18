@@ -5,7 +5,7 @@
      * Date: 29/03/2017
      * Time: 07:36
      */
-    //include('config.php');
+    include('../config.php');
     
     $CommentManager = new CommentManager();
     $commentaires = $CommentManager->showAllComments();
@@ -99,6 +99,8 @@
             }
         }
         
+        
+    
     include(ROOT . 'view/header.php');
   	include(VIEW . 'chapter.php');
 	include(VIEW . 'comments.php');
