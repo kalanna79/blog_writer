@@ -1,0 +1,36 @@
+#Options +FollowSymlinks
+RewriteEngine on
+RewriteRule ^index\.html$ /index.php
+
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^.*$ index.php [L]
+RewriteRule ^(.*)?$    index.php?url=$1&$2 [QSA,L]
+
+#RewriteRule ^monsite/chapter-([0-9]+)-([0-9]+).html$ /controller/chapter.php?idchapter=$1&page=$2 [R,L]
+
+
+#--------------------------------------------------
+# Règles de réécriture d'URL :
+#--------------------------------------------------
+
+# Chapter sans numéro de page :
+#RewriteRule ^/chapters/chapter-([0-9]+)-([0-9]+).html$   blogwriter/controller/chapter.php?idchapter=$1&page=$2 [L]
+
+# Article avec numéro de page :
+#RewriteRule ^article-([0-9]+)-([0-9]+)-([0-9]+).html   /articles/article.php?id=$1&page=$2&rubrique=$3 [L]
+#http://localhost/blog_writer/profil_user.php?user=
+
+#http://localhost/blog_writer/controller/index.php?deconnexion
+
+#http://localhost/blog_writer/controller/chapter.php?idchapter=1&page=1
+
+#http://localhost/blog_writer/controller/chapter.php?idchapter=1&page=1&comment=1&user=2&signaler=1
+
+#http://localhost/blog_writer/controller/chapter.php?idchapter=1&page=1&comment=1&user=2&signaler=1#reponse
+
+#http://localhost/blog_writer/controller/addchapter.php?modif=1&id=1&idchapter=1
+
+#http://localhost/blog_writer/controller/indexadmin.php?id=1#mod-comment
+
+#http://localhost/blog_writer/controller/addchapter.php?id=1
