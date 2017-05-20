@@ -5,14 +5,8 @@
      * Date: 05/05/2017
      * Time: 12:12
      */
-    include('../config.php');
-    
-    $_SESSION['id'] = $_GET['id'];
-    $sess = new Session();
     
     $manager = new ChapterManager();
-    
-    
     
     
     if (isset($_POST['ajout']) || isset($_POST['publication']) || isset($_POST['modif']) || isset($_POST['publi']))
@@ -28,25 +22,23 @@
         } elseif (isset($_POST['publication']))
         {
             $manager->publiChapter($chapter);
-        } elseif (isset($_POST['modif']) && isset($_GET['idchapter']))
+        } elseif (isset($_POST['modif']) && isset($idC))
         {
-        $manager->updateChapter($chapter, $_GET['idchapter'], 1);
-        header('Location:' . HOST . 'confirmation_addchapter.php');
+        $manager->updateChapter($chapter, $idC, 1);
+        header('Location:confirmation_addchapter.php');
     
-        } elseif (isset($_POST['publi']) && isset($_GET['idchapter']))
+        } elseif (isset($_POST['publi']) && isset($idC))
         {
-            $manager->updateChapter($chapter, $_GET['idchapter'], 2);
-            header('Location:' . HOST . 'confirmation_addchapter.php');
-    
+            $manager->updateChapter($chapter, $idC, 2);
+            header('Location:confirmation_addchapter.php');
         }
     }
     
-    
-    
     include(VIEW . 'header.php');
-    if (isset($_GET['idchapter']) && isset($_GET['modif']))
+    if (isset($idC))
     {
-        $chapter = $manager->chapter_selected($_GET['idchapter']);
+        var_dump($idC);
+        $chapter = $manager->chapter_selected($idC);
         $titre  = "Modifier un chapitre";
         include(VIEW . 'modifychapter.php');
     } else {
