@@ -29,7 +29,6 @@ NULL, :message, :statusmodif, :commentsid, :userid)');
             while ($donnees = $q->fetch(PDO::FETCH_ASSOC)) {
                 $moderations[] = new Moderation($donnees);
             }
-        
             return $moderations;
         }
         
