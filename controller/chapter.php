@@ -5,7 +5,7 @@
      * Date: 29/03/2017
      * Time: 07:36
      */
-    include('../config.php');
+    //include('../config.php');
     
     $CommentManager = new CommentManager();
     $commentaires = $CommentManager->showAllComments();
@@ -20,19 +20,18 @@
     $manager = new ChapterManager();
     
     //-------- VIEW CHAPTER -------------
-    $idC = $_GET['idchapter'];
-    $p = $_GET['page'];
     
-    if (isset($_GET['idchapter']))
+    
+    if (isset($idC))
     {
-    	$chapter = $manager->Chapter_selected($_GET['idchapter']);
-        $pagination = $chapter->pagination($_GET['idchapter']);
+    	$chapter = $manager->Chapter_selected($idC);
+        $pagination = $chapter->pagination($idC);
     }
     
     
     if (isset($_SESSION['id']))
     {
-        $UserManager->activeRead($_SESSION['id'], $idC, $p);
+        $UserManager->activeRead($_SESSION['id'], $idC, $page);
     }
     
     
@@ -49,7 +48,7 @@
                                    'idchapter' => $idC,
                                ]);
         $CommentManager->addComment($comment);
-        header('Location:'. HOST.'chapter.php?idchapter='.$_GET['id'].'&page=1');
+        header('Location:chapter-'.$idC.'-'.$page);
     } else
     {
         echo "<script language=\"javascript\">";
@@ -64,13 +63,13 @@
         $comment = new Comment([
                                    'title' => NULL,
                                    'texte' => $_POST['reponsetxt'],
-                                   'idchapter' => $_GET['id'],
+                                   'idchapter' => $idC,
                                    'commentsid' =>$_POST['reponse'],
                                    'levelcomment' => 1
         
                                ]);
         $CommentManager->addComment($comment);
-        header('Location:'. HOST.'chapter.php?idchapter='.$_GET['id'].'&page=1');
+        header('Location:chapter-'.$idC.'-'.$page);
         } else
         {
             echo "<script language=\"javascript\">";
@@ -80,30 +79,31 @@
         
         //----- add an alert for a comment -----------
     
-        if (isset($_GET['signaler']))
+        if (isset($c))
         {
+            var_dump("siglement");
             $date = getdate();
             $date = $date['mday'] . "/" . $date['mon'] . "/" . $date['year'];
             
             $moderation = new Moderation([
                 'datecreated' => $date,
                 'message' => 'signale',
-                'commentsid' => $_GET['comment'],
-                'userid' => $_GET['user']
+                'commentsid' => $c,
+                'userid' => $u
                                          ]);
-            if ($CommentManager->hasModeration($_GET['comment']) == FALSE)
+            if ($CommentManager->hasModeration($s) == FALSE)
             {
                 $ModerationManager->addModeration($moderation);
-                $ModerationManager->updateSignaled($_GET['comment'], $_GET['user']);
+                $ModerationManager->updateSignaled($c, $u);
             } else {
-                $ModerationManager->updateSignaled($_GET['comment'], $_GET['user']);
+                $ModerationManager->updateSignaled($c, $u);
                 echo "vous avez déjà signalé ce commentaire";
             }
         }
         
         
     
-    include(ROOT . 'view/header.php');
+    include(VIEW . 'header.php');
   	include(VIEW . 'chapter.php');
 	include(VIEW . 'comments.php');
 	include(VIEW . 'footer.php');

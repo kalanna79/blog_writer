@@ -6,10 +6,7 @@
      * Time: 08:29
      */
     
-    include('../config.php');
-    
     $manager = new UserManager();
-    
     
     //ajout d'un nouvel utilisateur (form Inscription)
     
@@ -17,7 +14,7 @@
     {
         $hpwd = sha1($_POST['password']);
      
-        // Créer une mthode dans user pour faire tout ça 
+        // Créer une mthode dans user pour faire tout ça
         // ex $user->bindWithValues($_POST);
         
         $user = new User(['firstname' => $_POST['firstname'],
@@ -25,11 +22,15 @@
                          'pseudo' => $_POST['pseudo'],
                          'email' => $_POST['email'],
                          'password' => $hpwd]);
+        
    if ($manager->verifAdd($_POST['pseudo'], $_POST['email'])) {
        $message = '<div class="panel" id="alert">Ce pseudo ou cet email sont déjà utilisés</div>';
    } else {
        $manager->addUser($user);
-       header('Location:' . HOST . 'confirmation_inscription.php?id=' . $user->getIdUser());
+       $u = $user->getIdUser();
+       $_SESSION['id'] = $user->getIdUser();
+       $_SESSION['pseudo'] = $user->getPseudo();
+       header('Location:dashboard' . $_SESSION['id']);
    }
     }
     
@@ -40,14 +41,9 @@
         $user = $manager->verifUser($_POST['pseudo'], $_POST['password']);
         $sess = new Session($user);
         $_SESSION['id'] = $user["idUser"];
-        $_SESSION['pseudo'] = $sess->getUserPseudo($_SESSION['id']);
-    
-        if ($_SESSION['id'] == 1) {
-            header('Location:'.HOST.'indexadmin.php?id='.$_SESSION['id']);
-        } else {
-            header('Location:'.HOST.'profil_user.php?id='.$_SESSION['id']);
-        }
+        $_SESSION['pseudo'] = $user["pseudo"];
         
+            header('Location:dashboard-'.$_SESSION['id']);
         
     }
     
