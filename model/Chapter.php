@@ -139,14 +139,14 @@
     }
         
         
-        public function showText($nb_car = 4000)
+        public function showText($page, $nb_car = 4000)
         {
             $getTexte = $this->_texte;
             $part = wordwrap($getTexte, $nb_car, '\n'); // on coupe le texte au mot le plus proche de 4000 car ou de $nb_car
             // et on ajoute \n
             $pager = explode('\n', $part); // on transforme le texte en array avec \n qui sert de séparateur
             if (is_string($getTexte)) {
-                $page_selected = $_GET['page'];
+                $page_selected = $page;
             
                 return $pager[$page_selected - 1]; //retourne le texte de la page visée
             }
@@ -166,7 +166,8 @@
             foreach ($pager as $key => $single) { // pour chaque ligne, on ajoute 1 pour afficher le numéro de page et on
                 // met le lien pour accéder aux différentes pages
                 $page = $key += 1;
-                $pages .= '<a href=?idchapter=' . $idChapter . '&page=' . $key . '> ' . $page . ' </a>';
+                $pages .= '<a href=chapter-' . $idChapter . '-' . $key . '> ' . $page . ' </a>';
+  
             }
             return $pages;
         }
