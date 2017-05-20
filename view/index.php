@@ -4,7 +4,7 @@
         
         <article>
             
-            <img src="../img/rafting-1377057_640.jpg" width="100%" class="valign">
+            <img src="assets/img/rafting-1377057_640.jpg" width="100%" class="valign">
             
             <div class="colonne bio">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ullamcorper sem erat, in lobortis enim viverra et. Nunc sit amet lacus consequat, congue lacus ornare, lacinia lorem. Suspendisse sit amet ligula imperdiet, commodo eros ac, molestie tortor. Praesent id velit rutrum libero mollis maximus eu ut quam. Quisque dignissim massa metus, vel maximus sem consectetur non. Nunc at enim leo. Sed dapibus ligula leo, id iaculis arcu mollis eget.
@@ -44,7 +44,8 @@
                 
 		<div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 showButton" id="chap<?php echo $chapter->getId();?>">
 			<div class="row chap-box-icon">
-				<a href="../controller/chapter.php?idchapter=<?php echo $chapter->getId();?>&page=1"> <strong class="chap">Chap <?php echo $chapter->getId();?></strong></a><br>
+				<a href="chapter-<?php echo $chapter->getId();?>-1"> <strong class="chap">Chap <?php echo
+						$chapter->getId();?></strong></a><br>
 				<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
 					<abbr>
 						<time><?php echo $chapter->getDatecreated(); ?></time>
