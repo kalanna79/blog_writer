@@ -26,19 +26,15 @@ $('.showForm').click(function() {
 
 //toggle comments in chapter view
 /* si dans l'adresse, il y a une ancre, montre la div et va à l'ancre, sinon si clic, ouvre la div */
-$('comment').click(function() {
+//show comment's text that is moderated
+$('.showComment').hide();
+
+
+$('#comment').click(function() {
     $('.showComment').toggle();
 });
 
-//show comment's text that is moderated
-$('.mod-comment').hide();
-$('.showModeration').click(function() {
-    var nb = $(this).attr('id');
-    console.log(nb);
-    $('.mod-comment').hide();
-    $('#txt-'+nb).show();
 
-});
 
 
 //hide response button for level 2 comments
@@ -52,14 +48,15 @@ if ($('.level2')) {
 /*si la page est > 1
 /* change le CSS .book en .book nolettrine
  */
-
-    var adresse = location.search.substring(1).split('&');
+    var url = window.location.pathname;
+    var adresse = url.split('/');
+   // console.log(adresse);
     var pages = [];
-    for (var i = 0; i < adresse.length; i++) {
-        var param = adresse[i].split('=');
-        pages[param[0]] = param[1];
+    for (var i = 2; i < adresse.length; i++) {
+        var param = adresse[i].split('-');
+        console.log(param);
     }
-    if (pages['page'] != '1') {
+    if (param[2] != '1') {
         $("#chaptertext").removeClass("book");
         $("#chaptertext").addClass("book-nolettrine");
     }
