@@ -9,5 +9,5 @@
     /* index doit récupérer toutes les adresses pour rediriger sur l'accueil du site
     */
     require_once ('config.php');
-    include(HOST . 'index.php');
+    include(CONTROLLER . 'index.php');
     

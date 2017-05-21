@@ -20,6 +20,8 @@
     $manager = new ChapterManager();
     
     //-------- VIEW CHAPTER -------------
+    $idC = $_GET['idchapter'];
+    $p = $_GET['page'];
     
     if (isset($_GET['idchapter']))
     {
@@ -30,7 +32,7 @@
     
     if (isset($_SESSION['id']))
     {
-        $UserManager->activeRead($_SESSION['id'], $_GET['idchapter'], $_GET['page']);
+        $UserManager->activeRead($_SESSION['id'], $idC, $p);
     }
     
     
@@ -44,7 +46,7 @@
         $comment = new Comment([
                                    'title' => $_POST['title'],
                                    'texte' => $_POST['texte'],
-                                   'idchapter' => $_GET['id'],
+                                   'idchapter' => $idC,
                                ]);
         $CommentManager->addComment($comment);
         header('Location:'. HOST.'chapter.php?idchapter='.$_GET['id'].'&page=1');
