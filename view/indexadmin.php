@@ -76,7 +76,7 @@
 					<div class="panel-body"><?php foreach ($chapters as $chapter) {
                             echo "<li>Chap. " . $chapter->getId() . "  : " . $chapter->getTitle() . "<br> Statut : " . $chapter->getPublicationId() . " <a 
 href='modif-" .$chapter->getId() . "'> <br> Modifier</a> - 
-<a href=suppr-". $chapter->getId() .">Supprimer</a></li>";
+<a href='dashboard-1-supprimer-" .$chapter->getId() . "'>Supprimer</a></li>";
                         }
                             ;?></div>
 				</div>
@@ -93,7 +93,8 @@ href='modif-" .$chapter->getId() . "'> <br> Modifier</a> -
 				<div class="panel">
 					<div class="panel-heading bg-turquoise info-box-number"> <i class="fa fa-tags"></i> Modérations</div>
 					<div class="panel-body"><?php if (isset($moderations))
-							{ foreach ($moderations as $moderation) {
+							{ echo "<pre>"; print_r($moderations); echo "</pre>";
+								foreach ($moderations as $moderation) {
                             include(VIEW . "currentmoderation.php");
                         }}
                             ;?></div>

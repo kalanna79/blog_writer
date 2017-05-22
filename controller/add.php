@@ -22,26 +22,30 @@
         } elseif (isset($_POST['publication']))
         {
             $manager->publiChapter($chapter);
-        } elseif (isset($_POST['modif']) && isset($idC))
+        }
+        if (isset($_POST['modif']) && isset($idC))
         {
         $manager->updateChapter($chapter, $idC, 1);
-        header('Location:confirmation_addchapter.php');
+        header('Location:confirmation_add');
     
         } elseif (isset($_POST['publi']) && isset($idC))
         {
             $manager->updateChapter($chapter, $idC, 2);
-            header('Location:confirmation_addchapter.php');
+            header('Location:confirmation_add');
         }
     }
-    
+
     include(VIEW . 'header.php');
     if (isset($idC))
     {
-        var_dump($idC);
         $chapter = $manager->chapter_selected($idC);
         $titre  = "Modifier un chapitre";
         include(VIEW . 'modifychapter.php');
-    } else {
+    } elseif (stristr($url, 'confirmation'))
+    {
+        include (VIEW . 'confirmation_addchapter.php');
+    }
+    else {
         $titre = "Ajouter un chapitre";
         include(VIEW . 'addchapter.php');
     }

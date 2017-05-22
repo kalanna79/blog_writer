@@ -21,31 +21,23 @@
     $param = explode("-", $path['url']);
     
     //echo '$param : <pre>'; print_r($param); echo '<br/>';
-   
     
+     
     //connexion to chapter
     if (stristr($url, 'chapter'))
     {
-        unset($param[0]);
         $idC = $param[1];
         $page = $param[2];
-        if (isset($c))
-        {
+        var_dump("param2");
             var_dump("comment");
-            $c = $param[3];
-            if (isset($u))
-            {
-                var_dump("user");
-                $u = $param[4];
-                if (isset($s))
-                {
-                    var_dump("signalé");
-                    $s = $param[5];
-                }
-            }
-        }
+            $comm = $param[3];
+            var_dump("user");
+        $guy = $param[4];
+            var_dump("signalé");
+            $signal = $param[5];
         include ('controller/chapter.php');
     }
+   
     //connexion to inscription and connexion view
     elseif (stristr($url, 'inscription') || stristr($url, 'connexion'))
     {
@@ -63,7 +55,12 @@
     {
             $idC = $param[1];
         include ('controller/add.php');
+    }
     
+    elseif (stristr($url, 'supprimer'))
+    {
+        $idC = $param[3];
+        include ('controller/dashboard.php');
     }
     
     
@@ -98,7 +95,5 @@
          include(CONTROLLER . 'index.php');
      }
     
-    print_r($_SESSION);
-
      
      

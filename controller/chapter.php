@@ -64,9 +64,8 @@
                                    'title' => NULL,
                                    'texte' => $_POST['reponsetxt'],
                                    'idchapter' => $idC,
-                                   'commentsid' =>$_POST['reponse'],
-                                   'levelcomment' => 1
-        
+                                   'parentId' =>$_POST['reponse'],
+                                   'levelcomment' => $_POST['level']+1
                                ]);
         $CommentManager->addComment($comment);
         header('Location:chapter-'.$idC.'-'.$page);
@@ -79,7 +78,7 @@
         
         //----- add an alert for a comment -----------
     
-        if (isset($c))
+        if (isset($signal))
         {
             var_dump("siglement");
             $date = getdate();
@@ -88,15 +87,15 @@
             $moderation = new Moderation([
                 'datecreated' => $date,
                 'message' => 'signale',
-                'commentsid' => $c,
-                'userid' => $u
+                'commentsid' => $comm,
+                'userid' => $guy
                                          ]);
-            if ($CommentManager->hasModeration($s) == FALSE)
+            if ($CommentManager->hasModeration($comm) == FALSE)
             {
                 $ModerationManager->addModeration($moderation);
-                $ModerationManager->updateSignaled($c, $u);
+                $ModerationManager->updateSignaled($comm, $guy);
             } else {
-                $ModerationManager->updateSignaled($c, $u);
+                $ModerationManager->updateSignaled($comm, $guy);
                 echo "vous avez déjà signalé ce commentaire";
             }
         }

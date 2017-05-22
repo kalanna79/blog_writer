@@ -60,9 +60,12 @@ NULL, :message, :statusmodif, :commentsid, :userid)');
     
         public function deleteModeration($getId)
         {
-            $this->_db->exec('DELETE FROM moderation WHERE id=' . $getId);
+            $this->_db->exec('DELETE FROM moderation WHERE commentsid=' . $getId);
+        }
+        
+        public function downSignaled($getId)
+        {
             $this->_db->exec('UPDATE comments SET isSignaled = 0 WHERE id='.$getId);
-    
         }
         
         public function IsModered($commentsid, $userid)

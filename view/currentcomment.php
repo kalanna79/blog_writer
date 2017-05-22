@@ -28,6 +28,7 @@
         <div class="row reponse" style="display: none" id="rep-comment-<?php echo $comment->getId(); ?>" >
             <form id="reponse" action="" method="post">
                 <input type="hidden" name="reponse" value="<?php echo $comment->getId(); ?>">
+				<input type="hidden" name="level" value="<?php echo $comment->getLevelComment(); ?>">
                 <textarea name="reponsetxt" cols="95" rows="3">Votre réponse</textarea> 						<br><br>
                 <input type="submit" value="Envoyer" name="submitreponse">
             </form>

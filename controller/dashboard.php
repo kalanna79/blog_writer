@@ -25,29 +25,29 @@
     $publies = $chaptermanager->Tab_matieres();
     
     
-    if (isset($idC))
-    {
-        if (stristr($url, 'suppr')) {
+    if (isset($idC)) {
             $chaptermanager->deleteChapter($idC);
             header('Location:dashboard-' . $_SESSION['id']);
-        }
     }
-    
+        
+        
+    //moderations
     if (isset($idCo))
     {
-        if (stristr($_SERVER['QUERY_STRING'], 'trashco'))
+        if (stristr($_SERVER['QUERY_STRING'], 'trash'))
         {
+            
             $moderationmanager->updateModeration(2,$idCo);
             repl($string);
             header('Location:dashboard-'.$_SESSION['id']);
-        } elseif (stristr($_SERVER['QUERY_STRING'], 'cok'))
+        }
+        
+        if (stristr($_SERVER['QUERY_STRING'], 'k'))
         {
+            $moderationmanager->downSignaled($idCo);
             $moderationmanager->deleteModeration($idCo);
             header('Location:dashboard-'.$_SESSION['id']);
         }
-        
-        
-        
     }
     
     include(ROOT . 'view/header.php');
