@@ -18,19 +18,4 @@
     }
     spl_autoload_register('chargerClasse');
     
-    
-    session_start();
-    
-    // create Session
-    
-    // destroy session
-    if (isset($_GET['deconnexion']))
-    {
-        session_destroy();
-        header('Location:'.HOST.'index.php');
-    }
-    
-    $UserManager = new UserManager();
-    
-    
     include (CONTROLLER.'functions.php');

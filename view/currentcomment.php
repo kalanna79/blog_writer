@@ -22,11 +22,13 @@
     <div class="panel-footer level<?php echo $comment->getLevelComment();?>">
 		<a href="#reponse" class="showForm alevel<?php echo $comment->getLevelComment();?> " id="comment-<?php echo $comment->getId(); ?>"> Répondre -
 		</a>
-		<a href="<?php echo HOST . 'chapter.php?idchapter='. $comment->getIdchapter(). '&page=1&comment=' . $comment->getId(). '&user=' . $comment->getIdUser() .	'&signaler=1';?>">Signaler
+		<a href="chapter-<?php echo $comment->getIdchapter(). '-1-' . $comment->getId(). '-' .
+			$comment->getIdUser() .	'-1';?>">Signaler
 		</a>
         <div class="row reponse" style="display: none" id="rep-comment-<?php echo $comment->getId(); ?>" >
             <form id="reponse" action="" method="post">
                 <input type="hidden" name="reponse" value="<?php echo $comment->getId(); ?>">
+				<input type="hidden" name="level" value="<?php echo $comment->getLevelComment(); ?>">
                 <textarea name="reponsetxt" cols="95" rows="3">Votre réponse</textarea> 						<br><br>
                 <input type="submit" value="Envoyer" name="submitreponse">
             </form>

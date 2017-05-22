@@ -42,8 +42,6 @@
          */
         public function getPageid()
         {
-            $manager = new UserManager();
-            
             return $this->_pageid;
         }
     

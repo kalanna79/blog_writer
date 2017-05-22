@@ -11,9 +11,9 @@
 	<div class="mod-comment panel panel-danger" id="txt-moderation-<?php echo $moderation->getCommentsid();?>">
 		<?php echo $comanager->showOneComment($moderation->getCommentsid())
 			->getTexte();?>
-		<a href="<?php echo HOST . 'indexadmin.php?id='.$_SESSION['id'] .'&trashcomment=' . $moderation->getCommentsid();?>" class="fa fa-trash-o fa-lg btn-lg " title="Modérer le commentaire"></a>
+		<a href="dashboard-<?php echo $_SESSION['id'];?>-trashco-<?php echo $moderation->getCommentsid();?>" class="fa fa-trash-o fa-lg btn-lg " title="Modérer le commentaire"></a>
 		
-		<a href="<?php echo HOST . 'indexadmin.php?id='.$_SESSION['id'] .'&commentOK=' . $moderation->getId();?>" class="fa fa-thumbs-o-up fa-lg btn-lg" title="Accepter le commentaire"></a>
+		<a href="dashboard-1-cok-<?php echo $moderation->getCommentsid();?>" class="fa fa-thumbs-o-up fa-lg btn-lg" title="Accepter le commentaire"></a>
 	
 	</div>
 

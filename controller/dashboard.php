@@ -5,11 +5,12 @@
      * Date: 05/05/2017
      * Time: 11:11
      */
-    include('../config.php');
     
     $sess = new Session();
     $manager = new UserManager();
     $users = $manager->AllUsers(); //allows to count number of users
+    $user = $manager->getUserById($_SESSION['id']);
+    
     
     $comanager = new CommentManager();
     $comments = $comanager->showAllComments(); //allows to count number of comments
@@ -24,24 +25,29 @@
     $publies = $chaptermanager->Tab_matieres();
     
     
-    if (isset($_GET['idchapter']) && $_GET['action'] == 'suppr')
-    {
-        $chaptermanager->deleteChapter($_GET['idchapter']);
-        header('Location:'. HOST . "indexadmin.php");
+    if (isset($idC)) {
+            $chaptermanager->deleteChapter($idC);
+            header('Location:dashboard-' . $_SESSION['id']);
     }
-    
-    if (isset($_GET['trashcomment']))
+        
+        
+    //moderations
+    if (isset($idCo))
     {
-        $moderationmanager->updateModeration(2,$_GET['trashcomment']);
-        repl($string);
-        header('Location:'. HOST . "indexadmin.php");
-    }
-    
-    if (isset($_GET['commentOK']))
-    {
-        $moderationmanager->deleteModeration($_GET['commentOK']);
-        header('Location:'. HOST . "indexadmin.php");
-    
+        if (stristr($_SERVER['QUERY_STRING'], 'trash'))
+        {
+            
+            $moderationmanager->updateModeration(2,$idCo);
+            repl($string);
+            header('Location:dashboard-'.$_SESSION['id']);
+        }
+        
+        if (stristr($_SERVER['QUERY_STRING'], 'k'))
+        {
+            $moderationmanager->downSignaled($idCo);
+            $moderationmanager->deleteModeration($idCo);
+            header('Location:dashboard-'.$_SESSION['id']);
+        }
     }
     
     include(ROOT . 'view/header.php');

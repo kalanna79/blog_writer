@@ -5,7 +5,6 @@
      * Date: 11/05/2017
      * Time: 14:31
      */
-    include ('../config.php');
     $manager = new UserManager();
     $auteur = $manager->getUserById(1);
     

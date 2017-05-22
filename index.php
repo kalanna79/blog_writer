@@ -8,6 +8,92 @@
     
     /* index doit récupérer toutes les adresses pour rediriger sur l'accueil du site
     */
-    require_once ('config.php');
-    include(CONTROLLER . 'index.php');
+    require_once 'config.php';
+    $path = $_REQUEST;
+    $url = $_SERVER['QUERY_STRING'];
     
+    session_start();
+    
+    //echo 'PATH : <pre>'; print_r($url); echo '<br/>';
+    
+    $parseurl = parse_url($url);
+    
+    $param = explode("-", $path['url']);
+    
+    //echo '$param : <pre>'; print_r($param); echo '<br/>';
+    
+     
+    //connexion to chapter
+    if (stristr($url, 'chapter'))
+    {
+        $idC = $param[1];
+        $page = $param[2];
+        var_dump("param2");
+            var_dump("comment");
+            $comm = $param[3];
+            var_dump("user");
+        $guy = $param[4];
+            var_dump("signalé");
+            $signal = $param[5];
+        include ('controller/chapter.php');
+    }
+   
+    //connexion to inscription and connexion view
+    elseif (stristr($url, 'inscription') || stristr($url, 'connexion'))
+    {
+        include ('controller/inscription.php');
+    }
+    
+    //connexion to contact
+    elseif (stristr($url, 'contact'))
+    {
+        include ('controller/contact.php');
+    }
+    
+    //add a chapter
+    elseif (stristr($url, 'add') || stristr($url, 'modif'))
+    {
+            $idC = $param[1];
+        include ('controller/add.php');
+    }
+    
+    elseif (stristr($url, 'supprimer'))
+    {
+        $idC = $param[3];
+        include ('controller/dashboard.php');
+    }
+    
+    
+    //connexion to dashboards
+    //delete a chapter or confirmation to inscription
+    // delete ou validate a moderated comment
+    elseif (stristr($url, 'dashboard')  || stristr($url, 'confirmation'))
+    {
+        if (isset($idC))
+        {
+            $idC = $param[1];
+        } elseif (isset($_SESSION['id']))
+        {
+            $_SESSION['id'] = $param[1];
+        }
+        if (stristr($url, 'trashco') || stristr($url, 'cok'))
+        {
+            $idCo = $param[3];
+        }
+        include('controller/dashboard.php');
+    }
+    
+    // destroy session
+    elseif (stristr($url, 'deconnection'))
+    {
+        include('controller/deconnexion.php');
+    }
+    
+    //go to index
+     else
+     {
+         include(CONTROLLER . 'index.php');
+     }
+    
+     
+     

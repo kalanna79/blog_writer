@@ -34,13 +34,11 @@
 					<td>
 						<?php if ($user->getIdchapter() == NULL)
 						{
-						echo '<a href="../controller/chapter.php?idchapter=1&page=1">Commencez à lire maintenant</a>';
+						echo '<a href="chapter-1-1">Commencez à lire maintenant</a>';
 						}
 						else {
-                            echo 'Chapitre ' . $user->getIdchapter() . " : " . $sess->getChapterTitle
-								($user->getIdchapter
-							());
-							echo '<br><a href="../controller/chapter.php?idchapter='. $user->getIdchapter() . '&page=' . $user->getPage().'"> Reprendre la lecture</a>';
+                            echo 'Chapitre ' . $user->getIdchapter() . " : " . $sess->getChapterTitle($user->getIdchapter());
+							echo '<br><a href="chapter-'. $user->getIdchapter() . '-' . $user->getPage().'"> Reprendre la lecture</a>';
 							
 						}
 						?>
