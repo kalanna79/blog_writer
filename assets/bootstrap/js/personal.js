@@ -25,17 +25,12 @@ $('.showForm').click(function() {
 });
 
 //toggle comments in chapter view
-/* si dans l'adresse, il y a une ancre, montre la div et va à l'ancre, sinon si clic, ouvre la div */
 //show comment's text that is moderated
 $('.showComment').hide();
-
 
 $('#comment').click(function() {
     $('.showComment').toggle();
 });
-
-
-
 
 //hide response button for level 2 comments
 if ($('.level2')) {
@@ -77,3 +72,17 @@ tinymce.init({
     toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent',
     content_css: '//www.tinymce.com/css/codepen.min.css'
 });
+
+
+var flashalert = $('#flashcontent');
+var divflash = $('#divflash');
+if (flashalert.length > 0)
+{
+    divflash.show().slideDown(500).delay(3000).slideUp(500);
+   // divflash.find('.close').show();
+
+    -    divflash.find('.close').click(function (e) {
+        e.preventDefault();
+        divflash.slideUp();
+    })
+}

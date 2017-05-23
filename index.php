@@ -14,32 +14,25 @@
     
     session_start();
     
-    //echo 'PATH : <pre>'; print_r($url); echo '<br/>';
-    
     $parseurl = parse_url($url);
-    
     $param = explode("-", $path['url']);
-    
-    //echo '$param : <pre>'; print_r($param); echo '<br/>';
-    
      
     //connexion to chapter
     if (stristr($url, 'chapter'))
     {
         $idC = $param[1];
         $page = $param[2];
-        var_dump("param2");
-            var_dump("comment");
+        
+        if (isset($param[3])) {
             $comm = $param[3];
-            var_dump("user");
-        $guy = $param[4];
-            var_dump("signalé");
+            $guy = $param[4];
             $signal = $param[5];
+        }
         include ('controller/chapter.php');
     }
    
     //connexion to inscription and connexion view
-    elseif (stristr($url, 'inscription') || stristr($url, 'connexion'))
+    elseif (stristr($url, 'inscription') || stristr($url, 'connexion') || stristr($url, 'change'))
     {
         include ('controller/inscription.php');
     }
@@ -51,9 +44,14 @@
     }
     
     //add a chapter
-    elseif (stristr($url, 'add') || stristr($url, 'modif'))
+    elseif (stristr($url, 'add'))
     {
-            $idC = $param[1];
+        include ('controller/add.php');
+    }
+
+    elseif (stristr($url, 'modif'))
+    {
+        $idC = $param[1];
         include ('controller/add.php');
     }
     
@@ -94,6 +92,6 @@
      {
          include(CONTROLLER . 'index.php');
      }
-    
+
      
      

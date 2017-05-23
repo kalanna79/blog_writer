@@ -48,29 +48,29 @@
       <DataType>longtext|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="29" parent="18" name="date_modified">
-      <Position>6</Position>
-      <DataType>datetime|0</DataType>
-    </column>
-    <column id="30" parent="18" name="resume">
+    <column id="29" parent="18" name="resume">
       <Position>8</Position>
       <DataType>mediumtext|0</DataType>
     </column>
-    <column id="31" parent="18" name="datecreated">
+    <column id="30" parent="18" name="datecreated">
       <Position>5</Position>
       <DataType>datetime|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="32" parent="18" name="userid">
+    <column id="31" parent="18" name="userid">
       <Position>7</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="33" parent="18" name="publicationid">
+    <column id="32" parent="18" name="publicationid">
       <Position>9</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <column id="33" parent="18" name="datemodified">
+      <Position>6</Position>
+      <DataType>datetime|0</DataType>
     </column>
     <index id="34" parent="18" name="fk_chapter_user_idx">
       <ColNames>userid</ColNames>

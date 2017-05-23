@@ -8,4 +8,12 @@
     
     session_unset();
     session_destroy();
-    header('Location:index');
+    
+    $manager = new ChapterManager();
+    $chapters = $manager->Tab_matieres();
+    
+    $mess = setFlash("A bientôt !", "Vous êtes maintenant déconnecté", "success");
+    
+    include(VIEW . 'header.php');
+    include(VIEW . 'inscription.php');
+    include(VIEW. 'footer.php');

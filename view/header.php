@@ -12,7 +12,13 @@
 </head>
 
 <body>
+	
     <main class="container-fluid">
+		<div id="divflash" class="alert alert-<?php if (isset($mess)) { echo
+		$mess['type'];};?>">
+			<a id="close" class="close">x</a>
+			<div id="flashcontent"><?php if (isset($mess)) { echo flashMessage($mess);} ?></div>
+		</div>
        
         <div class="row">
 			<div class="col-xs-6 col-md-6 icon-reseaux">
@@ -22,7 +28,7 @@
 				<a href="#" class="fa fa-pinterest-square fa-lg btn-md valign"></a>
 			</div>
 			<div class="col-xs-6 col-md-6 icon-menu">
-				<a href="index.php" class="fa fa-home fa-lg btn-lg valign" title="Accueil"></a>
+				<a href="index" class="fa fa-home fa-lg btn-lg valign" title="Accueil"></a>
                 <?php if (isset($_SESSION['id'])) { ;?>
 						<span> Bonjour <a href="dashboard-<?php echo $_SESSION['id'];?>"> <?php echo $_SESSION['pseudo'];?></a></span>
 						<a href="deconnection-<?php echo $_SESSION['id'];?>" class="fa fa-sign-out fa-lg btn-lg valign" title="Se déconnecter"></a>

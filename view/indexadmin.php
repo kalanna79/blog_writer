@@ -93,7 +93,7 @@ href='modif-" .$chapter->getId() . "'> <br> Modifier</a> -
 				<div class="panel">
 					<div class="panel-heading bg-turquoise info-box-number"> <i class="fa fa-tags"></i> Modérations</div>
 					<div class="panel-body"><?php if (isset($moderations))
-							{ echo "<pre>"; print_r($moderations); echo "</pre>";
+							{
 								foreach ($moderations as $moderation) {
                             include(VIEW . "currentmoderation.php");
                         }}

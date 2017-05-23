@@ -7,7 +7,6 @@
      */
     class UserManager extends BddManager
     {
-    
         /**
          * show all users on the website
          * @return array
@@ -38,7 +37,10 @@
             $donnees = $q->fetch(PDO::FETCH_ASSOC);
             return new User($donnees);
         }
-        
+    
+        /** Add an user
+         * @param User $user
+         */
         public function addUser(User $user)
         {
             $q = $this->_db->prepare('INSERT INTO user (firstname, name, pseudo, email, password, datemodified, roleiduser, datecreated) VALUES(:firstname,
@@ -56,7 +58,12 @@
                 'idUser' => $this->_db->lastInsertId()
                            ]);
         }
-        
+    
+        /** verify if pseudo or email exists in db
+         * @param $pseudo
+         * @param $email
+         * @return mixed
+         */
         public function verifAdd($pseudo, $email)
         {
             $q = $this->_db->prepare('SELECT * FROM user where pseudo=:pseudo OR email=:email');
@@ -68,6 +75,8 @@
         }
     
         /** verify if pseudo + pwd are equal to a user
+         * @param $pseudo
+         * @param $pwd
          * @return mixed
          */
         public function verifUser($pseudo, $pwd)
@@ -80,8 +89,14 @@
            return $resultat;
         }
         
+        public function updatePwd($pseudo, $pwd)
+        {
+            $q = $this->_db->prepare('UPDATE user SET password = :password WHERE pseudo=:pseudo');
+            $q->bindValue(':password', sha1($pwd), PDO::PARAM_INT);
+            $q->bindValue(':pseudo', $pseudo, PDO::PARAM_INT);
+            $q->execute();
+        }
         
-    
         /** Return where the user stops his reading with the page and the chapter
          * @param $userid -> the session id
          * @param $chapterid -> get param

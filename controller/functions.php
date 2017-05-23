@@ -55,3 +55,21 @@ Appeler récursivement la fonction en lui passant le tableau d'enfants et en inc
     {
         return str_replace("signalé", "modéré", $string);
     }
+    
+    function setFlash($titre, $message, $type) {
+        $mess = [
+            'titre' =>$titre,
+            'message' => $message,
+            'type' =>$type
+                        ];
+        return $mess;
+    }
+    
+    function flashMessage($mess)
+    {
+            echo '<h4 class="alert-heading">' . $mess['titre'] . '</h4>
+            <p id="#flashalert">' . $mess['message'] .
+                '</p>';
+            unset($mess);
+        }
+    

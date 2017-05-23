@@ -180,6 +180,21 @@ body {
     padding-top: 25px;
 }
 
+/* alert box */
+#divflash {
+    text-align: center;
+    position: fixed;
+    top:  25%;
+    left: 30%;
+    right:30%;
+    z-index: 1030;
+    display: none;
+}
+
+.close {
+    display: none;
+}
+
 /* comments */
 #comment {
     cursor: pointer;
@@ -188,6 +203,8 @@ body {
 .showComment {
   /*  display: none;*/
 }
+
+
 
 .comments {
     margin-top:10px;

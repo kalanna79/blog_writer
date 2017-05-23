@@ -5,7 +5,7 @@
 		<div class="message">Voici votre message : <br>
 		<?php echo $mail->getNomexp() . "(" . $mail->getExpediteurmail() . ")<br>Message : " . $mail->getMessage();?></div>
 		
-		<div class="message"><a href="<?php echo HOST . 'index.php';?>">Retour à l'accueil</a></div>
+		<div class="message"><a href="<?php echo 'index' ;?>">Retour à l'accueil</a></div>
     
     </section>
 </div>
