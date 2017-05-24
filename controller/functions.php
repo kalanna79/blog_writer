@@ -73,3 +73,10 @@ Appeler récursivement la fonction en lui passant le tableau d'enfants et en inc
             unset($mess);
         }
     
+    
+    setlocale(LC_TIME, 'french.UTF-8', 'fr_FR.UTF-8');
+    
+    function datefr($date)
+    {
+        return strftime("%d %m %Y", strtotime($date));
+    }

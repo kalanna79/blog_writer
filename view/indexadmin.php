@@ -84,7 +84,10 @@ href='modif-" .$chapter->getId() . "'> <br> Modifier</a> -
 				<div class="panel">
 					<div class="panel-heading bg-emerald info-box-number"><i class="fa fa-comments"></i> Les 5 derniers commentaires</div>
 					<div class="panel-body"><?php foreach ($lastcomments as $comment) {
-                            echo $comment->getUserPseudo($comment->getIdUser()) . " a écrit : " .
+                            echo datefr($comment->getDatecreated()) . " - " . $comment->getUserPseudo
+								($comment->getIdUser
+							()) .
+								" a écrit : " .
                                 $comment->getTexte() ."<br>";
                         }
                             ;?></div>

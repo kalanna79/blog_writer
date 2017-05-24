@@ -7,10 +7,11 @@
             <img src="assets/img/rafting-1377057_640.jpg" width="100%" class="valign">
             
             <div class="colonne bio">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ullamcorper sem erat, in lobortis enim viverra et. Nunc sit amet lacus consequat, congue lacus ornare, lacinia lorem. Suspendisse sit amet ligula imperdiet, commodo eros ac, molestie tortor. Praesent id velit rutrum libero mollis maximus eu ut quam. Quisque dignissim massa metus, vel maximus sem consectetur non. Nunc at enim leo. Sed dapibus ligula leo, id iaculis arcu mollis eget.
-                
-                Praesent dictum nibh ac ultricies eleifend. Sed eget pulvinar lacus. Suspendisse dictum dictum lacus bibendum imperdiet. Sed ut nisi dignissim enim tincidunt aliquet sed sed velit. Aenean vitae lobortis nulla, non elementum nibh. Vestibulum a fermentum urna. Integer sed sodales metus. Nulla tincidunt arcu a ex ultricies, at ultrices velit sollicitudin. Proin tempus pretium orci sit amet iaculis. Duis eget pellentesque sem. In eu faucibus nunc. Sed posuere, nunc et imperdiet eleifend, enim sapien malesuada enim, in sodales purus libero sit amet turpis.
-            </div>
+				Jean Forteroche, né le 11 mai 1979, est un écrivain français, auteur de romans et nouvelles d'aventures.
+				<br>Au cours de son enfance, il fait de fréquents séjours aux Etats-Unis et au Canada. Sa première destination est le parc de Denali, dont son dernier roman s'inspire.<br>
+				Amoureux des grands espaces et fervent défenseur de la nature, il écrit des romans d'aventures dignes de Jack London et Jules Verne. <br>Parce qu'il désire partager avec le plus grand nombre de lecteurs ses écrits, ce dernier roman est entièrement publié en ligne, chapitre par chapitre. vous le trouverez prochainement en librairie avec de nombreux ajouts photographiques.<br>
+				<strong><em>Bonne lecture !</em></strong>
+			</div>
         
         </article>
     
@@ -48,7 +49,7 @@
 						$chapter->getId();?></strong></a><br>
 				<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
 					<abbr>
-						<time><?php echo $chapter->getDatecreated(); ?></time>
+						<time><?php echo datefr($chapter->getDatecreated()); ?></time>
 					</abbr>
 				</div>
                         <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">

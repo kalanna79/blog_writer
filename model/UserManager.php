@@ -44,14 +44,15 @@
         public function addUser(User $user)
         {
             $q = $this->_db->prepare('INSERT INTO user (firstname, name, pseudo, email, password, datemodified, roleiduser, datecreated) VALUES(:firstname,
- :name, :pseudo, :email, :password, :datemodified, :roleiduser, NOW())');
-            $q->bindValue(':firstname', $user->getFirstName());
-            $q->bindValue(':name', $user->getName());
-            $q->bindValue(':pseudo', $user->getPseudo());
-            $q->bindValue(':email', $user->getEmail());
-            $q->bindValue(':password', $user->getPassword());
+ :name, :pseudo, :email, :password, :datemodified, :roleiduser, :datecreated)');
+            $q->bindValue(':firstname', $user->getFirstName(), PDO::PARAM_STR);
+            $q->bindValue(':name', $user->getName(), PDO::PARAM_STR);
+            $q->bindValue(':pseudo', $user->getPseudo(), PDO::PARAM_STR);
+            $q->bindValue(':email', $user->getEmail(), PDO::PARAM_STR);
+            $q->bindValue(':password', $user->getPassword(), PDO::PARAM_STR);
             $q->bindValue(':datemodified', NULL);
-            $q->bindValue(':roleiduser', 2);
+            $q->bindValue(':roleiduser', 2, PDO::PARAM_INT);
+            $q->bindValue(':datecreated', date(DATE_W3C));
             $q->execute();
             
             $user->hydrate([
@@ -67,9 +68,9 @@
         public function verifAdd($pseudo, $email)
         {
             $q = $this->_db->prepare('SELECT * FROM user where pseudo=:pseudo OR email=:email');
-            $q->execute(array(
-                'pseudo' => $pseudo,
-                'email' => $email));
+            $q->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
+            $q->bindValue(':email', $email, PDO::PARAM_STR);
+            $q->execute();
             $resultat = $q->fetch(PDO::FETCH_ASSOC);
             return $resultat;
         }
@@ -104,9 +105,11 @@
          */
         public function activeRead($userid,$chapterid, $page)
         {
-            $q = $this->_db->prepare('UPDATE user SET idchapter = :idchapter, page = :page WHERE idUser = '.$userid);
+            $q = $this->_db->prepare('UPDATE user SET idchapter = :idchapter, page = :page, datemodified = :datemodified WHERE idUser = '
+                                     .$userid);
             $q->bindValue(':idchapter', $chapterid, PDO::PARAM_INT);
             $q->bindValue(':page', $page, PDO::PARAM_INT);
+            $q->bindValue(':datemodified', date(DATE_W3C));
             $q->execute();
         }
     }

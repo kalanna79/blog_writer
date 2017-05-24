@@ -13,6 +13,8 @@
     $chapters = $manager->Tab_matieres();
     
     $mess = setFlash("A bientôt !", "Vous êtes maintenant déconnecté", "success");
+    header('refresh: 2; connexion');
+    
     
     include(VIEW . 'header.php');
     include(VIEW . 'inscription.php');

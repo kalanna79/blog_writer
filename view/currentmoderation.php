@@ -2,8 +2,11 @@
 	<a href="#mod-comment" class="showModeration fa fa-eye fa-lg btn-lg" id="moderation-<?php echo $moderation->getCommentsid();
     ?>" title="Voir le texte"></a> Le commentaire <?php echo $moderation->getCommentsid();?> écrit par <?php echo
     $moderation->getUserPseudo($moderation->getUserid()) ;
-    if ($moderation->getStatusmodif() == 2) { echo repl($string);} else { echo $string; };?><br>
+    if ($moderation->getStatusmodif() == 2) { echo repl($string) . " le " . datefr($moderation->getDatemodified());}
+    else { echo
+	$string  . " le " . datefr($moderation->getDatecreated());};?><br>
     <div class="text-center">
+		
 	
 	
 	

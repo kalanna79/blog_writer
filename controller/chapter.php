@@ -6,7 +6,6 @@
      * Time: 07:36
      */
     $CommentManager = new CommentManager();
-    $commentaires = $CommentManager->showAllComments();
     
     $UserManager = new UserManager();
     $users = $UserManager->allUsers();
@@ -16,12 +15,12 @@
     
     $manager = new ChapterManager();
     
-    header("Cache-Control: no-store, no-cache, must-revalidate");
-    
     
         //-------- VIEW CHAPTER -------------
     
         if (isset($idC)) {
+            $commentaires = $CommentManager->showCommentsChapter($idC);
+    
             $chapter = $manager->Chapter_selected($idC);
             $pagination = $chapter->pagination($idC);
         }
@@ -45,9 +44,7 @@
                 $CommentManager->addComment($comment);
                 header('Location:chapter-' . $idC . '-' . $page);
             } else {
-                echo "<script language=\"javascript\">";
-                echo "alert('Vous devez être connecté pour poster un message')";
-                echo "</script>";
+                $mess = setFlash("Attention !", "Vous devez être connecté pour poster un message", "warning");
             }
         }
     
@@ -73,11 +70,7 @@
     
         if (isset($signal)) {
             if (isset($_SESSION['id'])) {
-                $date = getdate();
-                $date = $date['mday'] . "/" . $date['mon'] . "/" . $date['year'];
-            
                 $moderation = new Moderation([
-                                                 'datecreated' => $date,
                                                  'message'     => 'signale',
                                                  'commentsid'  => $comm,
                                                  'userid'      => $guy

@@ -10,7 +10,12 @@
     $chapters = $manager->Tab_matieres();
     
     include(VIEW . 'header.php');
-    include(VIEW . 'index.php');
+    if (stristr($_SERVER['QUERY_STRING'], 'mentions'))
+    {
+        include (VIEW . 'mentions.php');
+    } else {
+        include(VIEW . 'index.php');
+    }
 	include(VIEW. 'footer.php');
     
     

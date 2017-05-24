@@ -9,6 +9,8 @@
     /* index doit récupérer toutes les adresses pour rediriger sur l'accueil du site
     */
     require_once 'config.php';
+    setlocale(LC_TIME, 'fr_FR.UTF8');
+    
     $path = $_REQUEST;
     $url = $_SERVER['QUERY_STRING'];
     

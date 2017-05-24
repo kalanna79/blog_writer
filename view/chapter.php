@@ -8,7 +8,7 @@
             <div class="wrapper">
                 <div class="clip-text"> <h2><?php echo $chapter->getTitle();?></h2></div>
             </div>
-            <span><abbr><?php echo $chapter->getDatecreated();?></abbr></span>
+            <span><abbr><?php echo datefr($chapter->getDatecreated());?></abbr></span>
         </div>
     </div>
     

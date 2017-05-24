@@ -57,11 +57,11 @@
         {
             $q = $this->_db->prepare('INSERT INTO chapter(title, img, texte, datemodified, resume, datecreated, userid, publicationid) VALUES(:title, NULL, 
 :texte, NULL, :resume, :datecreated, :userid, 1)');
-            $q->bindValue(':title', $chapter->getTitle());
-            $q->bindValue(':texte', $chapter->getTexte());
-            $q->bindValue(':resume', $chapter->getResume());
+            $q->bindValue(':title', $chapter->getTitle(), PDO::PARAM_STR);
+            $q->bindValue(':texte', $chapter->getTexte(), PDO::PARAM_STR);
+            $q->bindValue(':resume', $chapter->getResume(), PDO::PARAM_STR);
             $q->bindValue(':datecreated', date(DATE_W3C));
-            $q->bindValue(':userid', $chapter->getUserId());
+            $q->bindValue(':userid', $chapter->getUserId(), PDO::PARAM_INT);
             $q->execute();
             
             $chapter->hydrate(['id' => $this->_db->lastInsertId()]);
@@ -72,11 +72,11 @@
             $q = $this->_db->prepare('INSERT INTO chapter(title, img, texte, datemodified, resume, datecreated, userid, publicationid) VALUES(:title, NULL, 
 :texte, 
 NULL, :resume, :datecreated, :userid, 2)');
-            $q->bindValue(':title', $chapter->getTitle());
-            $q->bindValue(':texte', $chapter->getTexte());
-            $q->bindValue(':resume', $chapter->getResume());
+            $q->bindValue(':title', $chapter->getTitle(), PDO::PARAM_STR);
+            $q->bindValue(':texte', $chapter->getTexte(), PDO::PARAM_STR);
+            $q->bindValue(':resume', $chapter->getResume(), PDO::PARAM_STR);
             $q->bindValue(':datecreated', date(DATE_W3C));
-            $q->bindValue(':userid', $chapter->getUserId());
+            $q->bindValue(':userid', $chapter->getUserId(), PDO::PARAM_INT);
             $q->execute();
         
             $chapter->hydrate(['id' => $this->_db->lastInsertId()]);

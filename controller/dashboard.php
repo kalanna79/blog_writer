@@ -47,15 +47,17 @@
                 $moderationmanager->updateModeration(2,$idCo);
                 repl($string);
                 $mess = setFlash("Modération effectuée !", "Ce message vient d'être modéré", "success");
-            }
+                header('refresh: 2; dashboard-'. $_SESSION['id']);            }
         
             if (stristr($_SERVER['QUERY_STRING'], 'cok'))
             {
                 $moderationmanager->downSignaled($idCo);
                 $moderationmanager->deleteModeration($idCo);
                 $mess = setFlash("Modération effectuée !", "Vous avez accepté ce message", "success");
-            }
+                header('refresh: 2; dashboard-'. $_SESSION['id']);            }
         }
+        
+        echo $comanager->oldModeratedComments();
     
         include(ROOT . 'view/header.php');
         if ($_SESSION['id'] == 1){

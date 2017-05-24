@@ -24,21 +24,21 @@
             if (isset($_POST['ajout'])) {
                 $manager->addChapter($chapter);
                 $mess = setFlash("Félicitations !", "Votre nouveau chapitre est maintenant enregistré", "success");
-                header('refresh: 2; dashboard'. $_SESSION['id']);
+                header('refresh: 2; dashboard-'. $_SESSION['id']);
             } elseif (isset($_POST['publication'])) {
                 $manager->publiChapter($chapter);
                 $mess = setFlash("Félicitations !", "Votre chapitre est maintenant publié", "success");
-                header('refresh: 2; dashboard'. $_SESSION['id']);
+                header('refresh: 2; dashboard-'. $_SESSION['id']);
             }
             
             if (isset($_POST['modif']) && isset($idC)) {
                 $manager->updateChapter($chapter, $idC, 1);
                 $mess = setFlash("Félicitations !", "Votre chapitre est maintenant modifié", "success");
-                header('refresh: 2; dashboard'. $_SESSION['id']);
+                header('refresh: 2; dashboard-'. $_SESSION['id']);
             } elseif (isset($_POST['publi']) && isset($idC)) {
                 $manager->updateChapter($chapter, $idC, 2);
                 $mess = setFlash("Félicitations !", "Votre chapitre est maintenant publié", "success");
-                header('refresh: 2; dashboard'. $_SESSION['id']);
+                header('refresh: 2; dashboard-'. $_SESSION['id']);
             }
         }
         include(VIEW . 'header.php');

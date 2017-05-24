@@ -21,6 +21,18 @@
             }
             return $comments;
         }
+        
+        public function showCommentsChapter($idChapter)
+        {
+            $commChapter = array();
+    
+            $q = $this->_db->query('SELECT * FROM comments WHERE idchapter ='.$idChapter);
+            while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
+            {
+                $commChapter[] = new Comment($donnees);
+            }
+            return $commChapter;
+        }
     
         /** show the five last comments
          * @return array -> array of objects
@@ -42,10 +54,12 @@
          */
         public function addComment(Comment $comment)
         {
-            $q = $this->_db->prepare('INSERT INTO comments (title, texte, datecreated, idUser, idchapter, parentId, levelcomment) VALUES(:title, :texte, NOW(), 
+            $q = $this->_db->prepare('INSERT INTO comments (title, texte, datecreated, idUser, idchapter, parentId, levelcomment) VALUES(:title, :texte, 
+:datecreated, 
  :idUser, :idChapter, :parentId, :levelcomment)');
             $q->bindValue(':title', $comment->getTitle());
             $q->bindValue(':texte', $comment->getTexte());
+            $q->bindValue(':datecreated', $comment->getDateCreated());
             $q->bindValue(':idUser', $_SESSION['id']);
             $q->bindValue('idChapter', $comment->getIdchapter());
             $q->bindValue('parentId', $comment->getParentId());
@@ -104,4 +118,19 @@
             }
         }
         
+        public function oldModeratedComments()
+        {
+            $old =
+           $q = $this->_db->query('SELECT * FROM moderation WHERE datemodified > DATE_SUB(NOW(), INTERVAL 5 DAY)');
+            while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
+            {
+                $old[] = new Comment($donnees);
+            }
+            return $old;
+        }
+    
+        public function deleteModeration($getId)
+        {
+            $this->_db->exec('DELETE FROM moderation,  WHERE commentsid=' . $getId);
+        }
     }
