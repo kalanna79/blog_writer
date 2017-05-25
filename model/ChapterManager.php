@@ -55,13 +55,16 @@
         
         public function addChapter(Chapter $chapter)
         {
-            $q = $this->_db->prepare('INSERT INTO chapter(title, img, texte, datemodified, resume, datecreated, userid, publicationid) VALUES(:title, NULL, 
-:texte, NULL, :resume, :datecreated, :userid, 1)');
+            $q = $this->_db->prepare('INSERT INTO chapter(title, img, texte, datemodified, resume, datecreated, userid, publicationid, numero) VALUES(:title, 
+NULL, 
+:texte, NULL, :resume, :datecreated, :userid, 1, :numero)');
             $q->bindValue(':title', $chapter->getTitle(), PDO::PARAM_STR);
             $q->bindValue(':texte', $chapter->getTexte(), PDO::PARAM_STR);
             $q->bindValue(':resume', $chapter->getResume(), PDO::PARAM_STR);
             $q->bindValue(':datecreated', date(DATE_W3C));
             $q->bindValue(':userid', $chapter->getUserId(), PDO::PARAM_INT);
+            $q->bindValue(':numero', $chapter->getNumero(), PDO::PARAM_INT);
+    
             $q->execute();
             
             $chapter->hydrate(['id' => $this->_db->lastInsertId()]);
@@ -69,14 +72,16 @@
     
         public function publiChapter(Chapter $chapter)
         {
-            $q = $this->_db->prepare('INSERT INTO chapter(title, img, texte, datemodified, resume, datecreated, userid, publicationid) VALUES(:title, NULL, 
+            $q = $this->_db->prepare('INSERT INTO chapter(title, img, texte, datemodified, resume, datecreated, userid, publicationid, numero) VALUES(:title, 
+NULL, 
 :texte, 
-NULL, :resume, :datecreated, :userid, 2)');
+NULL, :resume, :datecreated, :userid, 2, :numero)');
             $q->bindValue(':title', $chapter->getTitle(), PDO::PARAM_STR);
             $q->bindValue(':texte', $chapter->getTexte(), PDO::PARAM_STR);
             $q->bindValue(':resume', $chapter->getResume(), PDO::PARAM_STR);
             $q->bindValue(':datecreated', date(DATE_W3C));
             $q->bindValue(':userid', $chapter->getUserId(), PDO::PARAM_INT);
+            $q->bindValue(':numero', $chapter->getNumero(), PDO::PARAM_INT);
             $q->execute();
         
             $chapter->hydrate(['id' => $this->_db->lastInsertId()]);
@@ -85,12 +90,13 @@ NULL, :resume, :datecreated, :userid, 2)');
         public function updateChapter(Chapter $chapter, $getId, $publicationId)
         {
             $q = $this->_db->prepare('UPDATE chapter SET title = :title, texte = :texte, datemodified = :datemodified, resume = :resume, publicationid = 
-:publicationid WHERE id ='.$getId);
+:publicationid, numero = :numero WHERE id ='.$getId);
             $q->bindValue(':title', $chapter->getTitle(), PDO::PARAM_STR);
             $q->bindValue(':texte', $chapter->getTexte(), PDO::PARAM_STR);
             $q->bindValue(':datemodified', date(DATE_W3C));
             $q->bindValue(':resume', $chapter->getResume(), PDO::PARAM_STR);
             $q->bindValue(':publicationid', $publicationId, PDO::PARAM_INT);
+            $q->bindValue(':numero', $chapter->getNumero(), PDO::PARAM_INT);
             $q->execute();
         }
         

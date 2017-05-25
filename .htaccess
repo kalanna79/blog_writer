@@ -4,13 +4,12 @@ RewriteRule ^index\.html$ /index.php
 
 RewriteRule ^assets\/ - [L]
 
-
 RewriteCond %{REQUEST_FILENAME} -f
 RewriteCond %{REQUEST_FILENAME} -d
-#RewriteCond %{REQUEST_URI} !bootstrap/.*
 RewriteRule ^.*$ index.php [L]
 RewriteRule ^(.*)?$    index.php?url=$1 [QSA,L]
 
+# ErrorDocument 404 /index.php
 
-#RewriteRule ^monsite/chapter-([0-9]+)-([0-9]+).html$ /controller/chapter.php?idchapter=$1&page=$2 [R,L]
+
 

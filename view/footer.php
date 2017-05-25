@@ -9,9 +9,9 @@
 
 </main>
 
-<script src="assets/bootstrap/js/query.js"></script>
-<script src="assets/bootstrap/js/bootstrap.js"></script>
-<script src="assets/bootstrap/js/personal.js"></script>
+<script type="text/javascript" src="assets/bootstrap/js/query.js"></script>
+<script type="text/javascript" src="assets/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="assets/bootstrap/js/personal.js"></script>
 
 </body>
 </html>

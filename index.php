@@ -90,10 +90,15 @@
     }
     
     //go to index
-     else
+     elseif (stristr($url, 'index'))
      {
          include(CONTROLLER . 'index.php');
      }
+     
+     else
+         {
+             include(CONTROLLER . 'index.php');
+         }
 
      
      

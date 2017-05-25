@@ -57,7 +57,7 @@
                 header('refresh: 2; dashboard-'. $_SESSION['id']);            }
         }
         
-        echo $comanager->oldModeratedComments();
+        //echo $comanager->oldModeratedComments();
     
         include(ROOT . 'view/header.php');
         if ($_SESSION['id'] == 1){

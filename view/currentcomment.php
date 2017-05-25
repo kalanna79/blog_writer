@@ -6,7 +6,7 @@
         <span class="title">
             <?php echo $comment->getTitle(); ?>
         </span><br>
-        <abbr> <?php echo $comment->getDateCreated(); ?>
+        <abbr> <?php echo datefr($comment->getDateCreated()); ?>
     </div>
     <div class="panel-body"">
 <?php

@@ -34,7 +34,10 @@
             while ($donnees = $q->fetch(PDO::FETCH_ASSOC)) {
                 $moderations[] = new Moderation($donnees);
             }
-            return $moderations;
+            if (!empty($moderations))
+            {
+                return $moderations;
+            }
         }
     
         /** show one moderation

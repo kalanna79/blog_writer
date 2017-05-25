@@ -16,6 +16,7 @@
         protected $_userid;
         protected $_resume;
         protected $_publicationid;
+        protected $_numero;
         
         
         use ConstructHydratable;
@@ -55,6 +56,14 @@
         public function getResume()
         {
             return $this->_resume;
+        }
+    
+        /**
+         * @return mixed
+         */
+        public function getNumero()
+        {
+            return $this->_numero;
         }
     
     
@@ -117,6 +126,15 @@
         }
     
         /**
+         * @param mixed $numero
+         */
+        public function setNumero($numero)
+        {
+            $numero = (int)$numero;
+            $this->_numero = $numero;
+        }
+    
+        /**
          * @param mixed $publicationid
          */
         public function setPublicationid($publicationid)
@@ -167,7 +185,6 @@
                 // met le lien pour accéder aux différentes pages
                 $page = $key += 1;
                 $pages .= '<a href=chapter-' . $idChapter . '-' . $key . '> ' . $page . ' </a>';
-  
             }
             return $pages;
         }
@@ -180,8 +197,6 @@
             return $update;
         }
         
-    
-    
         /**
          * function getExcerpt(nbchar) in index
          * nbchar = how many chars that you want

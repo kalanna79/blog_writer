@@ -5,30 +5,30 @@
         </div>
     	
 		<div class="showComment">
-        	<?php child($commentaires); ?>
+        	<?php showAllComments($commentaires); ?>
 	
-        <div class="row depotcomment">
-            <p>Déposez un commentaire : </p>
-            <form action="" method="post">
-				<div class="form-group">
-					<label for="title" class="col-sm-2 control-label">Titre de votre message</label>
-					<div class="col-sm-10">
-						<input type="text" placeholder="Titre" name="title" class="form-control ">
+			<div class="row depotcomment">
+				<p>Déposez un commentaire : </p>
+				<form action="<?php aff('self');?>" method="post">
+					<div class="form-group">
+						<label for="title" class="col-sm-2 control-label">Titre de votre message</label>
+						<div class="col-sm-10">
+							<input type="text" placeholder="Titre" name="title" class="form-control ">
+						</div>
 					</div>
-				</div>
-				<div class="form-group">
-					<div class="col-sm-offset-2 col-sm-10">
-						<textarea name="message" placeholder="Votre message" rows="5" class="col-sm-2 form-control"></textarea><br>
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<textarea name="message" placeholder="Votre message" rows="5" class="col-sm-2 form-control"></textarea><br>
+						</div>
 					</div>
-				</div>
-				<div class="form-group">
-					<div class="col-sm-offset-2 col-sm-10">
-						
-						<input id="submitcomment" type="submit" value="Envoyer" name="submitcomment" class="btn btn-default">
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							
+							<input id="submitcomment" type="submit" value="Envoyer" name="submitcomment" class="btn btn-default">
+						</div>
 					</div>
-				</div>
-			</form>
-		</div>
+				</form>
+			</div>
 		</div>
 
 	</div>

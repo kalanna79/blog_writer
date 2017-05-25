@@ -11,7 +11,7 @@
 		<div>Une question ? un commentaire en particulier ? <br> N'hésitez pas à me contacter, je me ferai un plaisir de vous répondre dès que possible ! </div>
                <div class="form-horizontal">
 				   
-			    <form class="well-lg form-horizontal" action="" method="post">
+			    <form class="well-lg form-horizontal" action="<?php aff('self');?>" method="post">
 					<div class="form-group">
 						<label for="prenom" class="col-sm-2 control-label">Prénom</label>
 						<div class="col-sm-10">

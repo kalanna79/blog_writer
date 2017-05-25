@@ -6,13 +6,13 @@
      * Time: 16:11
      */
     
-    /*La fonction reçoit un tableau d'objets Comment et pour chaque objet fait:
+    /* La fonction reçoit un tableau d'objets Comments et pour chaque objet fait:
 
 Afficher le bloc div pour le commentaire courant
 Récupérer son tableau d'enfants
 Appeler récursivement la fonction en lui passant le tableau d'enfants et en incrémentant le niveau*/
     
-    function child($array, $level = 0)
+    function showAllComments($array, $level = 0)
     {
         $CommentManager = new CommentManager(); //pour récupérer les enfants de chaque commentaire
         $html = ""; //initialisation de $html;
@@ -28,7 +28,7 @@ Appeler récursivement la fonction en lui passant le tableau d'enfants et en inc
                 //je récupère les enfants sous forme de tableau d'objet
                 $element = $CommentManager->getChildren($comment->getId());
                 // j'affiche les enfants et je vais chercher leurs enfants en rappelant la même fonction
-                $html .= child($element, $level+1);
+                $html .= showAllComments($element, $level+1);
             }
         }
         return $html;

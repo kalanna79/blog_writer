@@ -17,6 +17,7 @@
         if (isset($_POST['ajout']) || isset($_POST['publication']) || isset($_POST['modif']) || isset($_POST['publi'])) {
             $chapter = new Chapter([
                                        'title'  => htmlspecialchars($_POST['title']),
+                                       'numero' => htmlspecialchars($_POST['numero']),
                                        'resume' => htmlspecialchars($_POST['resume']),
                                        'texte'  => $_POST['texte'],
                                        'userid' => htmlspecialchars($_SESSION['id'])

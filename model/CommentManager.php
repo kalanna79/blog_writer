@@ -117,20 +117,4 @@
                 return true;
             }
         }
-        
-        public function oldModeratedComments()
-        {
-            $old =
-           $q = $this->_db->query('SELECT * FROM moderation WHERE datemodified > DATE_SUB(NOW(), INTERVAL 5 DAY)');
-            while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
-            {
-                $old[] = new Comment($donnees);
-            }
-            return $old;
-        }
-    
-        public function deleteModeration($getId)
-        {
-            $this->_db->exec('DELETE FROM moderation,  WHERE commentsid=' . $getId);
-        }
     }
