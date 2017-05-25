@@ -8,7 +8,7 @@
 			</div>
 		</div>
         <p>Vous avez déjà un compte ? Connectez-vous.</p>
-        <form action="" method="post">
+        <form action="<?php aff('self');?>" method="post">
 			<div class="form-horizontal">
 				<div class="form-group">
 					<label for="pseudo" class="col-sm-3 control-label">Pseudo</label>
@@ -40,7 +40,7 @@
 			</div>
 		</div>
         <p id="inscription">Inscrivez-vous pour déposer des commentaires et retrouvez votre avancée de lecture</p>
-        <form action="" method="post">
+        <form action="<?php aff('self');?>" method="post">
 			<div class="form-horizontal">
 				<div class="form-group">
             		<label for="firstname" class="col-sm-4 control-label">Prénom</label>

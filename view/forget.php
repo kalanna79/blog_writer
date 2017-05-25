@@ -10,7 +10,7 @@
         <div class="col-xs-12 col-md-12">Vous avez oublié votre mot de passe ou souhaitez en changer, pas de panique ! Configurez ici votre nouveau mot de passe.</div>
     
         <div class="col-xs-12 col-md-12">
-            <br><form action="" method="post">
+            <br><form action="<?php aff('self');?>" method="post">
                 <label for="pseudo">Pseudo</label> <br>
                 <input type="text" name="pseudo"><br>
                 <label for="password">Nouveau mot de passe</label> <br>

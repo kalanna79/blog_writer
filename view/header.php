@@ -8,7 +8,8 @@
     <link href="assets/bootstrap/css/personal.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Space+Mono|Abril+Fatface" rel="stylesheet">
-	<script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=td48c0q1oexhcts1qv7crbcn1njw1lhtpgm6yjtokpgscp3e"></script>
+	<script type="text/javascript" src="assets/tinyMCE/tinymce.min.js"></script>
+
 </head>
 
 <body>
@@ -41,7 +42,7 @@
 		</div>
 		<div class="row back-img">
             <div class="col-md-12" style="text-align: center; padding-bottom: 2vh; border-bottom: 1px solid lightslategray; border-top: 1px solid lightslategray;">
-                <a href="index.php"> <h1>Billet pour l'Alaska...</h1></a>
+                <a href="index"> <h1>Billet pour l'Alaska...</h1></a>
             </div>
             
         </div>
