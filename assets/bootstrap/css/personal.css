@@ -3,8 +3,8 @@ html {
     height: 100%;
 }
 body {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     min-height: 100%;
 }
 
@@ -58,9 +58,6 @@ body {
     min-height: calc(80vh - 30px);
 }
 
-.footer{
-    height: 30px;
-}
 
 .colonne {
     column-count: 2;
@@ -76,7 +73,7 @@ body {
     position: relative;
     z-index: 100;
     background-color: #b4dd41;
-    opacity: 50%;
+    opacity: 0.5;
     margin-top: 10px;
     margin-right: auto;
     margin-left: auto;
@@ -90,21 +87,6 @@ body {
     text-align: center;
 }
 
-/* navigation in chapter */
-
-.nav > li > a::first-letter {
-    text-transform: capitalize;
-}
-
-.perso-nav {
-    margin-left: 0px;
-    padding-left: 10px;
-}
-
-.navbar-default {
-    background-color: white;
-    border-color: white;
-}
 /* navigation square in home page*/
 
 .chap-box-icon {
@@ -130,7 +112,6 @@ body {
     color: #234848;
     font-family: 'Space Mono', monospace;
 }
-
 
 .btn-lg, .btn-group-lg > .btn {
     padding: 10px 8px;
@@ -164,13 +145,11 @@ body {
     font-family: 'Glyphicons Halflings';
     content:"\e074";
     color: #446298;
-
 }
 
 .bio {
-    padding: 20px 0px;
+    padding: 20px 0;
     text-align: justify;
-
 }
 
 .valign {
@@ -197,16 +176,10 @@ body {
     cursor: pointer;
 }
 
-.showComment {
-  /*  display: none;*/
-}
-
-
-
 .comments {
     margin-top:10px;
     position: relative;
-    bottom:0px;
+    bottom:0;
     border-top:1px solid #446298 ;
     text-align: center;
     padding-top: 10px;
@@ -216,9 +189,12 @@ body {
     text-shadow: 2px 2px black;
 }
 
+h5 {
+    text-shadow: 1px 1px black;
+}
+
 .comment {
     margin-bottom: 10px;
-
 }
 
 .depotcomment {
@@ -239,7 +215,7 @@ body {
 
 /* index admin */
 .index-back-end .info-group .info-box-container {
-    padding: 0 10px;
+    padding: 0 1vh;
     width: 50%;
     height: 100%;
 }
@@ -249,10 +225,11 @@ body {
     border-radius: 2px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
     display: block;
-    margin-bottom: 15px;
+    margin-bottom: 1vh;
     min-height: 10vh;
     height: 100%;
     width: 100%;
+    line-height:0;
 }
 
 .info-icon {
@@ -260,12 +237,10 @@ body {
     border-radius: 2px 0 0 2px;
     display: block;
     text-align: center;
-    width: 90px;
+    width: 10vh;
     font-size: 30px;
     height: 100%;
     position: relative;
-
-
 }
 
 .info-box-icon {
@@ -275,14 +250,14 @@ body {
     float: left;
     font-size: 30px;
     height: 100%;
-    line-height: 90px;
+    line-height: 10vh;
     text-align: center;
-    width: 90px;
+    width: 10vh;
 }
 
 .info-box-content {
-    margin-left: 90px;
-    padding: 20px 10px;
+    margin-left: 10vh;
+    padding: 2.5vh 1vh;
     text-align: center;
 }
 
@@ -298,6 +273,8 @@ body {
 
 .info-box-text {
     display: block;
+    height: 4vh;
+    line-height: 1.5vh;
     font-size: 13px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -307,8 +284,9 @@ body {
 
 .ajout {
     text-align: center;
-    padding: 35px;
+    padding: 3.5vh;
 }
+
 .bg-emerald {
     background-color: #2ecc71;
     color: #fff;
@@ -349,6 +327,10 @@ body {
 
 
 /* footer */
+.footer{
+    height: 30px;
+}
+
 footer {
     width: 100%;
     text-align: center;
@@ -356,15 +338,12 @@ footer {
 
 }
 
+
 footer > div {
     padding-bottom:5px;
     margin-top: 12px;
 }
 
-section {
- /*   background-color: whitesmoke; */
-
-}
 
 h1, h3 {
     font-stretch: expanded;
@@ -380,7 +359,6 @@ h2 {
     font-size: 0.8em;
     color: black;
     font-family: "Abril Fatface";
-
 }
 
 hr {
@@ -389,7 +367,7 @@ hr {
 
 a {
     color: black;
-    text-decoration-style: none;
+    text-decoration: none;
     font-family: 'Space Mono', monospace;
 }
 
@@ -428,7 +406,7 @@ a.fa {
 }
 
 .level-0 {
-    margin-left:0px;
+    margin-left:0;
 }
 .level-1 {
     margin-left: 40px;
@@ -467,79 +445,16 @@ img {
 .titre {
     font-family: 'Space Mono', monospace;
     text-align: center;
-    margin-bottom: 2em;
-
 }
 
-/* titre avec image */
 .wrapper {
     text-align: center;
-
-}
-
-.clip-text {
-    font-size: 10em;
-    font-weight: bold;
-    line-height: 1;
-    position: relative;
-    display: inline-block;
-    padding: .1em .5em;
-    text-align: center;
-    background-image: url('../../img/wrangell.jpg');
-
-
-    /* Color fallback */
-    color: #fff;
-    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    color: transparent;
+    background: -webkit-linear-gradient(transparent, transparent), url(../../img/wrangell-small.jpg);
+    background: -o-linear-gradient(transparent, transparent);
+    -webkit-background-clip: text;
 
-}
-
-.clip-text:before,
-.clip-text:after {
-    position: absolute;
-    content: '';
-}
-
-/* Background */
-.clip-text:before {
-    z-index: -2;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-image: inherit;
-
-}
-
-/* Text Background (black zone) */
-.clip-text:after {
-    position: absolute;
-    z-index: -1;
-    top: .125em;
-    right: .125em;
-    bottom: .125em;
-    left: .125em;
-    background-color: #000;
-
-}
-
-/* Change the background position to display letter when the black zone isn't here */
-.clip-text--no-textzone:before {
-    background-position: -.65em 0;
-}
-
-.clip-text--no-textzone:after {
-    content: none;
-}
-
-/* Use Background-size cover for photo background and no-repeat background */
-.clip-text--cover,
-.clip-text--cover:before {
-    background-repeat: no-repeat;
-    -webkit-background-size: cover;
-    background-size: cover;
-    background-position: 25% 25%;
 }
 
 
@@ -550,12 +465,11 @@ img {
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
         height: 100%;
-        border-right : 0px;
-
+        border-right : 0;
     }
 
     .presentation {
-        border-radius: 0px;
+        border-radius: 0;
         height: auto;
         background-color: white;
     }
@@ -564,8 +478,9 @@ img {
         font-size: 160%;
     }
 
-    h2 {
-        font-size: larger;
+    h2
+    {
+        color: #00c0ef;
     }
 
     hr {
@@ -580,22 +495,29 @@ img {
 
     .colonne {
         column-count: 1;
+        font-size: 3em;
+    }
+
+    .book > :first-child:first-letter {
+        font-size: 75px;
+        line-height: 75px;
+        width: 75px;
+        height: 75px;
+        margin: 3px 10px 0 0;
+        padding: 2px;
     }
 
 
 }
 
-@media screen and (max-device-width: 768px)  {
-
-
+@media screen and (max-device-width: 800px) {
     .table_mat {
         height: 100%;
-        border-left : 0px;
+        border-left: 0;
     }
 
-
     .presentation {
-        border-right: 0px;
+        border-right: 0;
         height: auto;
         background-color: white;
     }
@@ -607,12 +529,17 @@ img {
         box-shadow: none;
     }
 
+    .page {
+        font-size: 2.5em;
+    }
+
     h1 {
         font-size: 150%;
     }
 
     h2 {
-        font-size: larger;
+        font-size: 5em;
+        color: #446298;
     }
 
     hr {
@@ -627,15 +554,16 @@ img {
 
     .colonne {
         column-count: 1;
+        font-size: 2.5em;
     }
 
     .nav > li > a {
-        padding: 10px 0px;
+        padding: 10px 0;
         text-align: center;
     }
 
     .book {
-        padding: 0px;
+        padding: 0;
         text-align: justify;
     }
 
@@ -644,37 +572,55 @@ img {
         line-height: 75px;
         width: 75px;
         height: 75px;
-        margin: 3px 10px 0px 0;
+        margin: 3px 10px 0 0;
         padding: 2px;
     }
 
-    img {
-        width: 100%;
-        padding-bottom: 18px;
-    }
+    /* titre avec image */
 
-    .clip-text {
-        font-size: 3em;
-        font-weight: bold;
-        line-height: 1;
-        position: relative;
-        display: inline-block;
-        padding: .1em .5em;
+    .titre {
+        font-family: 'Space Mono', monospace;
         text-align: center;
-        background-image: url('../../img/wrangell.jpg');
-
-}
-
-}
-
-@media (min-width: 768px) {
-    .container {
-        width: 900px;
     }
 
-    .container {
-        padding-right: 0px;
-        padding-left: 0px;
-        padding-top: 0px;
+    .wrapper {
+        text-align: center;
+        color: #446298;
+
     }
+
 }
+
+    @media (min-width: 768px) {
+        .container {
+            width: 900px;
+        }
+
+        .container {
+            padding-right: 0;
+            padding-left: 0;
+            padding-top: 0;
+        }
+
+        .book {
+            padding: 0;
+            text-align: justify;
+        }
+
+        h2 {
+            font-size: 8em;
+            padding-bottom: 10px;
+            color: #446298;
+
+        }
+
+        .wrapper {
+            text-align: center;
+            color: #446298;
+
+        }
+
+
+
+
+    }

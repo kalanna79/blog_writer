@@ -2,8 +2,11 @@
     <div class="row">
         <div class="comments">
             <i id="comment" class="fa fa-comments fa-3x" aria-hidden="true"></i>
-        </div>
-    	
+			<h5>Laissez vos impressions ici </h5>
+
+		</div>
+	
+	
 		<div class="showComment">
         	<?php showAllComments($commentaires); ?>
 	

@@ -11,7 +11,7 @@
 		<div>Une question ? un commentaire en particulier ? <br> N'hésitez pas à me contacter, je me ferai un plaisir de vous répondre dès que possible ! </div>
                <div class="form-horizontal">
 				   
-			    <form class="well-lg form-horizontal" action="<?php aff('self');?>" method="post">
+			    <form class="well-lg form-horizontal" action="" method="post">
 					<div class="form-group">
 						<label for="prenom" class="col-sm-2 control-label">Prénom</label>
 						<div class="col-sm-10">
@@ -25,7 +25,7 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="mail" class="col-sm-2 control-label">Votre email</label>
+						<label for="mail" class="col-sm-2 control-label">Votre email *</label>
 						<div class="col-sm-10">
 							<input type="email" placeholder="Votre mail" name="mail" class="form-control">
 						</div>
@@ -37,6 +37,7 @@
 						</div>
 					</div>
 					<div class="form-group">
+						<label for="message" class="col-sm-2 control-label">Votre message *</label>
 					   <div class="col-sm-offset-2 col-sm-10">
 						   <textarea name="message" placeholder="Votre message" rows="5" class="col-sm-2 form-control"></textarea><br>
 					   </div>
@@ -47,6 +48,7 @@
 					   </div>
 				   </div>
 				   </form>
+				   <div><em>Les champs marqués d'une astérisque(*) sont obligatoires.</em></div>
 
 			   </div>
 	</section>

@@ -43,18 +43,7 @@ if ($('.level2')) {
 /*si la page est > 1
 /* change le CSS .book en .book nolettrine
  */
-    var url = window.location.pathname;
-    var adresse = url.split('/');
-   // console.log(adresse);
-    var pages = [];
-    for (var i = 2; i < adresse.length; i++) {
-        var param = adresse[i].split('-');
-        console.log(param);
-    }
-    if (param[2] != '1') {
-        $("#chaptertext").removeClass("book");
-        $("#chaptertext").addClass("book-nolettrine");
-    }
+
 
 // move the alert box in the page inscription
  $('#inscription').append($('#alert'));
@@ -89,4 +78,16 @@ if (flashalert.length > 0)
 };
 
 
-//statut
+var url = window.location.pathname;
+var adresse = url.split('-');
+console.log(adresse);
+var pages = [];
+for (var i = 2; i < adresse.length; i++) {
+    var param = adresse[i];
+    console.log(param);
+}
+console.log(param);
+if (param != '1') {
+    $("#chaptertext").removeClass("book");
+    $("#chaptertext").addClass("book-nolettrine");
+}

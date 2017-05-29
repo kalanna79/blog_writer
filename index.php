@@ -97,7 +97,7 @@
      
      else
          {
-             include(CONTROLLER . 'index.php');
+             include(CONTROLLER . '404.php');
          }
 
      

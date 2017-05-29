@@ -36,6 +36,9 @@
     
         if (isset($_POST['submitcomment'])) {
             if (isset($_SESSION['id'])) {
+                if (empty($_POST['reponsetxt'])) {
+                    $mess = setFlash("Attention !", "Vous avez oublié votre commentaire !", "warning");
+                } else {
                 $comment = new Comment([
                                            'title'     => htmlspecialchars($_POST['title']),
                                            'texte'     => htmlspecialchars($_POST['texte']),
@@ -43,7 +46,7 @@
                                        ]);
                 $CommentManager->addComment($comment);
                 header('Location:chapter-' . $idC . '-' . $page);
-            } else {
+            }} else {
                 $mess = setFlash("Attention !", "Vous devez être connecté pour poster un message", "warning");
             }
         }
@@ -51,6 +54,9 @@
         // ------ add an answer to a comment -------
         if (isset($_POST['submitreponse'])) {
             if (isset($_SESSION['id'])) {
+                if (empty($_POST['reponsetxt'])) {
+                    $mess = setFlash("Attention !", "Vous avez oublié de répondre", "warning");
+                } else {
                 $comment = new Comment([
                                            'title'        => NULL,
                                            'texte'        => htmlspecialchars($_POST['reponsetxt']),
@@ -60,7 +66,7 @@
                                        ]);
                 $CommentManager->addComment($comment);
                 header('Location:chapter-' . $idC . '-' . $page);
-            } else {
+            }} else {
                 $mess = setFlash("Attention !", "Vous devez être connecté pour poster un message", "warning");
             }
         }

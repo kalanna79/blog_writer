@@ -71,7 +71,7 @@
 					<div class="panel-body">
 						<?php foreach($publies as $chapter) : ?>
 						<a href='chapter-<?php echo $chapter->getId();?>-1'>
-							<?php echo $chapter->getNumero();?>. 
+							<?php echo $chapter->getNumero();?>.
 							<?php echo $chapter->getTitle();?>
 						</a><br>
 						<?php endforeach ;?>

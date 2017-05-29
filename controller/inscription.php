@@ -12,47 +12,91 @@
     
     if (isset($_POST['inscription']) && isset($_POST['pseudo']))
     {
-        $protectedpwd = sha1($_POST['password']);
-        $verifpwd = sha1($_POST['pwd2']);
-        if ($protectedpwd === $verifpwd)
+        if (empty($_POST['firstname']))
         {
-            $user = new User(['firstname' => htmlspecialchars($_POST['firstname']),
-                              'name' => htmlspecialchars($_POST['name']),
-                              'pseudo' => htmlspecialchars($_POST['pseudo']),
-                              'email' => htmlspecialchars($_POST['email']),
-                              'password' => $protectedpwd]);
+            $mess = setFlash("Oupsss !", 'Vous avez oublié votre prénom', 'warning');
+            header('refresh: 2; connexion');
+        }
+        elseif (empty($_POST['name']))
+        {
+            $mess = setFlash("Oupsss !", 'Vous avez oublié votre nom', 'warning');
+            header('refresh: 2; connexion');
+        }
+        elseif (empty($_POST['pseudo'])) {
+            $mess = setFlash("Oupsss !", 'Vous avez oublié votre pseudo ?', 'warning');
+            header('refresh: 2; connexion');
+        }
+        elseif (empty($_POST['email']))
+        {
+            $mess = setFlash("Oupsss !", 'Vous avez oublié votre adresse mail', 'warning');
+            header('refresh: 2; connexion');
+        }
+        elseif (empty($_POST['password'])) {
+            $mess = setFlash("Oupsss !", 'Vous avez oublié un mot de passe', 'warning');
+            header('refresh: 2; connexion');
     
-            if ($manager->verifAdd($_POST['pseudo'], $_POST['email'])) {
-                $mess = setFlash("Attention !", "Ce pseudo ou cet email sont déjà utilisés", "danger");
-            } else {
-                $manager->addUser($user);
-                $u = $user->getIdUser();
-                $_SESSION['id'] = $user->getIdUser();
-                $_SESSION['pseudo'] = $user->getPseudo();
-                header('Location:dashboard-' . $_SESSION['id']);
-            }
         } else {
-            $mess = setFlash("Veuillez recommencer !", "Les mots de passe ne correspondent pas", "danger");
+            $protectedpwd = sha1($_POST['password']);
+            $verifpwd = sha1($_POST['pwd2']);
+            if ($protectedpwd === $verifpwd) {
+                $user = new User(['firstname' => htmlspecialchars($_POST['firstname']),
+                                  'name'      => htmlspecialchars($_POST['name']),
+                                  'pseudo'    => htmlspecialchars($_POST['pseudo']),
+                                  'email'     => htmlspecialchars($_POST['email']),
+                                  'password'  => $protectedpwd]);
+        
+                if ($manager->verifAdd($_POST['pseudo'], $_POST['email'])) {
+                    $mess = setFlash("Attention !", "Ce pseudo ou cet email sont déjà utilisés", "danger");
+                } else {
+                    $manager->addUser($user);
+                    $u = $user->getIdUser();
+                    $_SESSION['id'] = $user->getIdUser();
+                    $_SESSION['pseudo'] = $user->getPseudo();
+                    header('Location:dashboard-' . $_SESSION['id']);
+                }
+            } else {
+                $mess = setFlash("Veuillez recommencer !", "Les mots de passe ne correspondent pas", "danger");
+                header('refresh: 2; connexion');
+            }
         }
     }
     
     //connexion d'un utilisateur déjà existant
     if (isset($_POST['connect']))
     {
-        //vérification pseudo/mot de passe de l'utilisateur
-        $user = $manager->verifUser($_POST['pseudo'], $_POST['password']);
-        if (!empty($user)) {
-            $sess = new Session($user);
-            $_SESSION['id'] = $user["idUser"];
-            $_SESSION['pseudo'] = $user["pseudo"];
-            header('Location:dashboard-'.$_SESSION['id']);
+        if (empty($_POST['pseudo']) && empty($_POST['password']))
+        {
+            $mess = setFlash("Oupsss !", 'Il semble que vous ayez oublié de vous identifier...', 'warning');
+            header('refresh: 2; connexion');
+        }
+        if (empty($_POST['pseudo']))
+           {
+               $mess = setFlash("Oupsss !", 'Vous avez oublié votre pseudo ?', 'warning');
+               header('refresh: 2; connexion');
+    
+           }
+        elseif (empty($_POST['password'])) {
+            $mess = setFlash('Oupsss !', 'Vous avez oublié votre mot de passe ?', 'warning');
+            header('refresh: 2; connexion');
+    
         } else {
-            $mess = setFlash("Attention !", "Ce pseudo ou ce mot de passe est erroné", "danger");
+        //vérification pseudo/mot de passe de l'utilisateur
+            $user = $manager->verifUser($_POST['pseudo'], $_POST['password']);
+            if (!empty($user)) {
+                $sess = new Session($user);
+                $_SESSION['id'] = $user["idUser"];
+                $_SESSION['pseudo'] = $user["pseudo"];
+                header('Location:dashboard-'.$_SESSION['id']);
+            } else {
+                $mess = setFlash("Attention !", "Ce pseudo ou ce mot de passe est erroné", "danger");
+                header('refresh: 2; connexion');
+    
+            }
         }
     }
     
     //changement mot de passe
-    if (isset($_POST['newpwd']))
+    if (isset($_POST['newpwd']) && !empty($_POST['password']))
     {
         $hpwd = sha1($_POST['password']);
         $vhpwd = sha1($_POST['verifpassword']);

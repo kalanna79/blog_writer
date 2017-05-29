@@ -31,7 +31,7 @@
 			<div class="col-xs-6 col-md-6 icon-menu">
 				<a href="index" class="fa fa-home fa-lg btn-lg valign" title="Accueil"></a>
                 <?php if (isset($_SESSION['id'])) { ;?>
-						<span> Bonjour <a href="dashboard-<?php echo $_SESSION['id'];?>"> <?php echo $_SESSION['pseudo'];?></a></span>
+						<span> <a href="dashboard-<?php echo $_SESSION['id'];?>">Bonjour <?php echo $_SESSION['pseudo'];?></a></span>
 						<a href="deconnection-<?php echo $_SESSION['id'];?>" class="fa fa-sign-out fa-lg btn-lg valign" title="Se déconnecter"></a>
 				<?php } else { ;?>
 					<a href="inscription" class="fa fa-user-plus fa-lg btn-lg valign" title="s'inscrire"></a>

@@ -15,13 +15,26 @@
     } else {
     
         if (isset($_POST['ajout']) || isset($_POST['publication']) || isset($_POST['modif']) || isset($_POST['publi'])) {
-            $chapter = new Chapter([
-                                       'title'  => htmlspecialchars($_POST['title']),
-                                       'numero' => htmlspecialchars($_POST['numero']),
-                                       'resume' => htmlspecialchars($_POST['resume']),
-                                       'texte'  => $_POST['texte'],
-                                       'userid' => htmlspecialchars($_SESSION['id'])
-                                   ]);
+            if (empty($_POST['title']))
+            {
+                setFlash('Attention !','Vous devez rentrer un titre de chapitre', 'warning');
+            }
+            elseif (empty($_POST['numero']))
+            {
+                setFlash('Attention !','Vous devez rentrer un numéro de chapitre', 'warning');
+            }
+            elseif (empty($_POST['texte']))
+            {
+                setFlash('Attention !','Vous avez oublié le texte de votre chapitre', 'warning');
+            } else {
+                $chapter = new Chapter([
+                                           'title'  => htmlspecialchars($_POST['title']),
+                                           'numero' => htmlspecialchars($_POST['numero']),
+                                           'resume' => htmlspecialchars($_POST['resume']),
+                                           'texte'  => $_POST['texte'],
+                                           'userid' => htmlspecialchars($_SESSION['id'])
+                                       ]);
+            }
             if (isset($_POST['ajout'])) {
                 $manager->addChapter($chapter);
                 $mess = setFlash("Félicitations !", "Votre nouveau chapitre est maintenant enregistré", "success");
