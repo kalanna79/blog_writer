@@ -12,6 +12,12 @@
     
     if (isset($_POST['inscription']) && isset($_POST['pseudo']))
     {
+        // au lieu d'avoir name et first_name dans les inputs
+        // on utilises $values['name'], et $values['first_name']
+        // $values = $_POST['values']; 
+        // $validator = new Validator
+        // if(!$validator->testValues($values)) return false // tester les données dans une autre class pas de le controlleur
+        
         //vérifications champs vides
         if (empty($_POST['firstname']))
         {
