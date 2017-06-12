@@ -69,7 +69,7 @@
 				<div class="form-group">
             		<label for="password" class="col-sm-4 control-label">Mot de passe</label>
 					<div class="col-sm-8">
-						<input type="text" name="password">
+						<input type="password" name="password">
 					</div>
 				</div>
 				<div class="form-group">

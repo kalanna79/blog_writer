@@ -61,10 +61,11 @@ body {
 
 .colonne {
     column-count: 2;
-    margin-top: 10px;
+    margin-top: 25px;
     margin-bottom: 10px;
     column-gap : 2em;
     border-top: 1px solid #9d9d9d;
+    padding-top: 25px;
 }
 
 #alert {
@@ -122,6 +123,8 @@ body {
 .book, .book-nolettrine {
     text-align: justify;
     font-size: medium;
+    margin-top: 30px;
+    padding-top: 30px;
 }
 
 .book>:first-child:first-letter, .book:first-letter {
@@ -135,7 +138,7 @@ body {
     float: left;
     text-align: center;
     margin: 5px 15px 3px 0;
-    padding: 5px;
+    padding: 10px;
     font-family: 'Abril Fatface', cursive;
 }
 
@@ -488,6 +491,12 @@ img {
         margin-bottom: 10px;
     }
 
+    .icon-reseaux, .icon-menu {
+        text-align: center;
+        vertical-align: bottom;
+        font-size: larger;
+    }
+
     .chap-box-icon {
         margin-left: auto;
         margin-right: auto;
@@ -495,7 +504,7 @@ img {
 
     .colonne {
         column-count: 1;
-        font-size: 3em;
+        font-size: 2em;
     }
 
     .book > :first-child:first-letter {
@@ -508,6 +517,15 @@ img {
     }
 
 
+    .wrapper {
+        text-align: center;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+        background: -webkit-linear-gradient(transparent, transparent), url(../../img/wrangell-small.jpg);
+        background: -o-linear-gradient(transparent, transparent);
+        -webkit-background-clip: text;
+
+    }
 }
 
 @media screen and (max-device-width: 800px) {
@@ -530,7 +548,7 @@ img {
     }
 
     .page {
-        font-size: 2.5em;
+        font-size: 1.5em;
     }
 
     h1 {
@@ -538,7 +556,7 @@ img {
     }
 
     h2 {
-        font-size: 5em;
+        font-size: 4em;
         color: #446298;
     }
 
@@ -554,7 +572,7 @@ img {
 
     .colonne {
         column-count: 1;
-        font-size: 2.5em;
+        font-size: 1.5em;
     }
 
     .nav > li > a {
@@ -588,7 +606,6 @@ img {
         color: #446298;
 
     }
-
 }
 
     @media (min-width: 768px) {
@@ -603,7 +620,7 @@ img {
         }
 
         .book {
-            padding: 0;
+            padding-top: 20px;
             text-align: justify;
         }
 

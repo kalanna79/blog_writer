@@ -184,7 +184,8 @@
             foreach ($pager as $key => $single) { // pour chaque ligne, on ajoute 1 pour afficher le numéro de page et on
                 // met le lien pour accéder aux différentes pages
                 $page = $key += 1;
-                $pages .= '<a href=chapter-' . $idChapter . '-' . $key . '> ' . $page . ' </a>';
+                $pages .= '<a href=chapter-' . $idChapter . '-' . $key . ' ><span class=numpage-' . $key .'> ' . $page .
+                    '  </span></a>';
             }
             return $pages;
         }

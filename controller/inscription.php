@@ -12,6 +12,7 @@
     
     if (isset($_POST['inscription']) && isset($_POST['pseudo']))
     {
+        //vérifications champs vides
         if (empty($_POST['firstname']))
         {
             $mess = setFlash("Oupsss !", 'Vous avez oublié votre prénom', 'warning');
@@ -33,6 +34,32 @@
         }
         elseif (empty($_POST['password'])) {
             $mess = setFlash("Oupsss !", 'Vous avez oublié un mot de passe', 'warning');
+            header('refresh: 2; connexion');
+        }
+            
+            
+        //vérifications longueurs de champ
+        elseif (strlen($_POST['firstname']) < 3)
+        {
+            $mess = setFlash("Oupsss !", 'Ce champ doit faire 3 caractères mininum', 'warning');
+            header('refresh: 2; connexion');
+        }
+        elseif (strlen($_POST['name']) < 3)
+        {
+            $mess = setFlash("Oupsss !", 'Votre nom doit faire plus de 3 caractères', 'warning');
+            header('refresh: 2; connexion');
+        }
+        elseif (strlen($_POST['pseudo']) < 3) {
+            $mess = setFlash("Oupsss !", 'Votre pseudo doit faire plus de 3 caractères', 'warning');
+            header('refresh: 2; connexion');
+        }
+        elseif (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
+        {
+            $mess = setFlash("Oupsss !", 'Votre adresse mail n\'a pas le bon format', 'warning');
+            header('refresh: 2; connexion');
+        }
+        elseif (strlen($_POST['password']) < 4) {
+            $mess = setFlash("Oupsss !", 'votre mot de passe est trop court', 'warning');
             header('refresh: 2; connexion');
     
         } else {

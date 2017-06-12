@@ -3,6 +3,7 @@
 <head>
     <title>Billet pour l'Alaska</title>
     <meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     
     <link href="assets/bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="assets/bootstrap/css/personal.css" rel="stylesheet">
@@ -22,13 +23,13 @@
 		</div>
        
         <div class="row">
-			<div class="col-xs-6 col-md-6 icon-reseaux">
+			<div class="col-xs-12 col-md-6 icon-reseaux">
 				<a href="#" class="fa fa-facebook-square fa-lg btn-md valign"></a>
 				<a href="#" class="fa fa-google-plus-square fa-lg btn-md valign"></a>
 				<a href="#" class="fa fa-twitter-square fa-lg btn-md valign"></a>
 				<a href="#" class="fa fa-pinterest-square fa-lg btn-md valign"></a>
 			</div>
-			<div class="col-xs-6 col-md-6 icon-menu">
+			<div class="col-xs-12 col-md-6 icon-menu">
 				<a href="index" class="fa fa-home fa-lg btn-lg valign" title="Accueil"></a>
                 <?php if (isset($_SESSION['id'])) { ;?>
 						<span> <a href="dashboard-<?php echo $_SESSION['id'];?>">Bonjour <?php echo $_SESSION['pseudo'];?></a></span>

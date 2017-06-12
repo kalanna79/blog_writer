@@ -84,10 +84,17 @@ console.log(adresse);
 var pages = [];
 for (var i = 2; i < adresse.length; i++) {
     var param = adresse[i];
-    console.log(param);
 }
-console.log(param);
 if (param != '1') {
     $("#chaptertext").removeClass("book");
     $("#chaptertext").addClass("book-nolettrine");
 }
+
+var page = $('.numpage-'+param);
+console.log(page);
+$(page).css({
+    color : '#1B6D85',
+    fontsize : 'larger',
+    width : '30px'
+});
+
